@@ -130,6 +130,13 @@ export function ContentEditor({ post }: { post: PostRow }) {
     editor?.commands.setContent(text);
   }
 
+  const kindLabel =
+    post.kind?.toLowerCase() === "t0"
+      ? "T+0"
+      : post.kind?.toLowerCase() === "actual"
+        ? "Actual"
+        : post.kind || "post";
+
   return (
     <div className="overflow-hidden rounded-3xl border border-zinc-200 bg-white">
       <div className="grid min-h-[680px] xl:grid-cols-2">
@@ -141,7 +148,7 @@ export function ContentEditor({ post }: { post: PostRow }) {
                 <div className="mt-1 flex flex-wrap items-center gap-2 text-sm text-zinc-500">
                   <span>Updated {formatDateTime(post.updated_at)}</span>
                   <span>· v{post.version}</span>
-                  {post.kind ? <Badge tone="muted">{post.kind}</Badge> : null}
+                  {post.kind ? <Badge tone="muted">{kindLabel}</Badge> : null}
                 </div>
               </div>
               <Badge tone={post.status === "published" ? "success" : "default"}>
@@ -204,7 +211,7 @@ export function ContentEditor({ post }: { post: PostRow }) {
           key={post.post_id}
           variant="panel"
           title="AI"
-          contextLabel={`${post.post_id} · ${post.kind || "post"} · ${post.status || "draft"}`}
+          contextLabel={`${post.post_id} · ${kindLabel} · ${post.status || "draft"}`}
           contextPayload={{
             type: "content_post",
             post_id: post.post_id,

@@ -30,7 +30,7 @@ function isDailyPost(post: PostRow) {
 function isMacroPost(post: PostRow) {
   const kind = post.kind?.toLowerCase();
   const id = post.post_id.toLowerCase();
-  return kind === "macro" || id.startsWith("t30");
+  return kind === "macro" || kind === "t0" || kind === "actual" || id.startsWith("t30") || id.startsWith("t0") || id.startsWith("actual");
 }
 
 export function ContentIndex({ posts }: { posts: PostRow[] }) {
@@ -83,7 +83,11 @@ export function ContentIndex({ posts }: { posts: PostRow[] }) {
             const kindLabel = isDailyPost(post)
               ? "Daily"
               : isMacroPost(post)
-                ? "Macro"
+                ? post.kind?.toLowerCase() === "t0"
+                  ? "T+0"
+                  : post.kind?.toLowerCase() === "actual"
+                    ? "Actual"
+                    : "Macro"
                 : post.kind || "Other";
 
             return (

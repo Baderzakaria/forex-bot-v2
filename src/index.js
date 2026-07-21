@@ -8,7 +8,14 @@ import { handleMessage, handleCallback } from './dispatcher.js';
 import { processSender } from './sender.js';
 import { processDueAutoApprovals } from './approval.js';
 import { generateDailyQuote } from './content.js';
-import { discoverMacro, processT30PreAlerts, formatDiscoverSummary } from './apify.js';
+import {
+  discoverMacro,
+  processT30PreAlerts,
+  processT0ReleaseAlerts,
+  processActualAlerts,
+  refreshRecentActuals,
+  formatDiscoverSummary,
+} from './apify.js';
 import { syncAllFromDb } from './sheets.js';
 import { sendMorningBrief } from './morning.js';
 
@@ -85,6 +92,9 @@ async function pollLoop() {
 }
 
 // ─── Crons ───
+let macroAlertTickRunning = false;
+let lastActualRefreshAt = 0;
+
 cron.schedule('30 7 * * *', async () => {
   console.log('[cron] daily quote');
   const s = db.prepare(`SELECT value FROM settings WHERE key = 'daily_quote_enabled'`).get();
@@ -120,7 +130,24 @@ cron.schedule('15 7 * * *', async () => {
 }, { timezone: 'UTC' });
 
 cron.schedule('* * * * *', async () => {
+  if (macroAlertTickRunning) return;
+  macroAlertTickRunning = true;
   try {
+    const refreshInterval = Math.max(1, Number(config.actualRefreshMinutes) || 5);
+    const shouldRefreshActuals = Boolean(config.apifyToken)
+      && (new Date().getUTCMinutes() % refreshInterval === 0)
+      && Date.now() - lastActualRefreshAt >= (refreshInterval - 1) * 60_000;
+
+    if (shouldRefreshActuals) {
+      try {
+        const refreshResult = await refreshRecentActuals({ countries: config.apifyCountries });
+        lastActualRefreshAt = Date.now();
+        console.log(`[cron] actual refresh saved=${refreshResult.saved || 0}`);
+      } catch (err) {
+        console.error('[actual-refresh]', err.message);
+      }
+    }
+
     const result = processT30PreAlerts({
       preAlertMinutes: config.preAlertMinutes,
       adminChatId: config.adminChatId,
@@ -128,8 +155,24 @@ cron.schedule('* * * * *', async () => {
     if (result.drafted) {
       console.log(`[cron] t30 drafts=${result.drafted}`);
     }
+    const t0Result = processT0ReleaseAlerts({
+      adminChatId: config.adminChatId,
+    });
+    if (t0Result.drafted) {
+      console.log(`[cron] t0 drafts=${t0Result.drafted}`);
+    }
+
+    const actualResult = processActualAlerts({
+      adminChatId: config.adminChatId,
+      lookbackMinutes: config.actualLookbackMinutes,
+    });
+    if (actualResult.drafted) {
+      console.log(`[cron] actual drafts=${actualResult.drafted}`);
+    }
   } catch (err) {
-    console.error('[t30]', err.message);
+    console.error('[alerts]', err.message);
+  } finally {
+    macroAlertTickRunning = false;
   }
 }, { timezone: 'UTC' });
 

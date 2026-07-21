@@ -8,16 +8,17 @@ export default function MediaPage() {
     <div className="px-4 py-4 lg:px-8 lg:py-6">
       <PageShell
         title="Media"
-        subtitle="Media now lives inside Content. Use this route if you have an old bookmark."
+        subtitle="Media is a local preview workspace for now. Use Content for post-bound attachments."
       >
         <Card>
           <CardHeader>
-            <CardTitle>Media moved</CardTitle>
+            <CardTitle>Local preview only</CardTitle>
           </CardHeader>
           <CardContent className="space-y-4 text-sm text-zinc-600">
             <p>
               The image workflow is embedded in the content editor so assets stay attached to the
-              current post.
+              current post. This page is a lightweight reminder that a real upload backend is not
+              wired yet.
             </p>
             <Link
               href="/content"

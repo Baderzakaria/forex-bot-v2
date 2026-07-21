@@ -47,7 +47,7 @@ export function MediaStudio({
                 if (!file) return;
                 setFileName(file.name);
                 setImageSrc(URL.createObjectURL(file));
-                setStatus(`Loaded ${file.name}`);
+                setStatus(`Loaded ${file.name} locally. Upload persistence is not wired yet.`);
                 onAttach?.(file.name);
               }}
             />
@@ -96,7 +96,7 @@ export function MediaStudio({
               variant="outline"
               className="w-full"
               onClick={() => {
-                setStatus("Source search is a stub for now.");
+                setStatus("Source search is a stub for now. Add a backend image search before shipping.");
               }}
             >
               Search sources
@@ -112,7 +112,7 @@ export function MediaStudio({
             <Button
               className="w-full"
               onClick={() => {
-                setStatus("Generation stub ready for a future image API.");
+                setStatus("Generation stub ready for a future image API. Nothing is saved.");
                 onAttach?.("generated-image-stub");
               }}
             >

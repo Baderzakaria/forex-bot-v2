@@ -137,3 +137,51 @@ export function formatHighImpactEvent(ev, { preAlertMinutes = 30 } = {}) {
   lines.push('', `📅 Scheduled to post ${preAlertMinutes} minutes before event`);
   return lines.join('\n');
 }
+
+function formatImpactValues(ev) {
+  const forecast = ev.forecast ? String(ev.forecast) : '—';
+  const previous = ev.previous ? String(ev.previous) : '—';
+  const actual = ev.actual ? String(ev.actual) : 'pending';
+  return `Actual: ${actual} · Forecast: ${forecast} · Previous: ${previous}`;
+}
+
+export function formatReleaseAlert(ev) {
+  const country = String(ev.country_code || ev.country || 'US').trim().toUpperCase();
+  const title = String(ev.title || ev.event || 'Event').trim();
+  const timeUtc = ev.event_time_utc
+    ? new Date(ev.event_time_utc).toISOString().slice(0, 19)
+    : parseEventTimeUtc(ev).slice(0, 19);
+
+  return [
+    '🚨 RELEASE NOW',
+    '',
+    `📍 Country: ${country}`,
+    `📊 Event: ${title}`,
+    `⏰ Release Time (UTC): ${timeUtc}`,
+    '⚡ Release due now',
+    '',
+    `📈 ${formatImpactValues(ev)}`,
+    '',
+    '🕒 Actual is still pending. Watch the first tick after the release.',
+  ].join('\n');
+}
+
+export function formatActualAlert(ev) {
+  const country = String(ev.country_code || ev.country || 'US').trim().toUpperCase();
+  const title = String(ev.title || ev.event || 'Event').trim();
+  const timeUtc = ev.event_time_utc
+    ? new Date(ev.event_time_utc).toISOString().slice(0, 19)
+    : parseEventTimeUtc(ev).slice(0, 19);
+
+  return [
+    '✅ ACTUAL JUST LANDED',
+    '',
+    `📍 Country: ${country}`,
+    `📊 Event: ${title}`,
+    `⏰ Release Time (UTC): ${timeUtc}`,
+    '',
+    `📈 ${formatImpactValues(ev)}`,
+    '',
+    '🧭 Market read: compare actual vs forecast first, then weigh the prior and the surprise size.',
+  ].join('\n');
+}

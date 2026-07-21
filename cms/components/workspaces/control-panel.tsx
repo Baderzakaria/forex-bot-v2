@@ -220,8 +220,13 @@ export function ControlPanel({
                 { time: "07:30 UTC", title: "Daily quote", detail: "Publish the quote if enabled." },
                 {
                   time: "Every minute",
-                  title: "T-30 watcher",
-                  detail: "Watch for near-term event preparation windows.",
+                  title: "Alert watcher",
+                  detail: "Run T-30 pre-alerts, exact-release drafts, and actual follow-ups.",
+                },
+                {
+                  time: "Every 5 min",
+                  title: "Actual refresh",
+                  detail: "Re-pull near-term high-impact events so live actuals arrive quickly.",
                 },
               ].map((item) => (
                 <div key={item.title} className="rounded-3xl border border-zinc-200 px-4 py-4">

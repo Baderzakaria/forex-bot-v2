@@ -16,6 +16,15 @@ type TelegramDest = {
   value: string;
 };
 
+type SocialSettings = {
+  socialXHandle: string;
+  socialXEnabled: string;
+  socialLinkedInHandle: string;
+  socialLinkedInEnabled: string;
+  socialInstagramHandle: string;
+  socialInstagramEnabled: string;
+} & Record<string, string>;
+
 type OutboxRow = {
   id: number;
   destination_type: string | null;
@@ -26,7 +35,7 @@ const CHANNELS: Array<{ id: ChannelId; name: string; blurb: string; ready: boole
   {
     id: "telegram",
     name: "Telegram",
-    blurb: "Live — admin preview, writing group, public channel.",
+    blurb: "Live — admin preview, writing group, public channel. Telegram only for now.",
     ready: true,
   },
   {
@@ -52,16 +61,45 @@ const CHANNELS: Array<{ id: ChannelId; name: string; blurb: string; ready: boole
 export function SocialChannels({
   telegramDestinations,
   outbox,
+  initialSettings,
 }: {
   telegramDestinations: TelegramDest[];
   outbox: OutboxRow[];
+  initialSettings: SocialSettings;
 }) {
   const [active, setActive] = useState<ChannelId>("telegram");
-  const [stubHandle, setStubHandle] = useState("");
+  const [settings, setSettings] = useState(initialSettings);
+  const [status, setStatus] = useState("");
   const channel = useMemo(
     () => CHANNELS.find((item) => item.id === active) || CHANNELS[0],
     [active]
   );
+
+  const socialKey =
+    active === "x"
+      ? { handle: "socialXHandle", enabled: "socialXEnabled" }
+      : active === "linkedin"
+        ? { handle: "socialLinkedInHandle", enabled: "socialLinkedInEnabled" }
+        : { handle: "socialInstagramHandle", enabled: "socialInstagramEnabled" };
+  const currentHandle = settings[socialKey.handle as keyof SocialSettings];
+  const currentEnabled = settings[socialKey.enabled as keyof SocialSettings];
+
+  async function saveSocial(next: Partial<SocialSettings>) {
+    const merged = { ...settings, ...next };
+    setSettings(merged);
+    setStatus("Saving...");
+    try {
+      const response = await fetch("/api/settings", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(merged),
+      });
+      if (!response.ok) throw new Error("Unable to save social settings");
+      setStatus("Saved");
+    } catch (error) {
+      setStatus((error as Error).message);
+    }
+  }
 
   return (
     <div className="space-y-4">
@@ -93,8 +131,8 @@ export function SocialChannels({
               >
                 <div className="flex items-center justify-between gap-3">
                   <div className="font-medium text-zinc-950">{item.name}</div>
-                  <Badge tone={item.ready ? "success" : "muted"}>
-                    {item.ready ? "Connected" : "Soon"}
+                  <Badge tone={item.ready ? "success" : "warning"}>
+                    {item.ready ? "Connected" : "Not connected"}
                   </Badge>
                 </div>
                 <div className="mt-1 text-sm text-zinc-500">{item.blurb}</div>
@@ -149,18 +187,41 @@ export function SocialChannels({
               </CardHeader>
               <CardContent className="space-y-4">
                 <p className="text-sm text-zinc-500">
-                  {channel.blurb} Fill a handle for now — OAuth connect comes later.
+                  {channel.blurb} Handle + enabled flag are stored locally for now. Telegram only until OAuth is wired.
                 </p>
                 <div className="space-y-2">
                   <Label htmlFor="handle">{channel.name} handle</Label>
                   <Input
                     id="handle"
-                    value={stubHandle}
-                    onChange={(event) => setStubHandle(event.target.value)}
+                    value={currentHandle}
+                    onChange={(event) =>
+                      setSettings((prev) => ({ ...prev, [socialKey.handle]: event.target.value }))
+                    }
                     placeholder={`@your_${channel.id}_account`}
                   />
                 </div>
-                <Button disabled>Connect {channel.name} (soon)</Button>
+                <div className="flex items-center justify-between gap-3 rounded-2xl border border-zinc-200 px-4 py-3">
+                  <div>
+                    <div className="font-medium text-zinc-950">Enabled</div>
+                    <div className="text-sm text-zinc-500">Toggle when you are ready to connect later.</div>
+                  </div>
+                  <Button
+                    type="button"
+                    variant="outline"
+                    onClick={() =>
+                      setSettings((prev) => ({
+                        ...prev,
+                        [socialKey.enabled]: currentEnabled === "true" ? "false" : "true",
+                      }))
+                    }
+                  >
+                    {currentEnabled === "true" ? "Enabled" : "Disabled"}
+                  </Button>
+                </div>
+                <div className="flex items-center justify-between gap-3">
+                  <span className="text-sm text-zinc-500">{status || "Ready"}</span>
+                  <Button onClick={() => saveSocial({})}>Save {channel.name}</Button>
+                </div>
               </CardContent>
             </Card>
           )}

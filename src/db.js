@@ -84,6 +84,15 @@ db.exec(`
     captured_at TEXT DEFAULT (datetime('now'))
   );
 
+  CREATE TABLE IF NOT EXISTS event_alert_state (
+    event_key TEXT PRIMARY KEY,
+    last_actual TEXT DEFAULT '',
+    actual_first_seen_at TEXT,
+    actual_posted_at TEXT,
+    t0_posted_at TEXT,
+    refreshed_at TEXT DEFAULT (datetime('now'))
+  );
+
   CREATE TABLE IF NOT EXISTS admin_actions (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     post_id TEXT,
@@ -105,6 +114,7 @@ db.exec(`
   CREATE INDEX IF NOT EXISTS idx_posts_status ON posts(status);
   CREATE INDEX IF NOT EXISTS idx_events_time ON events(event_time_utc);
   CREATE INDEX IF NOT EXISTS idx_tokens_token ON approval_tokens(token);
+  CREATE INDEX IF NOT EXISTS idx_event_alert_state_refresh ON event_alert_state(refreshed_at);
 `);
 
 // Seed default settings

@@ -1,14 +1,25 @@
 import db from './db.js';
 import config from './config.js';
-import { claimNext, markSent, markFailed, isPaused } from './outbox.js';
+import {
+  claimNext,
+  markSent,
+  markFailed,
+  markDeadLetter,
+  isPaused,
+  setSetting,
+  getBoolSetting,
+} from './outbox.js';
 import { sendMessage } from './telegram.js';
 import { scheduleAutoPublish } from './approval.js';
-
-const TELEGRAM_DESTINATIONS = new Set(['telegram_admin', 'telegram_public', 'telegram_writing']);
 
 export async function processSender() {
   const row = claimNext();
   if (!row) return false;
+
+  if (row.destination_type === 'telegram_writing' && (config.writingChatDisabled || getBoolSetting('telegram_writing_disabled', false))) {
+    markDeadLetter(row.id, new Error('Writing destination disabled'));
+    return true;
+  }
 
   if (isPaused() && row.destination_type !== 'telegram_admin') {
     // Don't send non-admin messages when paused, but don't lose them
@@ -39,7 +50,19 @@ export async function processSender() {
   } catch (err) {
     const delay = Math.min(300000, 5000 * Math.pow(2, Math.max(0, (row.attempts || 0) - 1)));
     console.error('[sender] failed', row.dedupe_key, err.message);
+    if (isChatNotFoundError(err)) {
+      if (row.destination_type === 'telegram_writing') {
+        setSetting('telegram_writing_disabled', 'true');
+      }
+      markDeadLetter(row.id, err);
+      return true;
+    }
     markFailed(row.id, err, delay);
   }
   return true;
+}
+
+function isChatNotFoundError(err) {
+  const message = String(err?.message || err || '').toLowerCase();
+  return message.includes('chat not found');
 }

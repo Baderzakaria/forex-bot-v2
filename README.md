@@ -7,6 +7,7 @@ Telegram bot plus CMS for forex publishing and macro-event operations.
 - Bot: long-running Node process with cron, polling, Telegram integration, and SQLite.
 - CMS: Next.js admin surface for editing, monitoring, and ops.
 - Storage: shared SQLite database under `./data` when running on a VPS or in Docker.
+- Railway deploys both services in one container using `Dockerfile.railway`; keep OpenClaw outside that image.
 
 This is not a Vercel deployment. The app needs an always-on Docker host because it relies on:
 
@@ -15,6 +16,12 @@ This is not a Vercel deployment. The app needs an always-on Docker host because 
 - long-lived Telegram polling and background loops
 
 CMS is the primary editorial surface. Google Sheets is optional legacy support only.
+
+Macro event alerts cover three stages in Telegram:
+
+- T-30 pre-alert drafts
+- T+0 release-time drafts
+- after-actual follow-ups once data lands
 
 ## Quick Start
 
@@ -36,6 +43,8 @@ docker compose up -d
 
 - Bot health: `http://localhost:8788/health`
 - CMS: `http://localhost:3000`
+
+For Railway, use the single-image path in `Dockerfile.railway` and mount a persistent volume at `/data`.
 
 ## Ports
 
@@ -66,6 +75,8 @@ If you inspect the CMS from a browser outside Docker networking, use the host-ac
 
 Legacy Sheets variables are optional and only needed if you keep the old workflow enabled.
 
+Telegram writing chat is optional. Leave `TELEGRAM_WRITING_CHAT_ID` blank if you do not want the bot to publish to a writing group.
+
 ## Build Commands
 
 - `docker compose config`
@@ -73,4 +84,3 @@ Legacy Sheets variables are optional and only needed if you keep the old workflo
 - `docker compose up -d`
 - `docker compose logs -f bot`
 - `docker compose logs -f cms`
-

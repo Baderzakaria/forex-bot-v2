@@ -45,13 +45,14 @@ export function executeApprovePublish(post, opts = {}) {
   const publicChat = config.publicChatId;
   const writingChat = config.writingChatId;
   const postToWriting = getBoolSetting('post_to_writing_on_approve', true);
+  const writingDisabled = config.writingChatDisabled || getBoolSetting('telegram_writing_disabled', false);
   const targets = [];
 
   // Publish to public chat (same as admin is OK now)
   if (publicChat) {
     targets.push({ type: 'telegram_public', id: publicChat, label: 'public' });
   }
-  if (postToWriting && writingChat && writingChat !== config.adminChatId) {
+  if (postToWriting && writingChat && !writingDisabled && isUsableTelegramChatId(writingChat) && writingChat !== config.adminChatId) {
     targets.push({ type: 'telegram_writing', id: writingChat, label: 'writing group' });
   }
 
@@ -78,6 +79,13 @@ export function executeApprovePublish(post, opts = {}) {
     content_version: post.version,
     created_by: actorUserId,
   });
+}
+
+function isUsableTelegramChatId(value) {
+  const text = String(value || '').trim();
+  if (!text) return false;
+  if (text.startsWith('@')) return text.length > 1;
+  return /^-?\d+$/.test(text);
 }
 
 export function processApprovalCallback(tokenRow, userId, username, chatId) {

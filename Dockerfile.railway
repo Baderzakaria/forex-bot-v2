@@ -1,0 +1,54 @@
+FROM node:20-alpine AS bot-deps
+WORKDIR /app
+
+RUN apk add --no-cache python3 make g++
+
+COPY package.json package-lock.json ./
+RUN npm ci --omit=dev
+
+FROM node:20-alpine AS cms-deps
+WORKDIR /app/cms
+
+RUN apk add --no-cache python3 make g++
+
+COPY cms/package.json cms/package-lock.json ./
+RUN npm ci
+
+FROM node:20-alpine AS cms-builder
+WORKDIR /app/cms
+
+ENV NEXT_TELEMETRY_DISABLED=1
+
+RUN apk add --no-cache python3 make g++
+
+COPY --from=cms-deps /app/cms/node_modules ./node_modules
+COPY cms ./
+
+RUN npm run build
+
+FROM node:20-alpine AS runner
+WORKDIR /app
+
+ENV NODE_ENV=production
+ENV NEXT_TELEMETRY_DISABLED=1
+ENV DB_PATH=/data/forex-bot.db
+ENV NEXT_PUBLIC_BOT_API_URL=http://127.0.0.1:8788
+ENV USE_POLLING=true
+
+RUN apk add --no-cache bash libstdc++ libc6-compat
+
+COPY --from=bot-deps /app/node_modules ./node_modules
+COPY package.json ./
+COPY src ./src
+COPY data ./data
+COPY scripts/railway-start.sh ./scripts/railway-start.sh
+
+COPY --from=cms-builder /app/cms/.next/standalone ./cms
+COPY --from=cms-builder /app/cms/.next/static ./cms/.next/static
+COPY --from=cms-builder /app/cms/public ./cms/public
+
+RUN chmod +x ./scripts/railway-start.sh
+
+EXPOSE 3000
+
+ENTRYPOINT ["./scripts/railway-start.sh"]

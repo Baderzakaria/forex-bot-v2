@@ -104,6 +104,12 @@ export function getSettingsView() {
     telegramAdminChatId: settings.telegram_admin_chat_id || "",
     telegramPublicChatId: settings.telegram_public_chat_id || "",
     telegramWritingChatId: settings.telegram_writing_chat_id || "",
+    socialXHandle: settings.social_x_handle || "",
+    socialXEnabled: settings.social_x_enabled || "false",
+    socialLinkedInHandle: settings.social_linkedin_handle || "",
+    socialLinkedInEnabled: settings.social_linkedin_enabled || "false",
+    socialInstagramHandle: settings.social_instagram_handle || "",
+    socialInstagramEnabled: settings.social_instagram_enabled || "false",
   };
 }
 

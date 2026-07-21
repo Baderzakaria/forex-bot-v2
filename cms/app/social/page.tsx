@@ -30,7 +30,11 @@ export default function SocialPage() {
         title="Social"
         subtitle="Channels live inside Social — choose Telegram or another network."
       >
-        <SocialChannels telegramDestinations={telegramDestinations} outbox={outbox} />
+        <SocialChannels
+          telegramDestinations={telegramDestinations}
+          outbox={outbox}
+          initialSettings={settings}
+        />
       </PageShell>
     </div>
   );
