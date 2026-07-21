@@ -1,0 +1,968 @@
+{
+  "source": "https://github.com/AhmedBaset/hadith-json",
+  "attribution": "صحيح البخاري · hadith-json · sunnah.com",
+  "language": "ar",
+  "refreshed_at": "2026-07-12T17:26:59.436007Z",
+  "hadiths": [
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 4696,
+      "text": "حَدَّثَنَا عُبَيْدُ اللَّهِ بْنُ مُوسَى، عَنْ إِسْرَائِيلَ، عَنْ أَبِي إِسْحَاقَ، عَنْ زَيْدِ بْنِ أَرْقَمَ، قَالَ كُنْتُ مَعَ عَمِّي فَسَمِعْتُ عَبْدَ اللَّهِ بْنَ أُبَىٍّ ابْنَ سَلُولَ، يَقُولُ لاَ تُنْفِقُوا عَلَى مَنْ عِنْدَ رَسُولِ اللَّهِ حَتَّى يَنْفَضُّوا، وَلَئِنْ رَجَعْنَا إِلَى الْمَدِينَةِ لَيُخْرِجَنَّ الأَعَزُّ مِنْهَا الأَذَلَّ‏.‏ فَذَكَرْتُ ذَلِكَ لِعَمِّي، فَذَكَرَ عَمِّي لِلنَّبِيِّ صلى الله عليه وسلم ‏{‏فَدَعَانِي فَحَدَّثْتُهُ، فَأَرْسَلَ إِلَى عَبْدِ اللَّهِ بْنِ أُبَىٍّ وَأَصْحَابِهِ فَحَلَفُوا مَا قَالُوا، وَكَذَّبَنِي النَّبِيُّ صلى الله عليه وسلم‏}‏ وَصَدَّقَهُمْ، فَأَصَابَنِي غَمٌّ لَمْ يُصِبْنِي مِثْلُهُ قَطُّ، فَجَلَسْتُ فِي بَيْتِي وَقَالَ عَمِّي مَا أَرَدْتَ إِلَى أَنْ كَذَّبَكَ النَّبِيُّ صلى الله عليه وسلم وَمَقَتَكَ‏.‏ فَأَنْزَلَ اللَّهُ تَعَالَى ‏{‏إِذَا جَاءَكَ الْمُنَافِقُونَ قَالُوا نَشْهَدُ إِنَّكَ لَرَسُولُ اللَّهِ‏}‏ وَأَرْسَلَ إِلَىَّ النَّبِيّ…",
+      "text_en": "While I was with my uncle, I heard `Abdullah bin Ubai bin Salul saying, \"Do not spend on those who are with Allah's Messenger (ﷺ), that they may disperse and go away (from him). And if we return to Medina, surely, the more honorable will expel therefrom the meaner. \"I mentioned that to my uncle who, in turn, mentioned it to the Prophet. The Prophet (ﷺ) called me and I told him about that. Then he sent for `Abdullah bin Ubai and his companions, and they swore that they did not say so. The Prophet (ﷺ) disbelieved my statement and believed theirs. I was distressed as I have never been before, …",
+      "url": "https://sunnah.com/bukhari:4696"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 1734,
+      "text": "حَدَّثَنَا سَعِيدُ بْنُ أَبِي مَرْيَمَ، أَخْبَرَنَا مُحَمَّدُ بْنُ جَعْفَرٍ، قَالَ أَخْبَرَنِي حُمَيْدٌ، أَنَّهُ سَمِعَ أَنَسًا ـ رضى الله عنه ـ يَقُولُ كَانَ رَسُولُ اللَّهِ صلى الله عليه وسلم إِذَا قَدِمَ مِنْ سَفَرٍ، فَأَبْصَرَ دَرَجَاتِ الْمَدِينَةِ أَوْضَعَ نَاقَتَهُ، وَإِنْ كَانَتْ دَابَّةً حَرَّكَهَا‏.‏ قَالَ أَبُو عَبْدِ اللَّهِ زَادَ الْحَارِثُ بْنُ عُمَيْرٍ عَنْ حُمَيْدٍ حَرَّكَهَا مِنْ حُبِّهَا‏.‏ حَدَّثَنَا قُتَيْبَةُ، حَدَّثَنَا إِسْمَاعِيلُ، عَنْ حُمَيْدٍ، عَنْ أَنَسٍ، قَالَ جُدُرَاتٍ‏.‏ تَابَعَهُ الْحَارِثُ بْنُ عُمَيْرٍ‏.‏",
+      "text_en": "Anas said, \"Whenever Allah's Messenger (ﷺ) returned from a journey, he, on seeing the high places of Medina, would make his she-camel proceed faster; and if it were another animal, even then he used to make it proceed faster.\" Narrated Humaid that the Prophet (ﷺ) used to make it proceed faster out of his love for Medina. Narrated Anas: As above, but mentioned \"the walls of Medina\" instead of \"the high places of Medina.\" Al-Harith bin `Umar agrees with Anas.",
+      "url": "https://sunnah.com/bukhari:1734"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 6843,
+      "text": "حَدَّثَنَا أَحْمَدُ بْنُ يُونُسَ، حَدَّثَنَا أَبُو شِهَابٍ، عَنْ عَوْفٍ، عَنْ أَبِي الْمِنْهَالِ، قَالَ لَمَّا كَانَ ابْنُ زِيَادٍ وَمَرْوَانُ بِالشَّأْمِ، وَوَثَبَ ابْنُ الزُّبَيْرِ بِمَكَّةَ، وَوَثَبَ الْقُرَّاءُ بِالْبَصْرَةِ، فَانْطَلَقْتُ مَعَ أَبِي إِلَى أَبِي بَرْزَةَ الأَسْلَمِيِّ حَتَّى دَخَلْنَا عَلَيْهِ فِي دَارِهِ وَهْوَ جَالِسٌ فِي ظِلِّ عُلِّيَّةٍ لَهُ مِنْ قَصَبٍ، فَجَلَسْنَا إِلَيْهِ فَأَنْشَأَ أَبِي يَسْتَطْعِمُهُ الْحَدِيثَ فَقَالَ يَا أَبَا بَرْزَةَ أَلاَ تَرَى مَا وَقَعَ فِيهِ النَّاسُ فَأَوَّلُ شَىْءٍ سَمِعْتُهُ تَكَلَّمَ بِهِ إِنِّي احْتَسَبْتُ عِنْدَ اللَّهِ أَنِّي أَصْبَحْتُ سَاخِطًا عَلَى أَحْيَاءِ قُرَيْشٍ، إِنَّكُمْ يَا مَعْشَرَ الْعَرَبِ كُنْتُمْ عَلَى الْحَالِ الَّذِي عَلِمْتُمْ مِنَ الذِّلَّةِ وَالْقِلَّةِ وَالضَّلاَلَةِ، وَإِنَّ اللَّهَ أَنْقَذَكُمْ بِالإِسْلاَمِ وَبِمُحَمَّدٍ صلى الله عليه وسلم حَتَّى بَلَغَ بِكُمْ مَا تَرَوْنَ، وَهَذِهِ الدُّنْيَا الَّ…",
+      "text_en": "When Ibn Ziyad and Marwan were in Sham and Ibn Az-Zubair took over the authority in Mecca and Qurra' (the Kharijites) revolted in Basra, I went out with my father to Abu Barza Al-Aslami till we entered upon him in his house while he was sitting in the shade of a room built of cane. So we sat with him and my father started talking to him saying, \"O Abu Barza! Don't you see in what dilemma the people has fallen?\" The first thing heard him saying \"I seek reward from Allah for myself because of being angry and scornful at the Quraish tribe. O you Arabs! You know very well that you were in miser…",
+      "url": "https://sunnah.com/bukhari:6843"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 4150,
+      "text": "حَدَّثَنَا مُحَمَّدُ بْنُ بَشَّارٍ، حَدَّثَنَا مُعَاذُ بْنُ مُعَاذٍ، حَدَّثَنَا ابْنُ عَوْنٍ، عَنْ هِشَامِ بْنِ زَيْدِ بْنِ أَنَسِ بْنِ مَالِكٍ، عَنْ أَنَسِ بْنِ مَالِكٍ ـ رضى الله عنه ـ قَالَ لَمَّا كَانَ يَوْمُ حُنَيْنٍ أَقْبَلَتْ هَوَازِنُ وَغَطَفَانُ وَغَيْرُهُمْ بِنَعَمِهِمْ وَذَرَارِيِّهِمْ، وَمَعَ النَّبِيِّ صلى الله عليه وسلم عَشَرَةُ آلاَفٍ وَمِنَ الطُّلَقَاءِ، فَأَدْبَرُوا عَنْهُ حَتَّى بَقِيَ وَحْدَهُ، فَنَادَى يَوْمَئِذٍ نِدَاءَيْنِ لَمْ يَخْلِطْ بَيْنَهُمَا، الْتَفَتَ عَنْ يَمِينِهِ، فَقَالَ ‏\"‏ يَا مَعْشَرَ الأَنْصَارِ ‏\"‏‏.‏ قَالُوا لَبَّيْكَ يَا رَسُولَ اللَّهِ، أَبْشِرْ نَحْنُ مَعَكَ‏.‏ ثُمَّ الْتَفَتَ عَنْ يَسَارِهِ، فَقَالَ ‏\"‏ يَا مَعْشَرَ الأَنْصَارِ ‏\"‏‏.‏ قَالُوا لَبَّيْكَ يَا رَسُولَ اللَّهِ، أَبْشِرْ نَحْنُ مَعَكَ‏.‏ وَهْوَ عَلَى بَغْلَةٍ بَيْضَاءَ، فَنَزَلَ فَقَالَ ‏\"‏ أَنَا عَبْدُ اللَّهِ وَرَسُولُهُ ‏\"‏، فَانْهَزَمَ الْمُشْرِكُونَ، فَأَصَابَ يَوْمَئِذٍ غَنَ…",
+      "text_en": "When it was the day (of the battle) of Hunain, the tributes of Hawazin and Ghatafan and others, along with their animals and offspring (and wives) came to fight against the Prophet (ﷺ) The Prophet (ﷺ) had with him, ten thousand men and some of the Tulaqa. The companions fled, leaving the Prophet (ﷺ) alone. The Prophet then made two calls which were clearly distinguished from each other. He turned right and said, \"O the group of Ansar!\" They said, \"Labbaik, O Allah's Messenger (ﷺ)! Rejoice, for we are with you!\" Then he turned left and said, \"O the group of Ansar!\" They said, \"Labbaik! O All…",
+      "url": "https://sunnah.com/bukhari:4150"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 2808,
+      "text": "حَدَّثَنَا إِسْحَاقُ بْنُ إِبْرَاهِيمَ، أَخْبَرَنَا جَرِيرٌ، عَنْ عُمَارَةَ بْنِ الْقَعْقَاعِ، عَنْ أَبِي زُرْعَةَ، عَنْ أَبِي هُرَيْرَةَ ـ رضى الله عنه ـ عَنْ رَسُولِ اللَّهِ صلى الله عليه وسلم قَالَ ‏ \"‏ لاَ تَقُومُ السَّاعَةُ حَتَّى تُقَاتِلُوا الْيَهُودَ حَتَّى يَقُولَ الْحَجَرُ وَرَاءَهُ الْيَهُودِيُّ يَا مُسْلِمُ، هَذَا يَهُودِيٌّ وَرَائِي فَاقْتُلْهُ ‏\"‏‏.‏",
+      "text_en": "Allah's Messenger (ﷺ) said, \"The Hour will not be established until you fight with the Jews, and the stone behind which a Jew will be hiding will say. \"O Muslim! There is a Jew hiding behind me, so kill him.\"",
+      "url": "https://sunnah.com/bukhari:2808"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 1174,
+      "text": "حَدَّثَنَا آدَمُ، حَدَّثَنَا شُعْبَةُ، حَدَّثَنَا الأَزْرَقُ بْنُ قَيْسٍ، قَالَ كُنَّا بِالأَهْوَازِ نُقَاتِلُ الْحَرُورِيَّةَ، فَبَيْنَا أَنَا عَلَى جُرُفِ نَهَرٍ إِذَا رَجُلٌ يُصَلِّي، وَإِذَا لِجَامُ دَابَّتِهِ بِيَدِهِ فَجَعَلَتِ الدَّابَّةُ تُنَازِعُهُ، وَجَعَلَ يَتْبَعُهَا ـ قَالَ شُعْبَةُ ـ هُوَ أَبُو بَرْزَةَ الأَسْلَمِيُّ ـ فَجَعَلَ رَجُلٌ مِنَ الْخَوَارِجِ يَقُولُ اللَّهُمَّ افْعَلْ بِهَذَا الشَّيْخِ‏.‏ فَلَمَّا انْصَرَفَ الشَّيْخُ قَالَ إِنِّي سَمِعْتُ قَوْلَكُمْ، وَإِنِّي غَزَوْتُ مَعَ رَسُولِ اللَّهِ صلى الله عليه وسلم سِتَّ غَزَوَاتٍ أَوْ سَبْعَ غَزَوَاتٍ وَثَمَانِيًا، وَشَهِدْتُ تَيْسِيرَهُ، وَإِنِّي أَنْ كُنْتُ أَنْ أُرَاجِعَ مَعَ دَابَّتِي أَحَبُّ إِلَىَّ مِنْ أَنْ أَدَعَهَا تَرْجِعُ إِلَى مَأْلَفِهَا فَيَشُقَّ عَلَىَّ‏.‏",
+      "text_en": "We were at Al-Ahwaz fighting the Al-Haruriya (tribe). While I was at the bank of a river a man was praying and the reins of his animal were in his hands and the animal was struggling and he was following the animal. (Shu`ba, a sub-narrator, said that man was Abu Barza Al-Aslami). A man from the Khawarij said, \"O Allah! Be harsh to this sheik.\" And when the sheik (Abu Barza) finished his prayer, he said, \"I heard your remark. No doubt, I participated with Allah's Messenger (ﷺ) in six or seven or eight holy battles and saw his leniency, and no doubt, I would rather retain my animal than let i…",
+      "url": "https://sunnah.com/bukhari:1174"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 102,
+      "text": "حَدَّثَنَا مُحَمَّدُ بْنُ بَشَّارٍ، قَالَ حَدَّثَنَا غُنْدَرٌ، قَالَ حَدَّثَنَا شُعْبَةُ، عَنْ عَبْدِ الرَّحْمَنِ بْنِ الأَصْبَهَانِيِّ، عَنْ ذَكْوَانَ، عَنْ أَبِي سَعِيدٍ الْخُدْرِيِّ، عَنِ النَّبِيِّ صلى الله عليه وسلم بِهَذَا‏.‏ وَعَنْ عَبْدِ الرَّحْمَنِ بْنِ الأَصْبَهَانِيِّ، قَالَ سَمِعْتُ أَبَا حَازِمٍ، عَنْ أَبِي هُرَيْرَةَ، قَالَ ‏ \"‏ ثَلاَثَةً لَمْ يَبْلُغُوا الْحِنْثَ ‏\"‏‏.‏",
+      "text_en": "as above (the sub narrators are different). Abu Huraira qualified the three children referred to in the above mentioned Hadith as not having reached the age of committing sins (i.e. age of puberty) .",
+      "url": "https://sunnah.com/bukhari:102"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 4758,
+      "text": "حَدَّثَنَا آدَمُ، حَدَّثَنَا شَيْبَانُ، حَدَّثَنَا قَتَادَةُ، عَنْ أَنَسٍ ـ رضى الله عنه ـ قَالَ لَمَّا عُرِجَ بِالنَّبِيِّ صلى الله عليه وسلم إِلَى السَّمَاءِ قَالَ ‏ \"‏ أَتَيْتُ عَلَى نَهَرٍ حَافَتَاهُ قِبَابُ اللُّؤْلُؤِ مُجَوَّفًا فَقُلْتُ مَا هَذَا يَا جِبْرِيلُ قَالَ هَذَا الْكَوْثَرُ ‏\"‏‏.‏",
+      "text_en": "When the Prophet (ﷺ) was made to ascend to the Heavens, he said (after his return), \"I came upon a river the banks of which were made of tents of hollow pearls. I asked Gabriel. What is this (river?) He replied, 'This is the Kauthar.'",
+      "url": "https://sunnah.com/bukhari:4758"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 4787,
+      "text": "حَدَّثَنَا آدَمُ، حَدَّثَنَا شُعْبَةُ، عَنْ أَبِي إِسْحَاقَ، قَالَ سَمِعْتُ عَبْدَ الرَّحْمَنِ بْنَ يَزِيدَ، سَمِعْتُ ابْنَ مَسْعُودٍ، يَقُولُ فِي بَنِي إِسْرَائِيلَ وَالْكَهْفِ وَمَرْيَمَ وَطَهَ وَالأَنْبِيَاءِ إِنَّهُنَّ مِنَ الْعِتَاقِ الأُوَلِ وَهُنَّ مِنْ تِلاَدِي‏.‏",
+      "text_en": "Surat Bani-lsrael, Al-Kahf (The Cave), Maryam, Taha, Al-Anbiya' (The prophets) are amongst my first earnings and my old property, and (in fact) they are my old property.",
+      "url": "https://sunnah.com/bukhari:4787"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 714,
+      "text": "حَدَّثَنَا أَبُو الْيَمَانِ، قَالَ أَخْبَرَنَا شُعَيْبٌ، عَنِ الزُّهْرِيِّ، قَالَ أَخْبَرَنِي أَنَسُ بْنُ مَالِكٍ الأَنْصَارِيُّ، أَنَّ رَسُولَ اللَّهِ صلى الله عليه وسلم رَكِبَ فَرَسًا، فَجُحِشَ شِقُّهُ الأَيْمَنُ، قَالَ أَنَسٌ ـ رضى الله عنه ـ فَصَلَّى لَنَا يَوْمَئِذٍ صَلاَةً مِنَ الصَّلَوَاتِ وَهْوَ قَاعِدٌ، فَصَلَّيْنَا وَرَاءَهُ قُعُودًا، ثُمَّ قَالَ لَمَّا سَلَّمَ ‏ \"‏ إِنَّمَا جُعِلَ الإِمَامُ لِيُؤْتَمَّ بِهِ، فَإِذَا صَلَّى قَائِمًا فَصَلُّوا قِيَامًا، وَإِذَا رَكَعَ فَارْكَعُوا، وَإِذَا رَفَعَ فَارْفَعُوا، وَإِذَا سَجَدَ فَاسْجُدُوا وَإِذَا قَالَ سَمِعَ اللَّهُ لِمَنْ حَمِدَهُ‏.‏ فَقُولُوا رَبَّنَا وَلَكَ الْحَمْدُ ‏\"‏‏.‏",
+      "text_en": "Allah's Messenger (ﷺ) rode a horse and fell down and the right side of his body was injured. On that day he prayed one of the prayers sitting and we also prayed behind him sitting. When the Prophet (ﷺ) finished the prayer with Taslim, he said, \"The Imam is to be followed and if he prays standing then pray standing, and bow when he bows, and raise your heads when he raises his head; prostrate when he prostrates; and if he says \"Sami`a l-lahu liman hamidah\", you should say, \"Rabbana wa laka l-hamd.:",
+      "url": "https://sunnah.com/bukhari:714"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 1690,
+      "text": "حَدَّثَنَا إِسْمَاعِيلُ بْنُ عَبْدِ اللَّهِ، قَالَ حَدَّثَنِي أَخِي، عَنْ سُلَيْمَانَ، عَنْ يُونُسَ بْنِ يَزِيدَ، عَنِ ابْنِ شِهَابٍ، عَنْ سَالِمِ بْنِ عَبْدِ اللَّهِ، أَنَّ عَبْدَ اللَّهِ بْنَ عُمَرَ ـ رضى الله عنهما ـ كَانَ يَرْمِي الْجَمْرَةَ الدُّنْيَا بِسَبْعِ حَصَيَاتٍ، ثُمَّ يُكَبِّرُ عَلَى إِثْرِ كُلِّ حَصَاةٍ، ثُمَّ يَتَقَدَّمُ فَيُسْهِلُ، فَيَقُومُ مُسْتَقْبِلَ الْقِبْلَةِ قِيَامًا طَوِيلاً، فَيَدْعُو وَيَرْفَعُ يَدَيْهِ، ثُمَّ يَرْمِي الْجَمْرَةَ الْوُسْطَى كَذَلِكَ، فَيَأْخُذُ ذَاتَ الشِّمَالِ فَيُسْهِلُ، وَيَقُومُ مُسْتَقْبِلَ الْقِبْلَةِ قِيَامًا طَوِيلاً، فَيَدْعُو وَيَرْفَعُ يَدَيْهِ، ثُمَّ يَرْمِي الْجَمْرَةَ ذَاتَ الْعَقَبَةِ مِنْ بَطْنِ الْوَادِي، وَلاَ يَقِفُ عِنْدَهَا، وَيَقُولُ هَكَذَا رَأَيْتُ رَسُولَ اللَّهِ صلى الله عليه وسلم يَفْعَلُ‏.‏",
+      "text_en": "`Abdullah bin `Umar used to do Rami of the Jamrat-ud-Dunya with seven small pebbles and used to recite Takbir on throwing each stone. He, then, would proceed further till he reached the level ground, where he would stay for a long time, facing the Qibla to invoke (Allah) while raising his hands. Then he would do Rami of the Jamrat-ul-Wusta similarly and would go to the left towards the level ground, where he would stand for a long time facing the Qibla to invoke (Allah) while raising his hands. Then he would do Rami of the Jamrat-ul-Aqaba from the middle of the valley, but he would not stay…",
+      "url": "https://sunnah.com/bukhari:1690"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 7209,
+      "text": "حَدَّثَنَا إِسْمَاعِيلُ، حَدَّثَنِي مَالِكٌ، عَنِ ابْنِ شِهَابٍ، عَنْ أَبِي عَبْدِ اللَّهِ الأَغَرِّ، عَنْ أَبِي هُرَيْرَةَ، أَنَّ رَسُولَ اللَّهِ صلى الله عليه وسلم قَالَ ‏ \"‏ يَتَنَزَّلُ رَبُّنَا تَبَارَكَ وَتَعَالَى كُلَّ لَيْلَةٍ إِلَى السَّمَاءِ الدُّنْيَا حِينَ يَبْقَى ثُلُثُ اللَّيْلِ الآخِرُ فَيَقُولُ مَنْ يَدْعُونِي فَأَسْتَجِيبَ لَهُ، مَنْ يَسْأَلُنِي فَأُعْطِيَهُ، مَنْ يَسْتَغْفِرُنِي فَأَغْفِرَ لَهُ ‏\"‏‏.‏",
+      "text_en": "Allah's Messenger (ﷺ) said, \"Every night when it is the last third of the night, our Lord, the Superior, the Blessed, descends to the nearest heaven and says: Is there anyone to invoke Me that I may respond to his invocation? Is there anyone to ask Me so that I may grant him his request? Is there anyone asking My forgiveness so that I may forgive him?. \" (See Hadith No. 246,Vol. 2)",
+      "url": "https://sunnah.com/bukhari:7209"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 6648,
+      "text": "حَدَّثَنَا صَدَقَةُ بْنُ الْفَضْلِ، أَخْبَرَنَا ابْنُ عُيَيْنَةَ، حَدَّثَنَا مُطَرِّفٌ، قَالَ سَمِعْتُ الشَّعْبِيَّ، قَالَ سَمِعْتُ أَبَا جُحَيْفَةَ، قَالَ سَأَلْتُ عَلِيًّا ـ رضى الله عنه ـ هَلْ عِنْدَكُمْ شَىْءٌ مَا لَيْسَ فِي الْقُرْآنِ وَقَالَ مَرَّةً مَا لَيْسَ عِنْدَ النَّاسِ فَقَالَ وَالَّذِي فَلَقَ الْحَبَّ وَبَرَأَ النَّسَمَةَ مَا عِنْدَنَا إِلاَّ مَا فِي الْقُرْآنِ، إِلاَّ فَهْمًا يُعْطَى رَجُلٌ فِي كِتَابِهِ، وَمَا فِي الصَّحِيفَةِ‏.‏ قُلْتُ وَمَا فِي الصَّحِيفَةِ قَالَ الْعَقْلُ، وَفِكَاكُ الأَسِيرِ، وَأَنْ لاَ يُقْتَلَ مُسْلِمٌ بِكَافِرٍ‏.‏",
+      "text_en": "I heard Abu Juhaifa saying, \"I asked `Ali 'Have you got any Divine literature apart from the Qur'an?' (Once he said...apart from what the people have?) `Ali replied, 'By Him Who made the grain split (germinate) and created the soul, we have nothing except what is in the Qur'an and the ability (gift) of understanding Allah's Book which He may endow a man with and we have what is written in this paper.' I asked, 'What is written in this paper?' He replied, 'Al-`Aql (the regulation of Diya), about the ransom of captives, and the Judgment that a Muslim should not be killed in Qisas (equality in…",
+      "url": "https://sunnah.com/bukhari:6648"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 2216,
+      "text": "حَدَّثَنَا عَبْدُ اللَّهِ بْنُ يُوسُفَ، أَخْبَرَنَا مَالِكٌ، عَنْ عَبْدِ الْمَجِيدِ بْنِ سُهَيْلِ بْنِ عَبْدِ الرَّحْمَنِ بْنِ عَوْفٍ، عَنْ سَعِيدِ بْنِ الْمُسَيَّبِ، عَنْ أَبِي سَعِيدٍ الْخُدْرِيِّ، وَأَبِي، هُرَيْرَةَ رضى الله عنهما أَنَّ رَسُولَ اللَّهِ صلى الله عليه وسلم اسْتَعْمَلَ رَجُلاً عَلَى خَيْبَرَ، فَجَاءَهُمْ بِتَمْرٍ جَنِيبٍ فَقَالَ ‏\"‏ أَكُلُّ تَمْرِ خَيْبَرَ هَكَذَا ‏\"‏‏.‏ فَقَالَ إِنَّا لَنَأْخُذُ الصَّاعَ مِنْ هَذَا بِالصَّاعَيْنِ، وَالصَّاعَيْنِ بِالثَّلاَثَةِ‏.‏ فَقَالَ ‏\"‏ لاَ تَفْعَلْ، بِعِ الْجَمْعَ بِالدَّرَاهِمِ، ثُمَّ ابْتَعْ بِالدَّرَاهِمِ جَنِيبًا ‏\"‏‏.‏ وَقَالَ فِي الْمِيزَانِ مِثْلَ ذَلِكَ‏.‏",
+      "text_en": "Allah's Messenger (ﷺ) employed someone as a governor at Khaibar. When the man came to Medina, he brought with him dates called Janib. The Prophet (ﷺ) asked him, \"Are all the dates of Khaibar of this kind?\" The man replied, \"(No), we exchange two Sa's of bad dates for one Sa of this kind of dates (i.e. Janib), or exchange three Sa's for two.\" On that, the Prophet (ﷺ) said, \"Don't do so, as it is a kind of usury (Riba) but sell the dates of inferior quality for money, and then buy Janib with the money\". The Prophet said the same thing about dates sold by weight. (See Hadith No. 506).",
+      "url": "https://sunnah.com/bukhari:2216"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 2710,
+      "text": "حَدَّثَنَا عَمْرُو بْنُ عَلِيٍّ، حَدَّثَنَا يَحْيَى، حَدَّثَنَا سُفْيَانُ، قَالَ حَدَّثَنِي مَنْصُورٌ، عَنْ مُجَاهِدٍ، عَنْ طَاوُسٍ، عَنِ ابْنِ عَبَّاسٍ ـ رضى الله عنهما ـ أَنَّ النَّبِيَّ صلى الله عليه وسلم قَالَ يَوْمَ الْفَتْحِ ‏ \"‏ لاَ هِجْرَةَ بَعْدَ الْفَتْحِ وَلَكِنْ جِهَادٌ وَنِيَّةٌ، وَإِذَا اسْتُنْفِرْتُمْ فَانْفِرُوا ‏\"‏‏.‏",
+      "text_en": "On the day of the Conquest (of Mecca) the Prophet (ﷺ) said, \"There is no emigration after the Conquest but Jihad and intentions. When you are called (by the Muslim ruler) for fighting, go forth immediately.\" (See Hadith No. 42)",
+      "url": "https://sunnah.com/bukhari:2710"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 4504,
+      "text": "حَدَّثَنَا أَحْمَدُ بْنُ صَالِحٍ، حَدَّثَنَا ابْنُ وَهْبٍ، قَالَ أَخْبَرَنِي يُونُسُ، عَنِ ابْنِ شِهَابٍ، قَالَ أَبُو سَلَمَةَ سَمِعْتُ جَابِرَ بْنَ عَبْدِ اللَّهِ ـ رضى الله عنهما ـ قَالَ سَمِعْتُ النَّبِيَّ صلى الله عليه وسلم يَقُولُ ‏\"‏ لَمَّا كَذَّبَنِي قُرَيْشٌ قُمْتُ فِي الْحِجْرِ، فَجَلَّى اللَّهُ لِي بَيْتَ الْمَقْدِسِ فَطَفِقْتُ أُخْبِرُهُمْ عَنْ آيَاتِهِ وَأَنَا أَنْظُرُ إِلَيْهِ ‏\"‏‏.‏ زَادَ يَعْقُوبُ بْنُ إِبْرَاهِيمَ حَدَّثَنَا ابْنُ أَخِي ابْنِ شِهَابٍ عَنْ عَمِّهِ ‏\"‏ لَمَّا كَذَّبَنِي قُرَيْشٌ حِينَ أُسْرِيَ بِي إِلَى بَيْتِ الْمَقْدِسِ ‏\"‏‏.‏ نَحْوَهُ‏.‏ ‏{‏قَاصِفًا‏}‏ رِيحٌ تَقْصِفُ كُلَّ شَىْءٍ‏.‏",
+      "text_en": "The Prophet (ﷺ) said, \"When the Quraish disbelieved me (concerning my night journey), I stood up in Al- Hijr (the unroofed portion of the Ka`ba) and Allah displayed Bait-ul-Maqdis before me, and I started to inform them (Quraish) about its signs while looking at it.\"",
+      "url": "https://sunnah.com/bukhari:4504"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 3332,
+      "text": "حَدَّثَنَا أَبُو الْوَلِيدِ، حَدَّثَنَا أَبُو عَوَانَةَ، عَنْ قَتَادَةَ، عَنْ عُقْبَةَ بْنِ عَبْدِ الْغَافِرِ، عَنْ أَبِي سَعِيدٍ ـ رضى الله عنه ـ عَنِ النَّبِيِّ صلى الله عليه وسلم ‏ \"‏ أَنَّ رَجُلاً كَانَ قَبْلَكُمْ رَغَسَهُ اللَّهُ مَالاً فَقَالَ لِبَنِيهِ لَمَّا حُضِرَ أَىَّ أَبٍ كُنْتُ لَكُمْ قَالُوا خَيْرَ أَبٍ‏.‏ قَالَ فَإِنِّي لَمْ أَعْمَلْ خَيْرًا قَطُّ، فَإِذَا مُتُّ فَأَحْرِقُونِي ثُمَّ اسْحَقُونِي ثُمَّ ذَرُّونِي فِي يَوْمٍ عَاصِفٍ‏.‏ فَفَعَلُوا، فَجَمَعَهُ اللَّهُ عَزَّ وَجَلَّ، فَقَالَ مَا حَمَلَكَ قَالَ مَخَافَتُكَ‏.‏ فَتَلَقَّاهُ بِرَحْمَتِهِ ‏\"‏‏.‏ وَقَالَ مُعَاذٌ حَدَّثَنَا شُعْبَةُ، عَنْ قَتَادَةَ، سَمِعْتُ عُقْبَةَ بْنَ عَبْدِ الْغَافِرِ، سَمِعْتُ أَبَا سَعِيدٍ الْخُدْرِيَّ، عَنِ النَّبِيِّ صلى الله عليه وسلم‏.‏",
+      "text_en": "The Prophet (ﷺ) said, \"Amongst the people preceding your age, there was a man whom Allah had given a lot of money. While he was in his death-bed, he called his sons and said, 'What type of father have I been to you? They replied, 'You have been a good father.' He said, 'I have never done a single good deed; so when I die, burn me, crush my body, and scatter the resulting ashes on a windy day.' His sons did accordingly, but Allah gathered his particles and asked (him), 'What made you do so?' He replied, \"Fear of you.' So Allah bestowed His Mercy upon him. (forgave him).",
+      "url": "https://sunnah.com/bukhari:3332"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 4417,
+      "text": "حَدَّثَنَا مُوسَى بْنُ إِسْمَاعِيلَ، حَدَّثَنَا إِبْرَاهِيمُ بْنُ سَعْدٍ، عَنْ صَالِحِ بْنِ كَيْسَانَ، عَنِ ابْنِ شِهَابٍ، عَنْ سَعِيدِ بْنِ الْمُسَيَّبِ، قَالَ الْبَحِيرَةُ الَّتِي يُمْنَعُ دَرُّهَا لِلطَّوَاغِيتِ فَلاَ يَحْلُبُهَا أَحَدٌ مِنَ النَّاسِ‏.‏ وَالسَّائِبَةُ كَانُوا يُسَيِّبُونَهَا لآلِهَتِهِمْ لاَ يُحْمَلُ عَلَيْهَا شَىْءٌ‏.‏ قَالَ وَقَالَ أَبُو هُرَيْرَةَ قَالَ رَسُولُ اللَّهِ صلى الله عليه وسلم ‏ \"‏ رَأَيْتُ عَمْرَو بْنَ عَامِرٍ الْخُزَاعِيَّ يَجُرُّ قُصْبَهُ فِي النَّارِ، كَانَ أَوَّلَ مَنْ سَيَّبَ السَّوَائِبَ ‏\"‏‏.‏ وَالْوَصِيلَةُ النَّاقَةُ الْبِكْرُ تُبَكِّرُ فِي أَوَّلِ نِتَاجِ الإِبِلِ، ثُمَّ تُثَنِّي بَعْدُ بِأُنْثَى‏.‏ وَكَانُوا يُسَيِّبُونَهُمْ لِطَوَاغِيتِهِمْ إِنْ وَصَلَتْ إِحْدَاهُمَا بِالأُخْرَى لَيْسَ بَيْنَهُمَا ذَكَرٌ‏.‏ وَالْحَامِ فَحْلُ الإِبِلِ يَضْرِبُ الضِّرَابَ الْمَعْدُودَ، فَإِذَا قَضَى ضِرَابَهُ وَدَعُوهُ لِلطَّوَاغِيتِ وَأَعْفَوْهُ مِنَ الْحَ…",
+      "text_en": "Bahira is a she-camel whose milk is kept for the idols and nobody is allowed to milk it; Sa'iba was the she-camel which they used to set free for their gods and nothing was allowed to be carried on it. Abu Huraira said: Allah's Messenger (ﷺ) said, \"I saw `Amr bin 'Amir Al-Khuza`i (in a dream) dragging his intestines in the Fire, and he was the first person to establish the tradition of setting free the animals (for the sake of their deities),\" Wasila is the she-camel which gives birth to a she-camel as its first delivery, and then gives birth to another she-camel as its second delivery. Peo…",
+      "url": "https://sunnah.com/bukhari:4417"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 6890,
+      "text": "حَدَّثَنَا مُحَمَّدُ بْنُ مُقَاتِلٍ، أَخْبَرَنَا عَبْدُ اللَّهِ، أَخْبَرَنَا إِسْمَاعِيلُ بْنُ أَبِي خَالِدٍ، عَنْ قَيْسِ بْنِ أَبِي حَازِمٍ، عَنْ أَبِي مَسْعُودٍ الأَنْصَارِيِّ، قَالَ جَاءَ رَجُلٌ إِلَى رَسُولِ اللَّهِ صلى الله عليه وسلم فَقَالَ يَا رَسُولَ اللَّهِ، إِنِّي وَاللَّهِ لأَتَأَخَّرُ عَنْ صَلاَةِ الْغَدَاةِ مِنْ أَجْلِ فُلاَنٍ، مِمَّا يُطِيلُ بِنَا فِيهَا‏.‏ قَالَ فَمَا رَأَيْتُ النَّبِيَّ صلى الله عليه وسلم قَطُّ أَشَدَّ غَضَبًا فِي مَوْعِظَةٍ مِنْهُ يَوْمَئِذٍ، ثُمَّ قَالَ ‏ \"‏ يَا أَيُّهَا النَّاسُ، إِنَّ مِنْكُمْ مُنَفِّرِينَ، فَأَيُّكُمْ مَا صَلَّى بِالنَّاسِ فَلْيُوجِزْ، فَإِنَّ فِيهِمُ الْكَبِيرَ وَالضَّعِيفَ وَذَا الْحَاجَةِ ‏\"‏‏.‏",
+      "text_en": "A man came to Allah's Messenger (ﷺ) and said, \"O Allah's Messenger (ﷺ)! By Allah, I fail to attend the morning congregational prayer because so-and-so (i.e., Mu`adh bin Jabal) prolongs the prayer when he leads us for it.\" I had never seen the Prophet (ﷺ) more furious in giving advice than he was on that day. He then said, \"O people! some of you make others dislike (good deeds, i.e. prayers etc). So whoever among you leads the people in prayer, he should shorten it because among them there are the old, the weak and the busy (needy having some jobs to do). (See Hadith No. 90, Vol. 1)",
+      "url": "https://sunnah.com/bukhari:6890"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 3484,
+      "text": "حَدَّثَنِي مُحَمَّدُ بْنُ الْمُثَنَّى، حَدَّثَنَا مُعَاذٌ، قَالَ حَدَّثَنِي أَبِي، عَنْ قَتَادَةَ، حَدَّثَنَا أَنَسٌ ـ رضى الله عنه ـ أَنَّ رَجُلَيْنِ، مِنْ أَصْحَابِ النَّبِيِّ صلى الله عليه وسلم خَرَجَا مِنْ عِنْدِ النَّبِيِّ صلى الله عليه وسلم فِي لَيْلَةٍ مُظْلِمَةٍ وَمَعَهُمَا مِثْلُ الْمِصْبَاحَيْنِ، يُضِيآنِ بَيْنَ أَيْدِيهِمَا، فَلَمَّا افْتَرَقَا صَارَ مَعَ كُلِّ وَاحِدٍ مِنْهُمَا وَاحِدٌ حَتَّى أَتَى أَهْلَهُ‏.‏",
+      "text_en": "Once two men from the companions of Allah's Messenger (ﷺ) went out of the house of the Prophet (ﷺ) on a very dark night. They were accompanied by two things that resembled two lamps lighting the way in front of them, and when they parted, each of them was accompanied by one of those two things (lamps) till they reached their homes.",
+      "url": "https://sunnah.com/bukhari:3484"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 1810,
+      "text": "حَدَّثَنَا عَلِيٌّ، حَدَّثَنَا سُفْيَانُ، حَدَّثَنَا ابْنُ شِهَابٍ، قَالَ أَخْبَرَنِي عُرْوَةُ، سَمِعْتُ أُسَامَةَ ـ رضى الله عنه ـ قَالَ أَشْرَفَ النَّبِيُّ صلى الله عليه وسلم عَلَى أُطُمٍ مِنْ آطَامِ الْمَدِينَةِ فَقَالَ ‏ \"‏ هَلْ تَرَوْنَ مَا أَرَى إِنِّي لأَرَى مَوَاقِعَ الْفِتَنِ خِلاَلَ بُيُوتِكُمْ كَمَوَاقِعِ الْقَطْرِ ‏\"‏‏.‏ تَابَعَهُ مَعْمَرٌ وَسُلَيْمَانُ بْنُ كَثِيرٍ عَنِ الزُّهْرِيِّ‏.‏",
+      "text_en": "Once the Prophet (ﷺ) stood at the top of a (looked out from upon one) castle amongst the castles (or the high buildings) of Medina and said, \"Do you see what I see? (No doubt) I see the spots where afflictions will take place among your houses (and these afflictions will be) as numerous as the spots where raindrops fall.\"",
+      "url": "https://sunnah.com/bukhari:1810"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 6514,
+      "text": "حَدَّثَنَا حَفْصُ بْنُ عُمَرَ، حَدَّثَنَا هَمَّامٌ، عَنْ نَافِعٍ، عَنِ ابْنِ عُمَرَ ـ رضى الله عنهما ـ قَالَ أَرَادَتْ عَائِشَةُ أَنْ تَشْتَرِيَ بَرِيرَةَ فَقَالَتْ لِلنَّبِيِّ صلى الله عليه وسلم إِنَّهُمْ يَشْتَرِطُونَ الْوَلاَءَ‏.‏ فَقَالَ النَّبِيُّ صلى الله عليه وسلم ‏ \"‏ اشْتَرِيهَا، فَإِنَّمَا الْوَلاَءُ لِمَنْ أَعْتَقَ ‏\"‏‏.‏",
+      "text_en": "When Aisha intended to buy Barira, she said to the Prophet, \"Barira's masters stipulated that they will have the Wala.\" The Prophet (ﷺ) said (to Aisha), \"Buy her, as the Wala is for the one who manumits.\"",
+      "url": "https://sunnah.com/bukhari:6514"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 5420,
+      "text": "حَدَّثَنَا مُحَمَّدُ بْنُ الْمُثَنَّى، حَدَّثَنَا ابْنُ أَبِي عَدِيٍّ، عَنِ ابْنِ عَوْنٍ، عَنْ مُجَاهِدٍ، عَنِ ابْنِ أَبِي لَيْلَى، قَالَ خَرَجْنَا مَعَ حُذَيْفَةَ وَذَكَرَ النَّبِيَّ صلى الله عليه وسلم قَالَ ‏ \"‏ لاَ تَشْرَبُوا فِي آنِيَةِ الذَّهَبِ وَالْفِضَّةِ، وَلاَ تَلْبَسُوا الْحَرِيرَ وَالدِّيبَاجَ، فَإِنَّهَا لَهُمْ فِي الدُّنْيَا وَلَكُمْ فِي الآخِرَةِ ‏\"‏‏.‏",
+      "text_en": "The Prophet (ﷺ) said, \"Do not drink in gold or silver utensils, and do not wear clothes of silk or Dibaj, for these things are for them (unbelievers) in this world and for you in the Hereafter.\"",
+      "url": "https://sunnah.com/bukhari:5420"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 2885,
+      "text": "حَدَّثَنَا عَلِيُّ بْنُ عَبْدِ اللَّهِ، حَدَّثَنَا سُفْيَانُ، حَدَّثَنَا عَمْرُو بْنُ دِينَارٍ، سَمِعْتُهُ مِنْهُ، مَرَّتَيْنِ قَالَ أَخْبَرَنِي حَسَنُ بْنُ مُحَمَّدٍ، قَالَ أَخْبَرَنِي عُبَيْدُ اللَّهِ بْنُ أَبِي رَافِعٍ، قَالَ سَمِعْتُ عَلِيًّا ـ رضى الله عنه ـ يَقُولُ بَعَثَنِي رَسُولُ اللَّهِ صلى الله عليه وسلم أَنَا وَالزُّبَيْرَ وَالْمِقْدَادَ بْنَ الأَسْوَدِ قَالَ ‏\"‏ انْطَلِقُوا حَتَّى تَأْتُوا رَوْضَةَ خَاخٍ، فَإِنَّ بِهَا ظَعِينَةً وَمَعَهَا كِتَابٌ، فَخُذُوهُ مِنْهَا ‏\"‏‏.‏ فَانْطَلَقْنَا تَعَادَى بِنَا خَيْلُنَا حَتَّى انْتَهَيْنَا إِلَى الرَّوْضَةِ، فَإِذَا نَحْنُ بِالظَّعِينَةِ فَقُلْنَا أَخْرِجِي الْكِتَابَ‏.‏ فَقَالَتْ مَا مَعِي مِنْ كِتَابٍ‏.‏ فَقُلْنَا لَتُخْرِجِنَّ الْكِتَابَ أَوْ لَنُلْقِيَنَّ الثِّيَابَ‏.‏ فَأَخْرَجَتْهُ مِنْ عِقَاصِهَا، فَأَتَيْنَا بِهِ رَسُولَ اللَّهِ صلى الله عليه وسلم، فَإِذَا فِيهِ مِنْ حَاطِبِ بْنِ أَبِي بَلْتَعَةَ إِلَى أُنَاسٍ مِنَ الْمُشْ…",
+      "text_en": "I heard `Ali saying, \"Allah's Messenger (ﷺ) sent me, Az-Zubair and Al-Miqdad somewhere saying, 'Proceed till you reach Rawdat Khakh. There you will find a lady with a letter. Take the letter from her.' \" So, we set out and our horses ran at full pace till we got at Ar-Rawda where we found the lady and said (to her). \"Take out the letter.\" She replied, \"I have no letter with me.\" We said, \"Either you take out the letter or else we will take off your clothes.\" So, she took it out of her braid. We brought the letter to Allah's Messenger (ﷺ) and it contained a statement from Hatib bin Abi Balta…",
+      "url": "https://sunnah.com/bukhari:2885"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 1811,
+      "text": "حَدَّثَنَا عَبْدُ الْعَزِيزِ بْنُ عَبْدِ اللَّهِ، قَالَ حَدَّثَنِي إِبْرَاهِيمُ بْنُ سَعْدٍ، عَنْ أَبِيهِ، عَنْ جَدِّهِ، عَنْ أَبِي بَكْرَةَ ـ رضى الله عنه ـ عَنِ النَّبِيِّ صلى الله عليه وسلم قَالَ ‏ \"‏ لاَ يَدْخُلُ الْمَدِينَةَ رُعْبُ الْمَسِيحِ الدَّجَّالِ، لَهَا يَوْمَئِذٍ سَبْعَةُ أَبْوَابٍ، عَلَى كُلِّ باب مَلَكَانِ ‏\"‏‏.‏",
+      "text_en": "The Prophet (ﷺ) said, \"The terror caused by Al-Masih Ad-Dajjal will not enter Medina and at that time Medina will have seven gates and there will be two angels at each gate guarding them.\"",
+      "url": "https://sunnah.com/bukhari:1811"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 6829,
+      "text": "حَدَّثَنَا عَلِيُّ بْنُ عَبْدِ اللَّهِ، حَدَّثَنَا أَزْهَرُ بْنُ سَعْدٍ، عَنِ ابْنِ عَوْنٍ، عَنْ نَافِعٍ، عَنِ ابْنِ عُمَرَ، قَالَ ذَكَرَ النَّبِيُّ صلى الله عليه وسلم ‏\"‏ اللَّهُمَّ بَارِكْ لَنَا فِي شَأْمِنَا، اللَّهُمَّ بَارِكْ لَنَا فِي يَمَنِنَا ‏\"‏‏.‏ قَالُوا وَفِي نَجْدِنَا‏.‏ قَالَ ‏\"‏ اللَّهُمَّ بَارِكْ لَنَا فِي شَأْمِنَا، اللَّهُمَّ بَارِكْ لَنَا فِي يَمَنِنَا ‏\"‏‏.‏ قَالُوا يَا رَسُولَ اللَّهِ وَفِي نَجْدِنَا فَأَظُنُّهُ قَالَ فِي الثَّالِثَةَ ‏\"‏ هُنَاكَ الزَّلاَزِلُ وَالْفِتَنُ، وَبِهَا يَطْلُعُ قَرْنُ الشَّيْطَانِ ‏\"‏‏.‏",
+      "text_en": "The Prophet (ﷺ) said, \"O Allah! Bestow Your blessings on our Sham! O Allah! Bestow Your blessings on our Yemen.\" The People said, \"And also on our Najd.\" He said, \"O Allah! Bestow Your blessings on our Sham (north)! O Allah! Bestow Your blessings on our Yemen.\" The people said, \"O Allah's Apostle! And also on our Najd.\" I think the third time the Prophet (ﷺ) said, \"There (in Najd) is the place of earthquakes and afflictions and from there comes out the side of the head of Satan.\"",
+      "url": "https://sunnah.com/bukhari:6829"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 6934,
+      "text": "حَدَّثَنَا عَبْدُ اللَّهِ بْنُ مُحَمَّدِ بْنِ أَسْمَاءَ، حَدَّثَنَا جُوَيْرِيَةُ، عَنْ مَالِكٍ، عَنِ الزُّهْرِيِّ، أَنَّ حُمَيْدَ بْنَ عَبْدِ الرَّحْمَنِ، أَخْبَرَهُ أَنَّ الْمِسْوَرَ بْنَ مَخْرَمَةَ أَخْبَرَهُ‏.‏ أَنَّ الرَّهْطَ الَّذِينَ وَلاَّهُمْ عُمَرُ اجْتَمَعُوا فَتَشَاوَرُوا، قَالَ لَهُمْ عَبْدُ الرَّحْمَنِ لَسْتُ بِالَّذِي أُنَافِسُكُمْ عَلَى هَذَا الأَمْرِ، وَلَكِنَّكُمْ إِنْ شِئْتُمُ اخْتَرْتُ لَكُمْ مِنْكُمْ‏.‏ فَجَعَلُوا ذَلِكَ إِلَى عَبْدِ الرَّحْمَنِ، فَلَمَّا وَلَّوْا عَبْدَ الرَّحْمَنِ أَمْرَهُمْ فَمَالَ النَّاسُ عَلَى عَبْدِ الرَّحْمَنِ، حَتَّى مَا أَرَى أَحَدًا مِنَ النَّاسِ يَتْبَعُ أُولَئِكَ الرَّهْطَ وَلاَ يَطَأُ عَقِبَهُ، وَمَالَ النَّاسُ عَلَى عَبْدِ الرَّحْمَنِ يُشَاوِرُونَهُ تِلْكَ اللَّيَالِيَ حَتَّى إِذَا كَانَتِ اللَّيْلَةُ الَّتِي أَصْبَحْنَا مِنْهَا، فَبَايَعْنَا عُثْمَانَ قَالَ الْمِسْوَرُ طَرَقَنِي عَبْدُ الرَّحْمَنِ بَعْدَ هَجْعٍ مِنَ اللَّيْلِ فَضَرَ…",
+      "text_en": "The group of people whom `Umar had selected as candidates for the Caliphate gathered and consulted each other. `Abdur-Rahman said to them, \"I am not going to compete with you in this matter, but if you wish, I would select for you a caliph from among you.\" So all of them agreed to let `Abdur-Rahman decide the case. So when the candidates placed the case in the hands of `Abdur-Rahman, the people went towards him and nobody followed the rest of the group nor obeyed any after him. So the people followed `Abdur-Rahman and consulted him all those nights till there came the night we gave the oath…",
+      "url": "https://sunnah.com/bukhari:6934"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 4990,
+      "text": "حَدَّثَنَا عُثْمَانُ بْنُ الْهَيْثَمِ، حَدَّثَنَا عَوْفٌ، عَنْ أَبِي رَجَاءٍ، عَنْ عِمْرَانَ، عَنِ النَّبِيِّ صلى الله عليه وسلم قَالَ ‏ \"‏ اطَّلَعْتُ فِي الْجَنَّةِ فَرَأَيْتُ أَكْثَرَ أَهْلِهَا الْفُقَرَاءَ، وَاطَّلَعْتُ فِي النَّارِ، فَرَأَيْتُ أَكْثَرَ أَهْلِهَا النِّسَاءَ ‏\"‏‏.‏ تَابَعَهُ أَيُّوبُ وَسَلْمُ بْنُ زَرِيرٍ‏.‏",
+      "text_en": "The Prophet (ﷺ) said, \"I looked at Paradise and saw that the majority of its residents were the poor; and I looked at the (Hell) Fire and saw that the majority of its residents were women.\"",
+      "url": "https://sunnah.com/bukhari:4990"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 1330,
+      "text": "حَدَّثَنَا قُتَيْبَةُ، حَدَّثَنَا جَرِيرٌ، عَنِ الأَعْمَشِ، عَنْ مُجَاهِدٍ، عَنْ طَاوُسٍ، قَالَ ابْنُ عَبَّاسٍ ـ رضى الله عنهما ـ مَرَّ النَّبِيُّ صلى الله عليه وسلم عَلَى قَبْرَيْنِ فَقَالَ ‏\"‏ إِنَّهُمَا لَيُعَذَّبَانِ، وَمَا يُعَذَّبَانِ مِنْ كَبِيرٍ ـ ثُمَّ قَالَ ـ بَلَى أَمَّا أَحَدُهُمَا فَكَانَ يَسْعَى بِالنَّمِيمَةِ، وَأَمَّا أَحَدُهُمَا فَكَانَ لاَ يَسْتَتِرُ مِنْ بَوْلِهِ ‏\"‏‏.‏ قَالَ ثُمَّ أَخَذَ عُودًا رَطْبًا فَكَسَرَهُ بِاثْنَتَيْنِ ثُمَّ غَرَزَ كُلَّ وَاحِدٍ مِنْهُمَا عَلَى قَبْرٍ، ثُمَّ قَالَ ‏\"‏ لَعَلَّهُ يُخَفَّفُ عَنْهُمَا مَا لَمْ يَيْبَسَا ‏\"‏‏.‏",
+      "text_en": "The Prophet (ﷺ) once passed by two graves and said, \"They (the deceased persons in those graves) are being tortured not for a great thing to avoid.\" And then added, \"Yes, (they are being punished for a big sin), for one of them used to go about with calumnies while the other never saved himself from being soiled with his urine.\" (Ibn `Abbas added): Then he took a green leaf of a date-palm) and split it into two pieces and fixed one piece on each grave and said, \"May their punishment be abated till these (two pieces) get dry.\"",
+      "url": "https://sunnah.com/bukhari:1330"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 4627,
+      "text": "حَدَّثَنَا مُحَمَّدُ بْنُ بَشَّارٍ، حَدَّثَنَا غُنْدَرٌ، حَدَّثَنَا شُعْبَةُ، سَمِعْتُ قَتَادَةَ، عَنْ أَنَسٍ ـ رضى الله عنه ـ ‏{‏إِنَّا فَتَحْنَا لَكَ فَتْحًا مُبِينًا‏}‏ قَالَ الْحُدَيْبِيَةُ‏.‏",
+      "text_en": "\"Verily, We have given you (O Muhammad) a manifest victory.' refers to Al-Hudaibiya Peace treaty).",
+      "url": "https://sunnah.com/bukhari:4627"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 137,
+      "text": "حَدَّثَنَا عَلِيٌّ، قَالَ حَدَّثَنَا سُفْيَانُ، قَالَ حَدَّثَنَا الزُّهْرِيُّ، عَنْ سَعِيدِ بْنِ الْمُسَيَّبِ، وَعَنْ عَبَّادِ بْنِ تَمِيمٍ، عَنْ عَمِّهِ، أَنَّهُ شَكَا إِلَى رَسُولِ اللَّهِ صلى الله عليه وسلم الرَّجُلُ الَّذِي يُخَيَّلُ إِلَيْهِ أَنَّهُ يَجِدُ الشَّىْءَ فِي الصَّلاَةِ‏.‏ فَقَالَ ‏ \"‏ لاَ يَنْفَتِلْ ـ أَوْ لاَ يَنْصَرِفْ ـ حَتَّى يَسْمَعَ صَوْتًا أَوْ يَجِدَ رِيحًا ‏\"‏‏.‏",
+      "text_en": "My uncle asked Allah's Messenger (ﷺ) about a person who imagined to have passed wind during the prayer. Allah' Apostle replied: \"He should not leave his prayers unless he hears sound or smells something.\"",
+      "url": "https://sunnah.com/bukhari:137"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 5226,
+      "text": "حَدَّثَنَا عَبْدُ الْعَزِيزِ بْنُ عَبْدِ اللَّهِ، قَالَ حَدَّثَنِي إِبْرَاهِيمُ بْنُ سَعْدٍ، عَنْ أَبِيهِ، عَنْ عَبْدِ اللَّهِ بْنِ جَعْفَرِ بْنِ أَبِي طَالِبٍ ـ رضى الله عنهما ـ قَالَ رَأَيْتُ النَّبِيَّ صلى الله عليه وسلم يَأْكُلُ الرُّطَبَ بِالْقِثَّاءِ‏.‏",
+      "text_en": "I saw Allah's Messenger (ﷺ) eating fresh dates with snake cucumber.",
+      "url": "https://sunnah.com/bukhari:5226"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 6270,
+      "text": "حَدَّثَنِي يَحْيَى بْنُ بُكَيْرٍ، حَدَّثَنَا اللَّيْثُ، عَنْ عُقَيْلٍ، عَنِ ابْنِ شِهَابٍ، أَخْبَرَنِي سَعِيدُ بْنُ الْمُسَيَّبِ، وَعُرْوَةُ بْنُ الزُّبَيْرِ، فِي رِجَالٍ مِنْ أَهْلِ الْعِلْمِ أَنَّ عَائِشَةَ زَوْجَ النَّبِيِّ صلى الله عليه وسلم قَالَتْ كَانَ رَسُولُ اللَّهِ صلى الله عليه وسلم يَقُولُ وَهْوَ صَحِيحٌ ‏\"‏ إِنَّهُ لَمْ يُقْبَضْ نَبِيٌّ قَطُّ حَتَّى يَرَى مَقْعَدَهُ مِنَ الْجَنَّةِ ثُمَّ يُخَيَّرُ ‏\"‏‏.‏ فَلَمَّا نَزَلَ بِهِ، وَرَأْسُهُ عَلَى فَخِذِي، غُشِيَ عَلَيْهِ سَاعَةً، ثُمَّ أَفَاقَ، فَأَشْخَصَ بَصَرَهُ إِلَى السَّقْفِ ثُمَّ قَالَ ‏\"‏ اللَّهُمَّ الرَّفِيقَ الأَعْلَى ‏\"‏‏.‏ قُلْتُ إِذًا لاَ يَخْتَارُنَا، وَعَرَفْتُ أَنَّهُ الْحَدِيثُ الَّذِي كَانَ يُحَدِّثُنَا بِهِ ـ قَالَتْ ـ فَكَانَتْ تِلْكَ آخِرَ كَلِمَةٍ تَكَلَّمَ بِهَا النَّبِيُّ صلى الله عليه وسلم قَوْلُهُ ‏\"‏ اللَّهُمَّ الرَّفِيقَ الأَعْلَى ‏\"‏‏.‏",
+      "text_en": "(the wife of the Prophet) When Allah's Messenger (ﷺ) was in good health, he used to say, \"No prophet's soul is ever captured unless he is shown his place in Paradise and given the option (to die or survive).\" So when the death of the Prophet (ﷺ) approached and his head was on my thigh, he became unconscious for a while and then he came to his senses and fixed his eyes on the ceiling and said, \"O Allah (with) the highest companions.\" (See Qur'an 4:69). I said' \"Hence he is not going to choose us.\" And I came to know that it was the application of the narration which he (the Prophet) used to …",
+      "url": "https://sunnah.com/bukhari:6270"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 5475,
+      "text": "حَدَّثَنَا حِبَّانُ بْنُ مُوسَى، أَخْبَرَنَا عَبْدُ اللَّهِ، أَخْبَرَنَا يُونُسُ بْنُ يَزِيدَ، عَنْ عُقَيْلٍ، عَنِ ابْنِ شِهَابٍ، عَنْ عُرْوَةَ، عَنْ عَائِشَةَ ـ رضى الله عنها ـ أَنَّهَا كَانَتْ تَأْمُرُ بِالتَّلْبِينِ لِلْمَرِيضِ وَلِلْمَحْزُونِ عَلَى الْهَالِكِ، وَكَانَتْ تَقُولُ إِنِّي سَمِعْتُ رَسُولَ اللَّهِ صلى الله عليه وسلم يَقُولُ ‏ \"‏ إِنَّ التَّلْبِينَةَ تُجِمُّ فُؤَادَ الْمَرِيضِ، وَتَذْهَبُ بِبَعْضِ الْحُزْنِ ‏\"‏‏.‏",
+      "text_en": "Aisha used to recommend at-Talbina for the sick and for such a person as grieved over a dead person. She used to say, \"I heard Allah's Messenger (ﷺ) saying, 'at-Talbina gives rest to the heart of the patient and makes it active and relieves some of his sorrow and grief.'\"",
+      "url": "https://sunnah.com/bukhari:5475"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 471,
+      "text": "وَقَالَ عَاصِمُ بْنُ عَلِيٍّ حَدَّثَنَا عَاصِمُ بْنُ مُحَمَّدٍ، سَمِعْتُ هَذَا الْحَدِيثَ، مِنْ أَبِي فَلَمْ أَحْفَظْهُ، فَقَوَّمَهُ لِي وَاقِدٌ عَنْ أَبِيهِ، قَالَ سَمِعْتُ أَبِي وَهُوَ، يَقُولُ قَالَ عَبْدُ اللَّهِ قَالَ رَسُولُ اللَّهِ صلى الله عليه وسلم ‏ \"‏ يَا عَبْدَ اللَّهِ بْنَ عَمْرٍو، كَيْفَ بِكَ إِذَا بَقِيتَ فِي حُثَالَةٍ مِنَ النَّاسِ بِهَذَا ‏\"‏‏.‏",
+      "text_en": "That Allah's Messenger (ﷺ) said, \"O `Abdullah bin `Amr! What will be your condition when you will be left with the sediments of (worst) people?\" (They will be in conflict with each other).",
+      "url": "https://sunnah.com/bukhari:471"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 838,
+      "text": "حَدَّثَنَا عَلِيُّ بْنُ عَبْدِ اللَّهِ، قَالَ أَخْبَرَنَا سُفْيَانُ، عَنْ عَمْرٍو، قَالَ أَخْبَرَنِي كُرَيْبٌ، عَنِ ابْنِ عَبَّاسٍ ـ رضى الله عنهما ـ قَالَ بِتُّ عِنْدَ خَالَتِي مَيْمُونَةَ لَيْلَةً، فَنَامَ النَّبِيُّ صلى الله عليه وسلم فَلَمَّا كَانَ فِي بَعْضِ اللَّيْلِ قَامَ رَسُولُ اللَّهِ صلى الله عليه وسلم فَتَوَضَّأَ مِنْ شَنٍّ مُعَلَّقٍ وُضُوءًا خَفِيفًا ـ يُخَفِّفُهُ عَمْرٌو وَيُقَلِّلُهُ جِدًّا ـ ثُمَّ قَامَ يُصَلِّي، فَقُمْتُ فَتَوَضَّأْتُ نَحْوًا مِمَّا تَوَضَّأَ، ثُمَّ جِئْتُ فَقُمْتُ عَنْ يَسَارِهِ، فَحَوَّلَنِي فَجَعَلَنِي عَنْ يَمِينِهِ، ثُمَّ صَلَّى مَا شَاءَ اللَّهُ، ثُمَّ اضْطَجَعَ فَنَامَ حَتَّى نَفَخَ، فَأَتَاهُ الْمُنَادِي يُؤْذِنُهُ بِالصَّلاَةِ فَقَامَ مَعَهُ إِلَى الصَّلاَةِ، فَصَلَّى وَلَمْ يَتَوَضَّأْ‏.‏ قُلْنَا لِعَمْرٍو إِنَّ نَاسًا يَقُولُونَ إِنَّ النَّبِيَّ صلى الله عليه وسلم تَنَامُ عَيْنُهُ وَلاَ يَنَامُ قَلْبُهُ‏.‏ قَالَ عَمْرٌو سَمِعْتُ عُبَيْدَ بْ…",
+      "text_en": "One night I slept at the house of my aunt Maimuna and the Prophet (ﷺ) slept (too). He got up (for prayer) in the last hours of the night and performed a light ablution from a hanging leather skin. (`Amr, the sub-narrator described that the ablution was very light). Then he stood up for prayer and I got up too and performed the ablution in the same way and joined him on his left side. He pulled me to the right and prayed as much as Allah will. Then he lay down and slept and I heard his breath sounds till the Mu'adh-dhin came to him to inform him about the (Fajr) prayer. He left with him for …",
+      "url": "https://sunnah.com/bukhari:838"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 6722,
+      "text": "حَدَّثَنَا أَبُو نُعَيْمٍ، حَدَّثَنَا سُفْيَانُ، عَنْ إِبْرَاهِيمَ بْنِ مَيْسَرَةَ، عَنْ عَمْرِو بْنِ الشَّرِيدِ، عَنْ أَبِي رَافِعٍ، قَالَ قَالَ النَّبِيُّ صلى الله عليه وسلم ‏\"‏ الْجَارُ أَحَقُّ بِصَقَبِهِ ‏\"‏‏.‏ وَقَالَ بَعْضُ النَّاسِ إِنِ اشْتَرَى دَارًا بِعِشْرِينَ أَلْفَ دِرْهَمٍ، فَلاَ بَأْسَ أَنْ يَحْتَالَ حَتَّى يَشْتَرِيَ الدَّارَ بِعِشْرِينَ أَلْفَ دِرْهَمٍ، وَيَنْقُدَهُ تِسْعَةَ آلاَفِ دِرْهَمٍ وَتِسْعَمِائَةَ دِرْهَمٍ وَتِسْعَةً وَتِسْعِينَ، وَيَنْقُدَهُ دِينَارًا بِمَا بَقِيَ مِنَ الْعِشْرِينَ الأَلْفَ، فَإِنْ طَلَبَ الشَّفِيعُ أَخَذَهَا بِعِشْرِينَ أَلْفَ دِرْهَمٍ، وَإِلاَّ فَلاَ سَبِيلَ لَهُ عَلَى الدَّارِ، فَإِنِ اسْتُحِقَّتِ الدَّارُ، رَجَعَ الْمُشْتَرِي عَلَى الْبَائِعِ بِمَا دَفَعَ إِلَيْهِ، وَهْوَ تِسْعَةُ آلاَفِ دِرْهَمٍ وَتِسْعُمِائَةٍ وَتِسْعَةٌ وَتِسْعُونَ دِرْهَمًا وَدِينَارٌ، لأَنَّ الْبَيْعَ حِينَ اسْتُحِقَّ انْتَقَضَ الصَّرْفُ فِي الدِّينَارِ، فَإِنْ وَجَ…",
+      "text_en": "The Prophet (ﷺ) said, \"The neighbor has more right to be taken care of by his neighbor (than anyone else).\" Some men said, \"If one wants to buy a house for 20,000 Dirhams then there is no harm to play a trick to deprive somebody of preemption by buying it (just on paper) with 20,000 Dirhams but paying to the seller only 9,999 Dirhams in cash and then agree with the seller to pay only one Dinar in cash for the rest of the price (i.e. 10,001 Dirhams). If the preemptor offers 20,000 Dirhams for the house, he can buy it otherwise he has no right to buy it (by this trick he got out of preemption…",
+      "url": "https://sunnah.com/bukhari:6722"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 5536,
+      "text": "حَدَّثَنَا سَعِيدُ بْنُ عُفَيْرٍ، حَدَّثَنَا اللَّيْثُ، قَالَ حَدَّثَنَا عَبْدُ الرَّحْمَنِ بْنُ خَالِدٍ، عَنِ ابْنِ شِهَابٍ، عَنْ أَبِي سَلَمَةَ، عَنْ أَبِي هُرَيْرَةَ، أَنَّ رَسُولَ اللَّهِ صلى الله عليه وسلم قَضَى فِي امْرَأَتَيْنِ مِنْ هُذَيْلٍ اقْتَتَلَتَا، فَرَمَتْ إِحْدَاهُمَا الأُخْرَى بِحَجَرٍ، فَأَصَابَ بَطْنَهَا وَهْىَ حَامِلٌ، فَقَتَلَتْ وَلَدَهَا الَّذِي فِي بَطْنِهَا فَاخْتَصَمُوا إِلَى النَّبِيِّ صلى الله عليه وسلم فَقَضَى أَنَّ دِيَةَ مَا فِي بَطْنِهَا غُرَّةٌ عَبْدٌ أَوْ أَمَةٌ، فَقَالَ وَلِيُّ الْمَرْأَةِ الَّتِي غَرِمَتْ كَيْفَ أَغْرَمُ يَا رَسُولَ اللَّهِ مَنْ لاَ شَرِبَ، وَلاَ أَكَلَ، وَلاَ نَطَقَ، وَلاَ اسْتَهَلَّ، فَمِثْلُ ذَلِكَ يُطَلّ فَقَالَ النَّبِيُّ صلى الله عليه وسلم ‏ \"‏ إِنَّمَا هَذَا مِنْ إِخْوَانِ الْكُهَّانِ ‏\"‏‏.‏",
+      "text_en": "Allah's Messenger (ﷺ) gave his verdict about two ladies of the Hudhail tribe who had fought each other and one of them had hit the other with a stone. The stone hit her `Abdomen and as she was pregnant, the blow killed the child in her womb. They both filed their case with the Prophet (ﷺ) and he judged that the blood money for what was in her womb. was a slave or a female slave. The guardian of the lady who was fined said, \"O Allah's Messenger (ﷺ)! Shall I be fined for a creature that has neither drunk nor eaten, neither spoke nor cried? A case like that should be nullified.\" On that the Pr…",
+      "url": "https://sunnah.com/bukhari:5536"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 2616,
+      "text": "حَدَّثَنَا مُحَمَّدُ بْنُ عَرْعَرَةَ، حَدَّثَنَا شُعْبَةُ، عَنْ عَدِيِّ بْنِ ثَابِتٍ، عَنْ أَبِي حَازِمٍ، عَنْ أَبِي هُرَيْرَةَ ـ رضى الله عنه ـ قَالَ نَهَى رَسُولُ اللَّهِ صلى الله عليه وسلم عَنِ التَّلَقِّي، وَأَنْ يَبْتَاعَ الْمُهَاجِرُ لِلأَعْرَابِيِّ، وَأَنْ تَشْتَرِطَ الْمَرْأَةُ طَلاَقَ أُخْتِهَا، وَأَنْ يَسْتَامَ الرَّجُلُ عَلَى سَوْمِ أَخِيهِ، وَنَهَى عَنِ النَّجْشِ، وَعَنِ التَّصْرِيَةِ‏.‏ تَابَعَهُ مُعَاذٌ وَعَبْدُ الصَّمَدِ عَنْ شُعْبَةَ‏.‏ وَقَالَ غُنْدَرٌ وَعَبْدُ الرَّحْمَنِ نُهِيَ‏.‏ وَقَالَ آدَمُ نُهِينَا‏.‏ وَقَالَ النَّضْرُ وَحَجَّاجُ بْنُ مِنْهَالٍ نَهَى‏.‏",
+      "text_en": "Allah's Messenger (ﷺ) forbade (1) the meeting of the caravan (of goods) on the way, (2) and that a residing person buys for a bedouin, (3) and that a woman stipulates the divorce of the wife of the would-be husband, (4) and that a man tries to cause the cancellation of a bargain concluded by another. He also forbade An-Najsh (see Hadith 824) and that one withholds the milk in the udder of the animal so that he may deceive people on selling it.",
+      "url": "https://sunnah.com/bukhari:2616"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 1770,
+      "text": "حَدَّثَنَا عَبْدُ اللَّهِ بْنُ يَزِيدَ، حَدَّثَنَا اللَّيْثُ، حَدَّثَنَا نَافِعٌ، عَنْ عَبْدِ اللَّهِ بْنِ عُمَرَ ـ رضى الله عنهما ـ قَالَ قَامَ رَجُلٌ فَقَالَ يَا رَسُولَ اللَّهِ مَاذَا تَأْمُرُنَا أَنْ نَلْبَسَ مِنَ الثِّيَابِ فِي الإِحْرَامِ فَقَالَ النَّبِيُّ صلى الله عليه وسلم ‏ \"‏ لاَ تَلْبَسُوا الْقَمِيصَ وَلاَ السَّرَاوِيلاَتِ وَلاَ الْعَمَائِمَ، وَلاَ الْبَرَانِسَ إِلاَّ أَنْ يَكُونَ أَحَدٌ لَيْسَتْ لَهُ نَعْلاَنِ، فَلْيَلْبَسِ الْخُفَّيْنِ، وَلْيَقْطَعْ أَسْفَلَ مِنَ الْكَعْبَيْنِ، وَلاَ تَلْبَسُوا شَيْئًا مَسَّهُ زَعْفَرَانٌ، وَلاَ الْوَرْسُ، وَلاَ تَنْتَقِبِ الْمَرْأَةُ الْمُحْرِمَةُ وَلاَ تَلْبَسِ الْقُفَّازَيْنِ ‏\"‏‏.‏ تَابَعَهُ مُوسَى بْنُ عُقْبَةَ وَإِسْمَاعِيلُ بْنُ إِبْرَاهِيمَ بْنِ عُقْبَةَ وَجُوَيْرِيَةُ وَابْنُ إِسْحَاقَ فِي النِّقَابِ وَالْقُفَّازَيْنِ‏.‏ وَقَالَ عُبَيْدُ اللَّهِ وَلاَ وَرْسٌ وَكَانَ يَقُولُ لاَ تَتَنَقَّبِ الْمُحْرِمَةُ، وَلاَ تَلْبَسِ الْقُفَّا…",
+      "text_en": "A person stood up and asked, \"O Allah's: Apostle! What clothes may be worn in the state of Ihram?\" The Prophet (ﷺ) replied, \"Do not wear a shirt or trousers, or any headgear (e.g. a turban), or a hooded cloak; but if somebody has no shoes he can wear leather stockings provided they are cut short off the ankles, and also, do not wear anything perfumed with Wars or saffron, and the Muhrima (a woman in the state of Ihram) should not cover her face, or wear gloves.\"",
+      "url": "https://sunnah.com/bukhari:1770"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 542,
+      "text": "حَدَّثَنَا الْحُمَيْدِيُّ، قَالَ حَدَّثَنَا مَرْوَانُ بْنُ مُعَاوِيَةَ، قَالَ حَدَّثَنَا إِسْمَاعِيلُ، عَنْ قَيْسٍ، عَنْ جَرِيرٍ، قَالَ كُنَّا عِنْدَ النَّبِيِّ صلى الله عليه وسلم فَنَظَرَ إِلَى الْقَمَرِ لَيْلَةً ـ يَعْنِي الْبَدْرَ ـ فَقَالَ ‏\"‏ إِنَّكُمْ سَتَرَوْنَ رَبَّكُمْ كَمَا تَرَوْنَ هَذَا الْقَمَرَ لاَ تُضَامُّونَ فِي رُؤْيَتِهِ، فَإِنِ اسْتَطَعْتُمْ أَنْ لاَ تُغْلَبُوا عَلَى صَلاَةٍ قَبْلَ طُلُوعِ الشَّمْسِ وَقَبْلَ غُرُوبِهَا فَافْعَلُوا ‏\"‏‏.‏ ثُمَّ قَرَأَ ‏{‏وَسَبِّحْ بِحَمْدِ رَبِّكَ قَبْلَ طُلُوعِ الشَّمْسِ وَقَبْلَ الْغُرُوبِ‏}‏‏.‏ قَالَ إِسْمَاعِيلُ افْعَلُوا لاَ تَفُوتَنَّكُمْ‏.‏",
+      "text_en": "Jarir said, \"We were with the Prophet (ﷺ) and he looked at the moon--full-moon--and said, 'Certainly you will see your Lord as you see this moon and you will have no trouble in seeing Him. So if you can avoid missing (through sleep or business, etc.) a prayer before the sunrise (Fajr) and a prayer before sunset (`Asr), you must do so.' He then recited Allah's Statement: And celebrate the praises Of your Lord before the rising of the sun and before (its) setting.\" (50.39) Isma`il said, \"Offer those prayers and do not miss them.\"",
+      "url": "https://sunnah.com/bukhari:542"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 3546,
+      "text": "حَدَّثَنَا مُحَمَّدُ بْنُ رَافِعٍ، حَدَّثَنَا حُسَيْنٌ، عَنْ زَائِدَةَ، عَنْ أَبِي حَصِينٍ، عَنْ سَعْدِ بْنِ عُبَيْدَةَ، قَالَ جَاءَ رَجُلٌ إِلَى ابْنِ عُمَرَ، فَسَأَلَهُ عَنْ عُثْمَانَ،، فَذَكَرَ عَنْ مَحَاسِنِ، عَمَلِهِ، قَالَ لَعَلَّ ذَاكَ يَسُوؤُكَ‏.‏ قَالَ نَعَمْ‏.‏ قَالَ فَأَرْغَمَ اللَّهُ بِأَنْفِكَ‏.‏ ثُمَّ سَأَلَهُ عَنْ عَلِيٍّ، فَذَكَرَ مَحَاسِنَ عَمَلِهِ قَالَ هُوَ ذَاكَ، بَيْتُهُ أَوْسَطُ بُيُوتِ النَّبِيِّ صلى الله عليه وسلم‏.‏ ثُمَّ قَالَ لَعَلَّ ذَاكَ يَسُوؤُكَ‏.‏ قَالَ أَجَلْ‏.‏ قَالَ فَأَرْغَمَ اللَّهُ بِأَنْفِكَ، انْطَلِقْ فَاجْهَدْ عَلَىَّ جَهْدَكَ‏.‏",
+      "text_en": "A man came to Ibn `Umar and asked about `Uthman and Ibn `Umar mentioned his good deeds and said to the questioner. \"Perhaps these facts annoy you?\" The other said, \"Yes.\" Ibn `Umar said, \"May Allah stick your nose in the dust (i.e. degrade you)!' Then the man asked him about `Ali. Ibn `Umar mentioned his good deeds and said, \"It is all true, and that is his house in the midst of the houses of the Prophet. Perhaps these facts have hurt you?\" The questioner said, \"Yes.\" Ibn `Umar said, \"May Allah stick your nose in the dust (i.e. degrade you or make you do things which you hate) ! Go away and…",
+      "url": "https://sunnah.com/bukhari:3546"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 7197,
+      "text": "حَدَّثَنَا يَحْيَى بْنُ بُكَيْرٍ، حَدَّثَنَا اللَّيْثُ، عَنْ عُقَيْلٍ، عَنِ ابْنِ شِهَابٍ، أَخْبَرَنِي أَبُو سَلَمَةَ بْنُ عَبْدِ الرَّحْمَنِ، عَنْ أَبِي هُرَيْرَةَ، أَنَّهُ كَانَ يَقُولُ قَالَ رَسُولُ اللَّهِ صلى الله عليه وسلم ‏ \"‏ مَا أَذِنَ اللَّهُ لِشَىْءٍ مَا أَذِنَ لِلنَّبِيِّ صلى الله عليه وسلم يَتَغَنَّى بِالْقُرْآنِ ‏\"‏‏.‏ وَقَالَ صَاحِبٌ لَهُ يُرِيدُ أَنْ يَجْهَرَ بِهِ‏.‏",
+      "text_en": "Allah's Messenger (ﷺ) said, \"Allah never listens to anything as He listens to the Prophet (ﷺ) reciting Qur'an in a pleasant sweet sounding voice.\" A companion of Abu Huraira said, \"He means, reciting the Qur'an aloud.\"",
+      "url": "https://sunnah.com/bukhari:7197"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 1967,
+      "text": "حَدَّثَنَا مُحَمَّدٌ، أَخْبَرَنَا مُحَمَّدُ بْنُ فُضَيْلِ بْنِ غَزْوَانَ، عَنْ يَحْيَى بْنِ سَعِيدٍ، عَنْ عَمْرَةَ بِنْتِ عَبْدِ الرَّحْمَنِ، عَنْ عَائِشَةَ ـ رضى الله عنها ـ قَالَتْ كَانَ رَسُولُ اللَّهِ صلى الله عليه وسلم يَعْتَكِفُ فِي كُلِّ رَمَضَانَ، وَإِذَا صَلَّى الْغَدَاةَ دَخَلَ مَكَانَهُ الَّذِي اعْتَكَفَ فِيهِ ـ قَالَ ـ فَاسْتَأْذَنَتْهُ عَائِشَةُ أَنْ تَعْتَكِفَ فَأَذِنَ لَهَا فَضَرَبَتْ فِيهِ قُبَّةً، فَسَمِعَتْ بِهَا حَفْصَةُ، فَضَرَبَتْ قُبَّةً، وَسَمِعَتْ زَيْنَبُ بِهَا، فَضَرَبَتْ قُبَّةً أُخْرَى، فَلَمَّا انْصَرَفَ رَسُولُ اللَّهِ صلى الله عليه وسلم مِنَ الْغَدِ أَبْصَرَ أَرْبَعَ قِبَابٍ، فَقَالَ ‏\"‏ مَا هَذَا ‏\"‏‏.‏ فَأُخْبِرَ خَبَرَهُنَّ، فَقَالَ ‏\"‏ مَا حَمَلَهُنَّ عَلَى هَذَا آلْبِرُّ انْزِعُوهَا فَلاَ أَرَاهَا ‏\"‏‏.‏ فَنُزِعَتْ، فَلَمْ يَعْتَكِفْ فِي رَمَضَانَ حَتَّى اعْتَكَفَ فِي آخِرِ الْعَشْرِ مِنْ شَوَّالٍ‏.‏",
+      "text_en": "Allah's Messenger (ﷺ) used to practice I`tikaf every year in the month of Ramadan. And after offering the morning prayer, he used to enter the place of his I`tikaf. `Aisha asked his permission to let her practice I`tikaf and he allowed her, and so she pitched a tent in the mosque. When Hafsa heard of that, she also pitched a tent (for herself), and when Zainab heard of that, she too pitched another tent. When, in the morning, Allah's Messenger (ﷺ) had finished the morning prayer, he saw four tents and asked, \"What is this?\" He was informed about it. He then said, \"What made them do this? Is…",
+      "url": "https://sunnah.com/bukhari:1967"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 6665,
+      "text": "حَدَّثَنَا خَلاَّدُ بْنُ يَحْيَى، حَدَّثَنَا سُفْيَانُ، عَنْ مَنْصُورٍ، وَالأَعْمَشِ، عَنْ أَبِي وَائِلٍ، عَنِ ابْنِ مَسْعُودٍ ـ رضى الله عنه ـ قَالَ قَالَ رَجُلٌ يَا رَسُولَ اللَّهِ أَنُؤَاخَذُ بِمَا عَمِلْنَا فِي الْجَاهِلِيَّةِ قَالَ ‏ \"‏ مَنْ أَحْسَنَ فِي الإِسْلاَمِ لَمْ يُؤَاخَذْ بِمَا عَمِلَ فِي الْجَاهِلِيَّةِ، وَمَنْ أَسَاءَ فِي الإِسْلاَمِ أُخِذَ بِالأَوَّلِ وَالآخِرِ ‏\"‏‏.‏",
+      "text_en": "A man said, \"O Allah's Messenger (ﷺ)! Shall we be punished for what we did in the Prelslamic Period of ignorance?\" The Prophet (ﷺ) said, \"Whoever does good in Islam will not be punished for what he did in the Pre-lslamic Period of ignorance and whoever does evil in Islam will be punished for his former and later (bad deeds).",
+      "url": "https://sunnah.com/bukhari:6665"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 1142,
+      "text": "حَدَّثَنَا آدَمُ، قَالَ حَدَّثَنَا ابْنُ أَبِي ذِئْبٍ، عَنِ الزُّهْرِيِّ، عَنْ عُرْوَةَ، عَنْ عَائِشَةَ ـ رضى الله عنها ـ قَالَتْ مَا رَأَيْتُ رَسُولَ اللَّهِ صلى الله عليه وسلم سَبَّحَ سُبْحَةَ الضُّحَى، وَإِنِّي لأُسَبِّحُهَا‏.‏",
+      "text_en": "I never saw the Prophet (ﷺ) offering the Duha prayer but I always offer it.",
+      "url": "https://sunnah.com/bukhari:1142"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 1684,
+      "text": "حَدَّثَنَا أَبُو نُعَيْمٍ، حَدَّثَنَا مِسْعَرٌ، عَنْ وَبَرَةَ، قَالَ سَأَلْتُ ابْنَ عُمَرَ ـ رضى الله عنهما ـ مَتَى أَرْمِي الْجِمَارَ قَالَ إِذَا رَمَى إِمَامُكَ فَارْمِهْ‏.‏ فَأَعَدْتُ عَلَيْهِ الْمَسْأَلَةَ، قَالَ كُنَّا نَتَحَيَّنُ، فَإِذَا زَالَتِ الشَّمْسُ رَمَيْنَا‏.‏",
+      "text_en": "I asked Ibn `Umar, \"When should I do the Rami of the Jimar?\" He replied, \"When your leader does that.\" I asked him again the same question. He replied, \"We used to wait till the sun declined and then we would do the Rami (i.e. on the 11th and 12th of Dhul-Hijja).\"",
+      "url": "https://sunnah.com/bukhari:1684"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 5519,
+      "text": "حَدَّثَنَا مُوسَى بْنُ إِسْمَاعِيلَ، حَدَّثَنَا عَبْدُ الْوَاحِدِ، حَدَّثَنَا سُلَيْمَانُ الشَّيْبَانِيُّ، حَدَّثَنَا عَبْدُ الرَّحْمَنِ بْنُ الأَسْوَدِ، عَنْ أَبِيهِ، قَالَ سَأَلْتُ عَائِشَةَ عَنِ الرُّقْيَةِ، مِنَ الْحُمَةِ فَقَالَتْ رَخَّصَ النَّبِيُّ صلى الله عليه وسلم الرُّقْيَةَ مِنْ كُلِّ ذِي حُمَةٍ‏.‏",
+      "text_en": "I asked `Aisha about treating poisonous stings (a snake-bite or a scorpion sting) with a Ruqya. She said, \"The Prophet (ﷺ) allowed the treatment of poisonous sting with Ruqya.\"",
+      "url": "https://sunnah.com/bukhari:5519"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 3182,
+      "text": "حَدَّثَنَا خَالِدُ بْنُ مَخْلَدٍ، حَدَّثَنَا سُلَيْمَانُ بْنُ بِلاَلٍ، قَالَ حَدَّثَنِي عُتْبَةُ بْنُ مُسْلِمٍ، قَالَ أَخْبَرَنِي عُبَيْدُ بْنُ حُنَيْنٍ، قَالَ سَمِعْتُ أَبَا هُرَيْرَةَ ـ رضى الله عنه ـ يَقُولُ قَالَ النَّبِيُّ صلى الله عليه وسلم ‏ \"‏ إِذَا وَقَعَ الذُّبَابُ فِي شَرَابِ أَحَدِكُمْ فَلْيَغْمِسْهُ، ثُمَّ لِيَنْزِعْهُ، فَإِنَّ فِي إِحْدَى جَنَاحَيْهِ دَاءً وَالأُخْرَى شِفَاءً ‏\"‏‏.‏",
+      "text_en": "The Prophet (ﷺ) said \"If a house fly falls in the drink of anyone of you, he should dip it (in the drink) and take it out, for one of its wings has a disease and the other has the cure for the disease.\"",
+      "url": "https://sunnah.com/bukhari:3182"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 36,
+      "text": "حَدَّثَنَا حَرَمِيُّ بْنُ حَفْصٍ، قَالَ حَدَّثَنَا عَبْدُ الْوَاحِدِ، قَالَ حَدَّثَنَا عُمَارَةُ، قَالَ حَدَّثَنَا أَبُو زُرْعَةَ بْنُ عَمْرِو بْنِ جَرِيرٍ، قَالَ سَمِعْتُ أَبَا هُرَيْرَةَ، عَنِ النَّبِيِّ صلى الله عليه وسلم قَالَ ‏ \"‏ انْتَدَبَ اللَّهُ لِمَنْ خَرَجَ فِي سَبِيلِهِ لاَ يُخْرِجُهُ إِلاَّ إِيمَانٌ بِي وَتَصْدِيقٌ بِرُسُلِي أَنْ أُرْجِعَهُ بِمَا نَالَ مِنْ أَجْرٍ أَوْ غَنِيمَةٍ، أَوْ أُدْخِلَهُ الْجَنَّةَ، وَلَوْلاَ أَنْ أَشُقَّ عَلَى أُمَّتِي مَا قَعَدْتُ خَلْفَ سَرِيَّةٍ، وَلَوَدِدْتُ أَنِّي أُقْتَلُ فِي سَبِيلِ اللَّهِ ثُمَّ أُحْيَا، ثُمَّ أُقْتَلُ ثُمَّ أُحْيَا، ثُمَّ أُقْتَلُ ‏\"‏‏.‏",
+      "text_en": "The Prophet (ﷺ) said, \"The person who participates in (Holy battles) in Allah's cause and nothing compels him to do so except belief in Allah and His Apostles, will be recompensed by Allah either with a reward, or booty (if he survives) or will be admitted to Paradise (if he is killed in the battle as a martyr). Had I not found it difficult for my followers, then I would not remain behind any sariya going for Jihad and I would have loved to be martyred in Allah's cause and then made alive, and then martyred and then made alive, and then again martyred in His cause.\"",
+      "url": "https://sunnah.com/bukhari:36"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 4253,
+      "text": "حَدَّثَنِي مُحَمَّدُ بْنُ عُبَيْدٍ، حَدَّثَنَا عِيسَى بْنُ يُونُسَ، عَنْ عُمَرَ بْنِ سَعِيدٍ، قَالَ أَخْبَرَنِي ابْنُ أَبِي مُلَيْكَةَ، أَنَّ أَبَا عَمْرٍو، ذَكْوَانَ مَوْلَى عَائِشَةَ أَخْبَرَهُ أَنَّ عَائِشَةَ كَانَتْ تَقُولُ إِنَّ مِنْ نِعَمِ اللَّهِ عَلَىَّ أَنَّ رَسُولَ اللَّهِ صلى الله عليه وسلم تُوُفِّيَ فِي بَيْتِي وَفِي يَوْمِي، وَبَيْنَ سَحْرِي وَنَحْرِي، وَأَنَّ اللَّهَ جَمَعَ بَيْنَ رِيقِي وَرِيقِهِ عِنْدَ مَوْتِهِ، دَخَلَ عَلَىَّ عَبْدُ الرَّحْمَنِ وَبِيَدِهِ السِّوَاكُ وَأَنَا مُسْنِدَةٌ رَسُولَ اللَّهِ صلى الله عليه وسلم فَرَأَيْتُهُ يَنْظُرُ إِلَيْهِ، وَعَرَفْتُ أَنَّهُ يُحِبُّ السِّوَاكَ فَقُلْتُ آخُذُهُ لَكَ فَأَشَارَ بِرَأْسِهِ أَنْ نَعَمْ، فَتَنَاوَلْتُهُ فَاشْتَدَّ عَلَيْهِ وَقُلْتُ أُلَيِّنُهُ لَكَ فَأَشَارَ بِرَأْسِهِ أَنْ نَعَمْ، فَلَيَّنْتُهُ، وَبَيْنَ يَدَيْهِ رَكْوَةٌ ـ أَوْ عُلْبَةٌ يَشُكُّ عُمَرُ ـ فِيهَا مَاءٌ، فَجَعَلَ يُدْخِلُ يَدَيْهِ فِي الْمَاءِ فَيَ…",
+      "text_en": "It was one of the favors of Allah towards me that Allah's Messenger (ﷺ) expired in my house on the day of my turn while he was leaning against my chest and Allah made my saliva mix with his saliva at his death. `Abdur-Rahman entered upon me with a Siwak in his hand and I was supporting (the back of) Allah's Messenger (ﷺ) (against my chest ). I saw the Prophet (ﷺ) looking at it (i.e. Siwak) and I knew that he loved the Siwak, so I said ( to him ), \"Shall I take it for you ? \" He nodded in agreement. So I took it and it was too stiff for him to use, so I said, \"Shall I soften it for you ?\" He…",
+      "url": "https://sunnah.com/bukhari:4253"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 336,
+      "text": "حَدَّثَنَا سُلَيْمَانُ بْنُ حَرْبٍ، قَالَ حَدَّثَنَا شُعْبَةُ، عَنِ الْحَكَمِ، عَنْ ذَرٍّ، عَنِ ابْنِ عَبْدِ الرَّحْمَنِ بْنِ أَبْزَى، عَنْ أَبِيهِ، أَنَّهُ شَهِدَ عُمَرَ وَقَالَ لَهُ عَمَّارٌ كُنَّا فِي سَرِيَّةٍ فَأَجْنَبْنَا، وَقَالَ تَفَلَ فِيهِمَا‏.‏",
+      "text_en": "that while he was in the company of `Umar, `Ammar said to `Umar, \"We were in a detachment and became Junub and I blew the dust off my hands (performed the rolling over the earth and prayed.)\"",
+      "url": "https://sunnah.com/bukhari:336"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 3465,
+      "text": "حَدَّثَنَا أَبُو مَعْمَرٍ، حَدَّثَنَا عَبْدُ الْوَارِثِ، حَدَّثَنَا عَبْدُ الْعَزِيزِ، عَنْ أَنَسٍ ـ رضى الله عنه ـ قَالَ كَانَ رَجُلٌ نَصْرَانِيًّا فَأَسْلَمَ وَقَرَأَ الْبَقَرَةَ وَآلَ عِمْرَانَ، فَكَانَ يَكْتُبُ لِلنَّبِيِّ صلى الله عليه وسلم، فَعَادَ نَصْرَانِيًّا فَكَانَ يَقُولُ مَا يَدْرِي مُحَمَّدٌ إِلاَّ مَا كَتَبْتُ لَهُ، فَأَمَاتَهُ اللَّهُ فَدَفَنُوهُ، فَأَصْبَحَ وَقَدْ لَفَظَتْهُ الأَرْضُ فَقَالُوا هَذَا فِعْلُ مُحَمَّدٍ وَأَصْحَابِهِ، لَمَّا هَرَبَ مِنْهُمْ نَبَشُوا عَنْ صَاحِبِنَا‏.‏ فَأَلْقُوهُ فَحَفَرُوا لَهُ فَأَعْمَقُوا، فَأَصْبَحَ وَقَدْ لَفَظَتْهُ الأَرْضُ، فَقَالُوا هَذَا فِعْلُ مُحَمَّدٍ وَأَصْحَابِهِ نَبَشُوا عَنْ صَاحِبِنَا لَمَّا هَرَبَ مِنْهُمْ‏.‏ فَأَلْقَوْهُ فَحَفَرُوا لَهُ، وَأَعْمَقُوا لَهُ فِي الأَرْضِ مَا اسْتَطَاعُوا، فَأَصْبَحَ قَدْ لَفَظَتْهُ الأَرْضُ، فَعَلِمُوا أَنَّهُ لَيْسَ مِنَ النَّاسِ فَأَلْقَوْهُ‏.‏",
+      "text_en": "There was a Christian who embraced Islam and read Surat-al-Baqara and Al-`Imran, and he used to write for the Prophet. Later on he returned to Christianity again and he used to say: \"Muhammad knows nothing but what I have written for him.\" Then Allah caused him to die, and the people buried him, but in the morning they saw that the earth had thrown his body out. They said, \"This is the act of Muhammad and his companions. They dug the grave of our companion and took his body out of it because he had run away from them.\" They again dug the grave deeply for him, but in the morning they again s…",
+      "url": "https://sunnah.com/bukhari:3465"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 932,
+      "text": "حَدَّثَنَا عُثْمَانُ، قَالَ حَدَّثَنَا جَرِيرٌ، عَنْ مَنْصُورٍ، عَنِ الشَّعْبِيِّ، عَنِ الْبَرَاءِ بْنِ عَازِبٍ ـ رضى الله عنهما ـ قَالَ خَطَبَنَا النَّبِيُّ صلى الله عليه وسلم يَوْمَ الأَضْحَى بَعْدَ الصَّلاَةِ فَقَالَ ‏\"‏ مَنْ صَلَّى صَلاَتَنَا وَنَسَكَ نُسُكَنَا فَقَدْ أَصَابَ النُّسُكَ، وَمَنْ نَسَكَ قَبْلَ الصَّلاَةِ فَإِنَّهُ قَبْلَ الصَّلاَةِ، وَلاَ نُسُكَ لَهُ ‏\"‏‏.‏ فَقَالَ أَبُو بُرْدَةَ بْنُ نِيَارٍ خَالُ الْبَرَاءِ يَا رَسُولَ اللَّهِ، فَإِنِّي نَسَكْتُ شَاتِي قَبْلَ الصَّلاَةِ، وَعَرَفْتُ أَنَّ الْيَوْمَ يَوْمُ أَكْلٍ وَشُرْبٍ، وَأَحْبَبْتُ أَنْ تَكُونَ شَاتِي أَوَّلَ مَا يُذْبَحُ فِي بَيْتِي، فَذَبَحْتُ شَاتِي وَتَغَدَّيْتُ قَبْلَ أَنْ آتِيَ الصَّلاَةَ‏.‏ قَالَ ‏\"‏ شَاتُكَ شَاةُ لَحْمٍ ‏\"‏‏.‏ قَالَ يَا رَسُولَ اللَّهِ، فَإِنَّ عِنْدَنَا عَنَاقًا لَنَا جَذَعَةً هِيَ أَحَبُّ إِلَىَّ مِنْ شَاتَيْنِ، أَفَتَجْزِي عَنِّي قَالَ ‏\"‏ نَعَمْ، وَلَنْ تَجْزِيَ عَنْ أَحَدٍ بَعْدَكَ ‏…",
+      "text_en": "The Prophet (ﷺ) delivered the Khutba after offering the prayer on the Day of Nahr and said, \"Whoever offers the prayer like us and slaughters like us then his Nusuk (sacrifice) will be accepted by Allah. And whoever slaughters his sacrifice before the `Id prayer then he has not done the sacrifice.\" Abi Burda bin Niyar, the uncle of Al-Bara' said, \"O Allah's Messenger (ﷺ)! I have slaughtered my sheep before the `Id prayer and I thought today as a day of eating and drinking (not alcoholic drinks), and I liked that my sheep should be the first to be slaughtered in my house. So slaughtered my s…",
+      "url": "https://sunnah.com/bukhari:932"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 1699,
+      "text": "حَدَّثَنَا مُحَمَّدُ بْنُ الْمُثَنَّى، حَدَّثَنَا إِسْحَاقُ بْنُ يُوسُفَ، حَدَّثَنَا سُفْيَانُ الثَّوْرِيُّ، عَنْ عَبْدِ الْعَزِيزِ بْنِ رُفَيْعٍ، قَالَ سَأَلْتُ أَنَسَ بْنَ مَالِكٍ أَخْبِرْنِي بِشَىْءٍ، عَقَلْتَهُ عَنِ النَّبِيِّ صلى الله عليه وسلم أَيْنَ صَلَّى الظُّهْرَ يَوْمَ التَّرْوِيَةِ قَالَ بِمِنًى‏.‏ قُلْتُ فَأَيْنَ صَلَّى الْعَصْرَ يَوْمَ النَّفْرِ قَالَ بِالأَبْطَحِ‏.‏ افْعَلْ كَمَا يَفْعَلُ أُمَرَاؤُكَ‏.‏",
+      "text_en": "I asked Anas bin Malik, \"Tell me something you have observed about the Prophet (ﷺ) concerning where he offered the Zuhr prayer on the Day of Tarwiya (8th Dhul-Hijja).\" Anas replied, \"He offered it at Mina.\" I said, \"Where did he offer the `Asr prayer on the Day of Nafr (day of departure from Mina)?\" He replied, \"At Al-Abtah,\" and added, \"You should do as your leaders do.\"",
+      "url": "https://sunnah.com/bukhari:1699"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 2339,
+      "text": "حَدَّثَنَا قُتَيْبَةُ بْنُ سَعِيدٍ، حَدَّثَنَا إِسْمَاعِيلُ بْنُ جَعْفَرٍ، عَنْ رَبِيعَةَ بْنِ أَبِي عَبْدِ الرَّحْمَنِ، عَنْ يَزِيدَ، مَوْلَى الْمُنْبَعِثِ عَنْ زَيْدِ بْنِ خَالِدٍ الْجُهَنِيِّ ـ رضى الله عنه ـ أَنَّ رَجُلاً سَأَلَ رَسُولَ اللَّهِ صلى الله عليه وسلم عَنِ اللُّقَطَةِ قَالَ ‏\"‏ عَرِّفْهَا سَنَةً، ثُمَّ اعْرِفْ وِكَاءَهَا وَعِفَاصَهَا، ثُمَّ اسْتَنْفِقْ بِهَا، فَإِنْ جَاءَ رَبُّهَا فَأَدِّهَا إِلَيْهِ ‏\"‏‏.‏ قَالُوا يَا رَسُولَ اللَّهِ فَضَالَّةُ الْغَنَمِ قَالَ ‏\"‏ خُذْهَا فَإِنَّمَا هِيَ لَكَ أَوْ لأَخِيكَ أَوْ لِلذِّئْبِ ‏\"‏‏.‏ قَالَ يَا رَسُولَ اللَّهِ، فَضَالَّةُ الإِبِلِ قَالَ فَغَضِبَ رَسُولُ اللَّهِ صلى الله عليه وسلم حَتَّى احْمَرَّتْ وَجْنَتَاهُ ـ أَوِ احْمَرَّ وَجْهُهُ ـ ثُمَّ قَالَ ‏\"‏ مَا لَكَ وَلَهَا، مَعَهَا حِذَاؤُهَا وَسِقَاؤُهَا، حَتَّى يَلْقَاهَا رَبُّهَا ‏\"‏‏.‏",
+      "text_en": "A man asked Allah's Messenger (ﷺ) about the Luqata. He said, \"Make public announcement of it for one year, then remember the description of its container and the string it is tied with, utilize the money, and if its owner comes back after that, give it to him.\" The people asked, \"O Allah's Messenger (ﷺ)! What about a lost sheep?\" Allah's Messenger (ﷺ) said, \"Take it, for it is for you, for your brother, or for the wolf.\" The man asked, \"O Allah's Messenger (ﷺ)! What about a lost camel?\" Allah's Messenger (ﷺ) got angry and his cheeks or face became red, and said, \"You have no concern with it…",
+      "url": "https://sunnah.com/bukhari:2339"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 37,
+      "text": "حَدَّثَنَا إِسْمَاعِيلُ، قَالَ حَدَّثَنِي مَالِكٌ، عَنِ ابْنِ شِهَابٍ، عَنْ حُمَيْدِ بْنِ عَبْدِ الرَّحْمَنِ، عَنْ أَبِي هُرَيْرَةَ، أَنَّ رَسُولَ اللَّهِ صلى الله عليه وسلم قَالَ ‏ \"‏ مَنْ قَامَ رَمَضَانَ إِيمَانًا وَاحْتِسَابًا غُفِرَ لَهُ مَا تَقَدَّمَ مِنْ ذَنْبِهِ ‏\"‏‏.‏",
+      "text_en": "Allah's Messenger (ﷺ) said: \"Whoever establishes prayers during the nights of Ramadan faithfully out of sincere faith and hoping to attain Allah's rewards (not for showing off), all his past sins will be forgiven.\"",
+      "url": "https://sunnah.com/bukhari:37"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 6925,
+      "text": "حَدَّثَنَا مُحَمَّدٌ، أَخْبَرَنَا عَبْدَةُ، حَدَّثَنَا هِشَامُ بْنُ عُرْوَةَ، عَنْ أَبِيهِ، عَنْ أَبِي حُمَيْدٍ السَّاعِدِيِّ، أَنَّ النَّبِيَّ صلى الله عليه وسلم اسْتَعْمَلَ ابْنَ الأُتَبِيَّةِ عَلَى صَدَقَاتِ بَنِي سُلَيْمٍ، فَلَمَّا جَاءَ إِلَى رَسُولِ اللَّهِ صلى الله عليه وسلم وَحَاسَبَهُ قَالَ هَذَا الَّذِي لَكُمْ، وَهَذِهِ هَدِيَّةٌ أُهْدِيَتْ لِي‏.‏ فَقَالَ رَسُولُ اللَّهِ صلى الله عليه وسلم ‏\"‏ فَهَلاَّ جَلَسْتَ فِي بَيْتِ أَبِيكَ وَبَيْتِ أُمِّكَ حَتَّى تَأْتِيَكَ هَدِيَّتُكَ، إِنْ كُنْتَ صَادِقًا ‏\"‏‏.‏ ثُمَّ قَامَ رَسُولُ اللَّهِ صلى الله عليه وسلم فَخَطَبَ النَّاسَ وَحَمِدَ اللَّهَ وَأَثْنَى عَلَيْهِ ثُمَّ قَالَ ‏\"‏ أَمَّا بَعْدُ فَإِنِّي أَسْتَعْمِلُ رِجَالاً مِنْكُمْ عَلَى أُمُورٍ مِمَّا وَلاَّنِي اللَّهُ، فَيَأْتِي أَحَدُكُمْ فَيَقُولُ هَذَا لَكُمْ وَهَذِهِ هَدِيَّةٌ أُهْدِيَتْ لِي فَهَلاَّ جَلَسَ فِي بَيْتِ أَبِيهِ وَبَيْتِ أُمِّهِ حَتَّى تَأْتِيَهُ هَدِيَّتُهُ إِنْ ك…",
+      "text_en": "The Prophet (ﷺ) employed Ibn Al-Utbiyya to collect Zakat from Bani Sulaim, and when he returned (with the money) to Allah's Messenger (ﷺ) the Prophet (ﷺ) called him to account, and he said, \"This (amount) is for you, and this was given to me as a present.\" Allah's Messenger (ﷺ) said, \"Why don't you stay at your father's house or your mother's house to see whether you will be given gifts or not, if you are telling the truth?\" Then Allah's Messenger (ﷺ) stood up and addressed the people, and after glorifying and praising Allah, he said: Amma Ba'du (then after) I employ some men from among you…",
+      "url": "https://sunnah.com/bukhari:6925"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 1383,
+      "text": "حَدَّثَنَا مُوسَى بْنُ إِسْمَاعِيلَ، حَدَّثَنَا عَبْدُ الْوَاحِدِ، حَدَّثَنَا أَبُو بُرْدَةَ بْنُ عَبْدِ اللَّهِ بْنِ أَبِي بُرْدَةَ، حَدَّثَنَا أَبُو بُرْدَةَ بْنُ أَبِي مُوسَى، عَنْ أَبِيهِ ـ رضى الله عنه ـ قَالَ كَانَ رَسُولُ اللَّهِ صلى الله عليه وسلم إِذَا جَاءَهُ السَّائِلُ، أَوْ طُلِبَتْ إِلَيْهِ حَاجَةٌ قَالَ ‏ \"‏ اشْفَعُوا تُؤْجَرُوا، وَيَقْضِي اللَّهُ عَلَى لِسَانِ نَبِيِّهِ صلى الله عليه وسلم مَا شَاءَ ‏\"‏‏.‏",
+      "text_en": "that his father said, \"Whenever a beggar came to Allah's Messenger (ﷺ) or he was asked for something, he used to say (to his companions), \"Help and recommend him and you will receive the reward for it; and Allah will bring about what He will through His Prophet's tongue.\"",
+      "url": "https://sunnah.com/bukhari:1383"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 2621,
+      "text": "وَقَالَ عُقَيْلٌ عَنِ الزُّهْرِيِّ، قَالَ عُرْوَةُ فَأَخْبَرَتْنِي عَائِشَةُ، أَنَّ رَسُولَ اللَّهِ صلى الله عليه وسلم كَانَ يَمْتَحِنُهُنَّ، وَبَلَغَنَا أَنَّهُ لَمَّا أَنْزَلَ اللَّهُ تَعَالَى أَنْ يَرُدُّوا إِلَى الْمُشْرِكِينَ مَا أَنْفَقُوا عَلَى مَنْ هَاجَرَ مِنْ أَزْوَاجِهِمْ، وَحَكَمَ عَلَى الْمُسْلِمِينَ، أَنْ لاَ يُمَسِّكُوا بِعِصَمِ الْكَوَافِرِ، أَنَّ عُمَرَ طَلَّقَ امْرَأَتَيْنِ قَرِيبَةَ بِنْتَ أَبِي أُمَيَّةَ، وَابْنَةَ جَرْوَلٍ الْخُزَاعِيِّ، فَتَزَوَّجَ قَرِيبَةَ مُعَاوِيَةُ، وَتَزَوَّجَ الأُخْرَى أَبُو جَهْمٍ، فَلَمَّا أَبَى الْكُفَّارُ أَنْ يُقِرُّوا بِأَدَاءِ مَا أَنْفَقَ الْمُسْلِمُونَ عَلَى أَزْوَاجِهِمْ، أَنْزَلَ اللَّهُ تَعَالَى ‏{‏وَإِنْ فَاتَكُمْ شَىْءٌ مِنْ أَزْوَاجِكُمْ إِلَى الْكُفَّارِ فَعَاقَبْتُمْ‏}‏ وَالْعَقِبُ مَا يُؤَدِّي الْمُسْلِمُونَ إِلَى مَنْ هَاجَرَتِ امْرَأَتُهُ مِنَ الْكُفَّارِ، فَأَمَرَ أَنْ يُعْطَى مَنْ ذَهَبَ لَهُ زَوْجٌ مِنَ الْمُسْلِمِين…",
+      "text_en": "`Urwa said, \"Aisha told me that Allah's Messenger (ﷺ) used to examine the women emigrants. We have been told also that when Allah revealed the order that the Muslims should return to the pagans what they had spent on their wives who emigrated (after embracing Islam) and that the Muslims should not keep unbelieving women as their wives, `Umar divorced two of his wives, Qariba, the daughter of Abu Umayyah and the daughter of Jarwal Al-Khuza`i. Later on Mu`awiya married Qariba and Abu Jahm married the other.\" When the pagans refused to pay what the Muslims had spent on their wives, Allah revea…",
+      "url": "https://sunnah.com/bukhari:2621"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 4583,
+      "text": "حَدَّثَنَا حِبَّانُ بْنُ مُوسَى، أَخْبَرَنَا عَبْدُ اللَّهِ، أَخْبَرَنَا عَاصِمٌ الأَحْوَلُ، عَنْ مُعَاذَةَ، عَنْ عَائِشَةَ ـ رضى الله عنها أَنَّ رَسُولَ اللَّهِ صلى الله عليه وسلم كَانَ يَسْتَأْذِنُ فِي يَوْمِ الْمَرْأَةِ مِنَّا بَعْدَ أَنْ أُنْزِلَتْ هَذِهِ الآيَةُ ‏{‏تُرْجِئُ مَنْ تَشَاءُ مِنْهُنَّ وَتُؤْوِي إِلَيْكَ مَنْ تَشَاءُ وَمَنِ ابْتَغَيْتَ مِمَّنْ عَزَلْتَ فَلاَ جُنَاحَ عَلَيْكَ‏}‏‏.‏ فَقُلْتُ لَهَا مَا كُنْتِ تَقُولِينَ قَالَتْ كُنْتُ أَقُولُ لَهُ إِنْ كَانَ ذَاكَ إِلَىَّ فَإِنِّي لاَ أُرِيدُ يَا رَسُولَ اللَّهِ أَنْ أُوثِرَ عَلَيْكَ أَحَدًا‏.‏ تَابَعَهُ عَبَّادُ بْنُ عَبَّادٍ سَمِعَ عَاصِمًا‏.‏",
+      "text_en": "`Aisha said, \"Allah's Messenger (ﷺ) used to take the permission of that wife with whom he was supposed to stay overnight if he wanted to go to one other than her, after this Verse was revealed:-- \"You (O Muhammad) can postpone (the turn of) whom you will of them (your wives) and you may receive any (of them) whom you will; and there is no blame on you if you invite one whose turn you have set aside (temporarily). (33.51) I asked Aisha, \"What did you use to say (in this case)?\" She said, \"I used to say to him, \"If I could deny you the permission (to go to your other wives) I would not allow …",
+      "url": "https://sunnah.com/bukhari:4583"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 4330,
+      "text": "حَدَّثَنَا عَبْدُ اللَّهِ بْنُ يُوسُفَ، حَدَّثَنَا مَالِكٌ، عَنْ نَافِعٍ، أَنَّ عَبْدَ اللَّهِ بْنَ عُمَرَ ـ رضى الله عنهما ـ كَانَ إِذَا سُئِلَ عَنْ صَلاَةِ الْخَوْفِ قَالَ يَتَقَدَّمُ الإِمَامُ وَطَائِفَةٌ مِنَ النَّاسِ فَيُصَلِّي بِهِمِ الإِمَامُ رَكْعَةً، وَتَكُونُ طَائِفَةٌ مِنْهُمْ بَيْنَهُمْ وَبَيْنَ الْعَدُوِّ لَمْ يُصَلُّوا، فَإِذَا صَلَّوُا الَّذِينَ مَعَهُ رَكْعَةً اسْتَأْخَرُوا مَكَانَ الَّذِينَ لَمْ يُصَلُّوا وَلاَ يُسَلِّمُونَ، وَيَتَقَدَّمُ الَّذِينَ لَمْ يُصَلُّوا فَيُصَلُّونَ مَعَهُ رَكْعَةً، ثُمَّ يَنْصَرِفُ الإِمَامُ وَقَدْ صَلَّى رَكْعَتَيْنِ، فَيَقُومُ كُلُّ وَاحِدٍ مِنَ الطَّائِفَتَيْنِ فَيُصَلُّونَ لأَنْفُسِهِمْ رَكْعَةً بَعْدَ أَنْ يَنْصَرِفَ الإِمَامُ، فَيَكُونُ كُلُّ وَاحِدٍ مِنَ الطَّائِفَتَيْنِ قَدْ صَلَّى رَكْعَتَيْنِ، فَإِنْ كَانَ خَوْفٌ هُوَ أَشَدَّ مِنْ ذَلِكَ صَلَّوْا رِجَالاً، قِيَامًا عَلَى أَقْدَامِهِمْ، أَوْ رُكْبَانًا مُسْتَقْبِلِي الْقِبْلَةِ أَو…",
+      "text_en": "Whenever `Abdullah bin `Umar was asked about Salat-al-Khauf (i.e. prayer of fear) he said, \"The Imam comes forward with a group of people and leads them in a one rak`a prayer while another group from them who has not prayed yet, stay between the praying group and the enemy. When those who are with the Imam have finished their one rak`a, they retreat and take the positions of those who have not prayed but they will not finish their prayers with Taslim. Those who have not prayed, come forward to offer a rak`a with the Imam (while the first group covers them from the enemy). Then the Imam, hav…",
+      "url": "https://sunnah.com/bukhari:4330"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 3204,
+      "text": "قَالَ عَبْدَانُ أَخْبَرَنَا عَبْدُ اللَّهِ، أَخْبَرَنَا يُونُسُ، عَنِ الزُّهْرِيِّ، ح حَدَّثَنَا أَحْمَدُ بْنُ صَالِحٍ، حَدَّثَنَا عَنْبَسَةُ، حَدَّثَنَا يُونُسُ، عَنِ ابْنِ شِهَابٍ، قَالَ قَالَ أَنَسٌ كَانَ أَبُو ذَرٍّ ـ رضى الله عنه ـ يُحَدِّثُ أَنَّ رَسُولَ اللَّهِ صلى الله عليه وسلم قَالَ ‏\"‏ فُرِجَ سَقْفُ بَيْتِي وَأَنَا بِمَكَّةَ، فَنَزَلَ جِبْرِيلُ، فَفَرَجَ صَدْرِي، ثُمَّ غَسَلَهُ بِمَاءِ زَمْزَمَ، ثُمَّ جَاءَ بِطَسْتٍ مِنْ ذَهَبٍ مُمْتَلِئٍ حِكْمَةً وَإِيمَانًا فَأَفْرَغَهَا فِي صَدْرِي، ثُمَّ أَطْبَقَهُ ثُمَّ أَخَذَ بِيَدِي، فَعَرَجَ بِي إِلَى السَّمَاءِ، فَلَمَّا جَاءَ إِلَى السَّمَاءِ الدُّنْيَا، قَالَ جِبْرِيلُ لِخَازِنِ السَّمَاءِ افْتَحْ‏.‏ قَالَ مَنْ هَذَا قَالَ هَذَا جِبْرِيلُ‏.‏ قَالَ مَعَكَ أَحَدٌ قَالَ مَعِيَ مُحَمَّدٌ‏.‏ قَالَ أُرْسِلَ إِلَيْهِ قَالَ نَعَمْ، فَافْتَحْ‏.‏ فَلَمَّا عَلَوْنَا السَّمَاءَ إِذَا رَجُلٌ عَنْ يَمِينِهِ أَسْوِدَةٌ، وَعَنْ يَسَارِهِ أَسْوِد…",
+      "text_en": "Abu Dhar (ra) used to say that Allah's Messenger (ﷺ) said, \"While I was at Makkah, the roof of my house was opened and Jibril descended, opened my chest, and washed it with Zamzam water. Then he brought a golden tray full of wisdom and faith, and having poured its contents into my chest, he closed it. Then he took my hand and ascended with me to the heaven. When Jibril reached the nearest heaven, he said to the gatekeeper of the heaven, 'Open (the gate).' The gatekeeper asked, 'who is it?' Jibril answered, 'Jibril'. He asked, 'Is there anyone with you?' Jibril replied, 'Muhammad (ﷺ) is with…",
+      "url": "https://sunnah.com/bukhari:3204"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 1029,
+      "text": "حَدَّثَنَا مُحَمَّدُ بْنُ الْعَلاَءِ، قَالَ حَدَّثَنَا أَبُو أُسَامَةَ، عَنْ بُرَيْدِ بْنِ عَبْدِ اللَّهِ، عَنْ أَبِي بُرْدَةَ، عَنْ أَبِي مُوسَى، قَالَ خَسَفَتِ الشَّمْسُ، فَقَامَ النَّبِيُّ صلى الله عليه وسلم فَزِعًا، يَخْشَى أَنْ تَكُونَ السَّاعَةُ، فَأَتَى الْمَسْجِدَ، فَصَلَّى بِأَطْوَلِ قِيَامٍ وَرُكُوعٍ وَسُجُودٍ رَأَيْتُهُ قَطُّ يَفْعَلُهُ وَقَالَ ‏ \"‏ هَذِهِ الآيَاتُ الَّتِي يُرْسِلُ اللَّهُ لاَ تَكُونُ لِمَوْتِ أَحَدٍ وَلاَ لِحَيَاتِهِ، وَلَكِنْ يُخَوِّفُ اللَّهُ بِهِ عِبَادَهُ، فَإِذَا رَأَيْتُمْ شَيْئًا مِنْ ذَلِكَ فَافْزَعُوا إِلَى ذِكْرِهِ وَدُعَائِهِ وَاسْتِغْفَارِهِ ‏\"‏‏.‏",
+      "text_en": "The sun eclipsed and the Prophet (ﷺ) got up, being afraid that it might be the Hour (i.e. Day of Judgment). He went to the Mosque and offered the prayer with the longest Qiyam, bowing and prostration that I had ever seen him doing. Then he said, \"These signs which Allah sends do not occur because of the life or death of somebody, but Allah makes His worshipers afraid by them. So when you see anything thereof, proceed to remember Allah, invoke Him and ask for His forgiveness.\"",
+      "url": "https://sunnah.com/bukhari:1029"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 6369,
+      "text": "حَدَّثَنِي مُحَمَّدُ بْنُ مُقَاتِلٍ أَبُو الْحَسَنِ، أَخْبَرَنَا عَبْدُ اللَّهِ، أَخْبَرَنَا خَالِدٌ الْحَذَّاءُ، عَنْ أَبِي عُثْمَانَ النَّهْدِيِّ، عَنْ أَبِي مُوسَى، قَالَ كُنَّا مَعَ رَسُولِ اللَّهِ صلى الله عليه وسلم فِي غَزَاةٍ فَجَعَلْنَا لاَ نَصْعَدُ شَرَفًا، وَلاَ نَعْلُو شَرَفًا، وَلاَ نَهْبِطُ فِي وَادٍ، إِلاَّ رَفَعْنَا أَصْوَاتَنَا بِالتَّكْبِيرِ ـ قَالَ ـ فَدَنَا مِنَّا رَسُولُ اللَّهِ صلى الله عليه وسلم فَقَالَ ‏\"‏ يَا أَيُّهَا النَّاسُ ارْبَعُوا عَلَى أَنْفُسِكُمْ فَإِنَّكُمْ لاَ تَدْعُونَ أَصَمَّ وَلاَ غَائِبًا إِنَّمَا تَدْعُونَ سَمِيعًا بَصِيرًا ‏\"‏‏.‏ ثُمَّ قَالَ ‏\"‏ يَا عَبْدَ اللَّهِ بْنَ قَيْسٍ، أَلاَ أُعَلِّمُكَ كَلِمَةً هِيَ مِنْ كُنُوزِ الْجَنَّةِ، لاَ حَوْلَ وَلاَ قُوَّةَ إِلاَّ بِاللَّهِ ‏\"‏‏.‏",
+      "text_en": "While we were with Allah's Messenger (ﷺ) in a holy battle, we never went up a hill or reached its peak or went down a valley but raised our voices with Takbir. Allah's Messenger (ﷺ) came close to us and said, \"O people! Don't exert yourselves, for you do not call a deaf or an absent one, but you call the All- Listener, the All-Seer.\" The Prophet (ﷺ) then said, \"O `Abdullah bin Qais! Shall I teach you a sentence which is from the treasures of Paradise? ( It is): 'La haula wala quwata illa billah. (There is neither might nor power except with Allah).",
+      "url": "https://sunnah.com/bukhari:6369"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 1189,
+      "text": "حَدَّثَنَا أَبُو الْوَلِيدِ، حَدَّثَنَا شُعْبَةُ، عَنِ الْحَكَمِ، عَنْ إِبْرَاهِيمَ، عَنْ عَلْقَمَةَ، عَنْ عَبْدِ اللَّهِ ـ رضى الله عنه ـ أَنَّ رَسُولَ اللَّهِ صلى الله عليه وسلم صَلَّى الظُّهْرَ خَمْسًا فَقِيلَ لَهُ أَزِيدَ فِي الصَّلاَةِ فَقَالَ ‏ \"‏ وَمَا ذَاكَ ‏\"‏‏.‏ قَالَ صَلَّيْتَ خَمْسًا‏.‏ فَسَجَدَ سَجْدَتَيْنِ بَعْدَ مَا سَلَّمَ‏.‏",
+      "text_en": "Once Allah's Messenger (ﷺ) offered five rak`at in the Zuhr prayer, and somebody asked him whether there was some increase in the prayer. Allah's Messenger (ﷺ) said, \"What is that?\" He said, \"You have offered five rak`at.\" So Allah's Messenger (ﷺ) performed two prostrations of Sahu after Taslim.",
+      "url": "https://sunnah.com/bukhari:1189"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 4341,
+      "text": "حَدَّثَنِي إِسْحَاقُ، أَخْبَرَنَا رَوْحٌ، أَخْبَرَنَا شُعْبَةُ، عَنْ خَالِدٍ الْحَذَّاءِ، عَنْ مَرْوَانَ الأَصْفَرِ، عَنْ رَجُلٍ، مِنْ أَصْحَابِ رَسُولِ اللَّهِ صلى الله عليه وسلم ـ قَالَ أَحْسِبُهُ ابْنَ عُمَرَ ـ ‏{‏إِنْ تُبْدُوا مَا فِي أَنْفُسِكُمْ أَوْ تُخْفُوهُ‏}‏ قَالَ نَسَخَتْهَا الآيَةُ الَّتِي بَعْدَهَا‏.‏",
+      "text_en": "A man from the companions of Allah's Messenger (ﷺ) who I think, was Ibn `Umar said, \"The Verse:-- \"Whether you show what is in your minds or conceal it....\" was abrogated by the Verse following it.\"",
+      "url": "https://sunnah.com/bukhari:4341"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 3163,
+      "text": "وَقَالَ عَبْدُ الرَّزَّاقِ عَنْ مَعْمَرٍ، فَرَآنِي أَبُو لُبَابَةَ أَوْ زَيْدُ بْنُ الْخَطَّابِ‏.‏ وَتَابَعَهُ يُونُسُ وَابْنُ عُيَيْنَةَ وَإِسْحَاقُ الْكَلْبِيُّ وَالزُّبَيْدِيُّ‏.‏ وَقَالَ صَالِحٌ وَابْنُ أَبِي حَفْصَةَ وَابْنُ مُجَمِّعٍ عَنِ الزُّهْرِيِّ، عَنْ سَالِمٍ، عَنِ ابْنِ عُمَرَ، رَآنِي أَبُو لُبَابَةَ وَزَيْدُ بْنُ الْخَطَّابِ‏.‏",
+      "text_en": "Abu Lubaba and Zaid bin Khattab saw me.",
+      "url": "https://sunnah.com/bukhari:3163"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 6695,
+      "text": "حَدَّثَنَا مُحَمَّدُ بْنُ عَبْدِ الرَّحِيمِ، حَدَّثَنَا سَعِيدُ بْنُ سُلَيْمَانَ، حَدَّثَنَا هُشَيْمٌ، أَخْبَرَنَا عُبَيْدُ اللَّهِ بْنُ أَبِي بَكْرِ بْنِ أَنَسٍ، عَنْ أَنَسٍ ـ رضى الله عنه ـ قَالَ قَالَ رَسُولُ اللَّهِ صلى الله عليه وسلم ‏\"‏ انْصُرْ أَخَاكَ ظَالِمًا أَوْ مَظْلُومًا ‏\"‏‏.‏ فَقَالَ رَجُلٌ يَا رَسُولَ اللَّهِ أَنْصُرُهُ إِذَا كَانَ مَظْلُومًا، أَفَرَأَيْتَ إِذَا كَانَ ظَالِمًا كَيْفَ أَنْصُرُهُ قَالَ ‏\"‏ تَحْجُزُهُ أَوْ تَمْنَعُهُ مِنَ الظُّلْمِ، فَإِنَّ ذَلِكَ نَصْرُهُ ‏\"‏‏.‏",
+      "text_en": "Allah's Messenger (ﷺ) said, \"Help your brother whether he is an oppressor or an oppressed,\" A man said, \"O Allah's Messenger (ﷺ)! I will help him if he is oppressed, but if he is an oppressor, how shall I help him?\" The Prophet (ﷺ) said, \"By preventing him from oppressing (others), for that is how to help him.\"",
+      "url": "https://sunnah.com/bukhari:6695"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 5749,
+      "text": "حَدَّثَنِي مُحَمَّدُ بْنُ الْوَلِيدِ، حَدَّثَنَا مُحَمَّدُ بْنُ جَعْفَرٍ، حَدَّثَنَا شُعْبَةُ، قَالَ حَدَّثَنِي عُبَيْدُ اللَّهِ بْنُ أَبِي بَكْرٍ، قَالَ سَمِعْتُ أَنَسَ بْنَ مَالِكٍ ـ رضى الله عنه ـ قَالَ ذَكَرَ رَسُولُ اللَّهِ صلى الله عليه وسلم الْكَبَائِرَ، أَوْ سُئِلَ عَنِ الْكَبَائِرِ فَقَالَ ‏\"‏ الشِّرْكُ بِاللَّهِ، وَقَتْلُ النَّفْسِ، وَعُقُوقُ الْوَالِدَيْنِ ‏\"‏‏.‏ فَقَالَ ‏\"‏ أَلاَ أُنَبِّئُكُمْ بِأَكْبَرِ الْكَبَائِرِ ـ قَالَ ـ قَوْلُ الزُّورِ ـ أَوْ قَالَ ـ شَهَادَةُ الزُّورِ ‏\"‏‏.‏ قَالَ شُعْبَةُ وَأَكْثَرُ ظَنِّي أَنَّهُ قَالَ ‏\"‏ شَهَادَةُ الزُّورِ ‏\"‏‏.‏",
+      "text_en": "Allah's Messenger (ﷺ) mentioned the greatest sins or he was asked about the greatest sins. He said, \"To join partners in worship with Allah; to kill a soul which Allah has forbidden to kill; and to be undutiful or unkind to one's parents.\" The Prophet (ﷺ) added, \"Shall I inform you of the biggest of the great sins? That is the forged statement or the false witness.\" Shu`ba (the sub-narrator) states that most probably the Prophet said, \"the false witness.\"",
+      "url": "https://sunnah.com/bukhari:5749"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 6986,
+      "text": "حَدَّثَنَا عَلِيُّ بْنُ عَبْدِ اللَّهِ، حَدَّثَنَا سُفْيَانُ، حَدَّثَنَا ابْنُ الْمُنْكَدِرِ، قَالَ سَمِعْتُ جَابِرَ بْنَ عَبْدِ اللَّهِ، قَالَ نَدَبَ النَّبِيُّ صلى الله عليه وسلم يَوْمَ الْخَنْدَقِ فَانْتَدَبَ الزُّبَيْرُ، ثُمَّ نَدَبَهُمْ فَانْتَدَبَ الزُّبَيْرُ، ثُمَّ نَدَبَهُمْ فَانْتَدَبَ الزُّبَيْرُ فَقَالَ ‏ \"‏ لِكُلِّ نَبِيٍّ حَوَارِيٌّ وَحَوَارِيِّ الزُّبَيْرُ ‏\"‏‏.‏ قَالَ سُفْيَانُ حَفِظْتُهُ مِنِ ابْنِ الْمُنْكَدِرِ‏.‏ وَقَالَ لَهُ أَيُّوبُ يَا أَبَا بَكْرٍ حَدِّثْهُمْ عَنْ جَابِرٍ، فَإِنَّ الْقَوْمَ يُعْجِبُهُمْ أَنْ تُحَدِّثَهُمْ عَنْ جَابِرٍ‏.‏ فَقَالَ فِي ذَلِكَ الْمَجْلِسِ سَمِعْتُ جَابِرًا فَتَابَعَ بَيْنَ أَحَادِيثَ سَمِعْتُ جِابِرًا، قُلْتُ لِسُفْيَانَ فَإِنَّ الثَّوْرِيَّ يَقُولُ يَوْمَ قُرَيْظَةَ فَقَالَ كَذَا حَفِظْتُهُ كَمَا أَنَّكَ جَالِسٌ يَوْمَ الْخَنْدَقِ‏.‏ قَالَ سُفْيَانُ هُوَ يَوْمٌ وَاحِدٌ‏.‏ وَتَبَسَّمَ سُفْيَانُ‏.‏",
+      "text_en": "On the day of (the battle of) the Trench, the Prophet (ﷺ) called the people (to bring news about the enemy). Az-Zubair responded to his call. He called them again and Az-Zubair responded to his call again; then he called them for the third time and again Az-Zubair responded to his call whereupon the Prophet said, \"Every prophet has his Hawairi (helper), and Az-Zubair is my Hawari.\"",
+      "url": "https://sunnah.com/bukhari:6986"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 3818,
+      "text": "حَدَّثَنِي إِسْحَاقُ بْنُ إِبْرَاهِيمَ، أَخْبَرَنَا عَبْدُ اللَّهِ بْنُ إِدْرِيسَ، قَالَ سَمِعْتُ حُصَيْنَ بْنَ عَبْدِ الرَّحْمَنِ، عَنْ سَعْدِ بْنِ عُبَيْدَةَ، عَنْ أَبِي عَبْدِ الرَّحْمَنِ السُّلَمِيِّ، عَنْ عَلِيٍّ ـ رضى الله عنه ـ قَالَ بَعَثَنِي رَسُولُ اللَّهِ صلى الله عليه وسلم وَأَبَا مَرْثَدٍ وَالزُّبَيْرَ وَكُلُّنَا فَارِسٌ قَالَ ‏\"‏ انْطَلِقُوا حَتَّى تَأْتُوا رَوْضَةَ خَاخٍ، فَإِنَّ بِهَا امْرَأَةً مِنَ الْمُشْرِكِينَ، مَعَهَا كِتَابٌ مِنْ حَاطِبِ بْنِ أَبِي بَلْتَعَةَ إِلَى الْمُشْرِكِينَ ‏\"‏‏.‏ فَأَدْرَكْنَاهَا تَسِيرُ عَلَى بَعِيرٍ لَهَا حَيْثُ قَالَ رَسُولُ اللَّهِ صلى الله عليه وسلم فَقُلْنَا الْكِتَابُ‏.‏ فَقَالَتْ مَا مَعَنَا كِتَابٌ‏.‏ فَأَنَخْنَاهَا فَالْتَمَسْنَا فَلَمْ نَرَ كِتَابًا، فَقُلْنَا مَا كَذَبَ رَسُولُ اللَّهِ صلى الله عليه وسلم، لَتُخْرِجِنَّ الْكِتَابَ أَوْ لَنُجَرِّدَنَّكِ‏.‏ فَلَمَّا رَأَتِ الْجِدَّ أَهْوَتْ إِلَى حُجْزَتِهَا وَهْىَ مُحْتَجِزَةٌ بِ…",
+      "text_en": "Allah's Messenger (ﷺ) sent me, Abu Marthad and Az-Zubair, and all of us were riding horses, and said, \"Go till you reach Raudat-Khakh where there is a pagan woman carrying a letter from Hatib bin Abi Balta' a to the pagans of Mecca.\" So we found her riding her camel at the place which Allah's Messenger (ﷺ) had mentioned. We said (to her),\"(Give us) the letter.\" She said, \"I have no letter.\" Then we made her camel kneel down and we searched her, but we found no letter. Then we said, \"Allah's Messenger (ﷺ) had not told us a lie, certainly. Take out the letter, otherwise we will strip you nake…",
+      "url": "https://sunnah.com/bukhari:3818"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 1491,
+      "text": "حَدَّثَنَا مُحَمَّدُ بْنُ أَبِي بَكْرٍ الْمُقَدَّمِيُّ، حَدَّثَنَا فُضَيْلُ بْنُ سُلَيْمَانَ، قَالَ حَدَّثَنِي مُوسَى بْنُ عُقْبَةَ، قَالَ أَخْبَرَنِي كُرَيْبٌ، عَنْ عَبْدِ اللَّهِ بْنِ عَبَّاسٍ ـ رضى الله عنهما ـ قَالَ انْطَلَقَ النَّبِيُّ صلى الله عليه وسلم مِنَ الْمَدِينَةِ، بَعْدَ مَا تَرَجَّلَ وَادَّهَنَ وَلَبِسَ إِزَارَهُ وَرِدَاءَهُ، هُوَ وَأَصْحَابُهُ، فَلَمْ يَنْهَ عَنْ شَىْءٍ مِنَ الأَرْدِيَةِ وَالأُزْرِ تُلْبَسُ إِلاَّ الْمُزَعْفَرَةَ الَّتِي تَرْدَعُ عَلَى الْجِلْدِ، فَأَصْبَحَ بِذِي الْحُلَيْفَةِ، رَكِبَ رَاحِلَتَهُ حَتَّى اسْتَوَى عَلَى الْبَيْدَاءِ، أَهَلَّ هُوَ وَأَصْحَابُهُ وَقَلَّدَ بَدَنَتَهُ، وَذَلِكَ لِخَمْسٍ بَقِينَ مِنْ ذِي الْقَعْدَةِ، فَقَدِمَ مَكَّةَ لأَرْبَعِ لَيَالٍ خَلَوْنَ مِنْ ذِي الْحَجَّةِ، فَطَافَ بِالْبَيْتِ وَسَعَى بَيْنَ الصَّفَا وَالْمَرْوَةِ، وَلَمْ يَحِلَّ مِنْ أَجْلِ بُدْنِهِ لأَنَّهُ قَلَّدَهَا، ثُمَّ نَزَلَ بِأَعْلَى مَكَّةَ عِنْدَ الْحَجُونِ…",
+      "text_en": "The Prophet (ﷺ) with his companions started from Medina after combing and oiling his hair and putting on two sheets of lhram (upper body cover and waist cover). He did not forbid anyone to wear any kind of sheets except the ones colored with saffron because they may leave the scent on the skin. And so in the early morning, the Prophet (ﷺ) mounted his Mount while in Dhul-Hulaifa and set out till they reached Baida', where he and his companions recited Talbiya, and then they did the ceremony of Taqlid (which means to put the colored garlands around the necks of the Budn (camels for sacrifice)…",
+      "url": "https://sunnah.com/bukhari:1491"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 177,
+      "text": "حَدَّثَنَا أَبُو الْوَلِيدِ، قَالَ حَدَّثَنَا ابْنُ عُيَيْنَةَ، عَنِ الزُّهْرِيِّ، عَنْ عَبَّادِ بْنِ تَمِيمٍ، عَنْ عَمِّهِ، عَنِ النَّبِيِّ صلى الله عليه وسلم قَالَ ‏ \"‏ لاَ يَنْصَرِفْ حَتَّى يَسْمَعَ صَوْتًا أَوْ يَجِدَ رِيحًا ‏\"‏‏.‏",
+      "text_en": "My uncle said: The Prophet (ﷺ) said, \"One should not leave his prayer unless he hears sound or smells something.\"",
+      "url": "https://sunnah.com/bukhari:177"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 6972,
+      "text": "حَدَّثَنَا مُحَمَّدُ بْنُ الْمُثَنَّى، حَدَّثَنَا عَبْدُ الْوَهَّابِ، حَدَّثَنَا أَيُّوبُ، عَنْ أَبِي قِلاَبَةَ، حَدَّثَنَا مَالِكٌ، قَالَ أَتَيْنَا النَّبِيَّ صلى الله عليه وسلم وَنَحْنُ شَبَبَةٌ مُتَقَارِبُونَ، فَأَقَمْنَا عِنْدَهُ عِشْرِينَ لَيْلَةً، وَكَانَ رَسُولُ اللَّهِ صلى الله عليه وسلم رَفِيقًا، فَلَمَّا ظَنَّ أَنَّا قَدِ اشْتَهَيْنَا أَهْلَنَا أَوْ قَدِ اشْتَقْنَا سَأَلَنَا عَمَّنْ تَرَكْنَا بَعْدَنَا فَأَخْبَرْنَاهُ قَالَ ‏ \"‏ ارْجِعُوا إِلَى أَهْلِيكُمْ، فَأَقِيمُوا فِيهِمْ، وَعَلِّمُوهُمْ، وَمُرُوهُمْ ـ وَذَكَرَ أَشْيَاءَ أَحْفَظُهَا أَوْ لاَ أَحْفَظُهَا ـ وَصَلُّوا كَمَا رَأَيْتُمُونِي أُصَلِّي، فَإِذَا حَضَرَتِ الصَّلاَةُ فَلْيُؤَذِّنْ لَكُمْ أَحَدُكُمْ، وَلْيَؤُمَّكُمْ أَكْبَرُكُمْ ‏\"‏‏.‏",
+      "text_en": "We came to the Prophet (ﷺ) and we were young men nearly of equal ages and we stayed with him for twenty nights. Allah's Messenger (ﷺ) was a very kind man and when he realized our longing for our families, he asked us about those whom we had left behind. When we informed him, he said, \"Go back to your families and stay with them and teach them (religion) and order them (to do good deeds). The Prophet (ﷺ) mentioned things some of which I remembered and some I did not. Then he said, \"Pray as you have seen me praying, and when it is the time of prayer, one of you should pronounce the call (Adha…",
+      "url": "https://sunnah.com/bukhari:6972"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 3027,
+      "text": "حَدَّثَنَا عَلِيُّ بْنُ عَبْدِ اللَّهِ، حَدَّثَنَا سُفْيَانُ، قَالَ سَمِعْتُ عَمْرًا، قَالَ كُنْتُ جَالِسًا مَعَ جَابِرِ بْنِ زَيْدٍ وَعَمْرِو بْنِ أَوْسٍ، فَحَدَّثَهُمَا بَجَالَةُ، سَنَةَ سَبْعِينَ ـ عَامَ حَجَّ مُصْعَبُ بْنُ الزُّبَيْرِ بِأَهْلِ الْبَصْرَةِ ـ عِنْدَ دَرَجِ زَمْزَمَ قَالَ كُنْتُ كَاتِبًا لِجَزْءِ بْنِ مُعَاوِيَةَ عَمِّ الأَحْنَفِ، فَأَتَانَا كِتَابُ عُمَرَ بْنِ الْخَطَّابِ قَبْلَ مَوْتِهِ بِسَنَةٍ فَرِّقُوا بَيْنَ كُلِّ ذِي مَحْرَمٍ مِنَ الْمَجُوسِ‏.‏ وَلَمْ يَكُنْ عُمَرُ أَخَذَ الْجِزْيَةَ مِنَ الْمَجُوسِ‏.‏ حَتَّى شَهِدَ عَبْدُ الرَّحْمَنِ بْنُ عَوْفٍ أَنَّ رَسُولَ اللَّهِ صلى الله عليه وسلم أَخَذَهَا مِنْ مَجُوسِ هَجَرٍ‏.‏",
+      "text_en": "I was sitting with Jabir bin Zaid and `Amr bin Aus, and Bjalla was narrating to them in 70 A.H. the year when Mus`ab bin Az-Zubair was the leader of the pilgrims of Basra. We were sitting at the steps of Zamzam well and Bajala said, \"I was the clerk of Juz bin Muawiya, Al-Ahnaf's paternal uncle. A letter came from `Umar bin Al-Khattab one year before his death; and it was read:-- \"Cancel every marriage contracted among the Magians between relatives of close kinship (marriages that are regarded illegal in Islam: a relative of this sort being called Dhu-Mahram.)\" `Umar did not take the Jizya …",
+      "url": "https://sunnah.com/bukhari:3027"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 2507,
+      "text": "وَقَالَ الْحُمَيْدِيُّ حَدَّثَنَا سُفْيَانُ، حَدَّثَنَا عَمْرٌو، عَنِ ابْنِ عُمَرَ ـ رضى الله عنهما ـ قَالَ كُنَّا مَعَ النَّبِيِّ صلى الله عليه وسلم فِي سَفَرٍ، وَكُنْتُ عَلَى بَكْرٍ صَعْبٍ فَقَالَ النَّبِيُّ صلى الله عليه وسلم لِعُمَرَ ‏\"‏ بِعْنِيهِ ‏\"‏‏.‏ فَابْتَاعَهُ فَقَالَ النَّبِيُّ صلى الله عليه وسلم ‏\"‏ هُوَ لَكَ يَا عَبْدَ اللَّهِ ‏\"‏‏.‏",
+      "text_en": "We were in the company of the Prophet (ﷺ) on a journey, and I was riding a troublesome camel. The Prophet (ﷺ) asked 'Umar to sell that camel to him. So, 'Umar sold it to him. The Prophet (ﷺ) then said, \"O 'Abdullah! The camel is for you.\"",
+      "url": "https://sunnah.com/bukhari:2507"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 3393,
+      "text": "حَدَّثَنَا أَحْمَدُ بْنُ يُونُسَ، حَدَّثَنَا زُهَيْرٌ، حَدَّثَنَا إِسْمَاعِيلُ، عَنْ أَبِي جُحَيْفَةَ ـ رضى الله عنه ـ قَالَ رَأَيْتُ النَّبِيَّ صلى الله عليه وسلم وَكَانَ الْحَسَنُ يُشْبِهُهُ‏.‏",
+      "text_en": "I saw the Prophet, and Al-Hasan resembled him.",
+      "url": "https://sunnah.com/bukhari:3393"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 1899,
+      "text": "حَدَّثَنَا مُعَاذُ بْنُ فَضَالَةَ، حَدَّثَنَا هِشَامٌ، عَنْ يَحْيَى، عَنْ أَبِي سَلَمَةَ، أَنَّ عَائِشَةَ ـ رضى الله عنها ـ حَدَّثَتْهُ قَالَتْ، لَمْ يَكُنِ النَّبِيُّ صلى الله عليه وسلم يَصُومُ شَهْرًا أَكْثَرَ مِنْ شَعْبَانَ، فَإِنَّهُ كَانَ يَصُومُ شَعْبَانَ كُلَّهُ، وَكَانَ يَقُولُ ‏ \"‏ خُذُوا مِنَ الْعَمَلِ مَا تُطِيقُونَ، فَإِنَّ اللَّهَ لاَ يَمَلُّ حَتَّى تَمَلُّوا، وَأَحَبُّ الصَّلاَةِ إِلَى النَّبِيِّ صلى الله عليه وسلم مَا دُووِمَ عَلَيْهِ، وَإِنْ قَلَّتْ ‏\"‏ وَكَانَ إِذَا صَلَّى صَلاَةً دَاوَمَ عَلَيْهَا‏.‏",
+      "text_en": "The Prophet (ﷺ) never fasted in any month more than in the month of Sha'ban. He used to say, \"Do those deeds which you can do easily, as Allah will not get tired (of giving rewards) till you get bored and tired (of performing religious deeds).\" The most beloved prayer to the Prophet (ﷺ) was the one that was done regularly (throughout the life) even if it were little. And whenever the Prophet (ﷺ) offered a prayer he used to offer it regularly .",
+      "url": "https://sunnah.com/bukhari:1899"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 4853,
+      "text": "حَدَّثَنَا مُحَمَّدُ بْنُ كَثِيرٍ، أَخْبَرَنَا سُفْيَانُ، حَدَّثَنَا الأَعْمَشُ، عَنْ خَيْثَمَةَ، عَنْ سُوَيْدِ بْنِ غَفَلَةَ، قَالَ عَلِيٌّ رضى الله عنه سَمِعْتُ النَّبِيَّ صلى الله عليه وسلم يَقُولُ ‏ \"‏ يَأْتِي فِي آخِرِ الزَّمَانِ قَوْمٌ حُدَثَاءُ الأَسْنَانِ، سُفَهَاءُ الأَحْلاَمِ، يَقُولُونَ مِنْ خَيْرِ قَوْلِ الْبَرِيَّةِ، يَمْرُقُونَ مِنَ الإِسْلاَمِ كَمَا يَمْرُقُ السَّهْمُ مِنَ الرَّمِيَّةِ، لاَ يُجَاوِزُ إِيمَانُهُمْ حَنَاجِرَهُمْ، فَأَيْنَمَا لَقِيتُمُوهُمْ فَاقْتُلُوهُمْ، فَإِنَّ قَتْلَهُمْ أَجْرٌ لِمَنْ قَتَلَهُمْ يَوْمَ الْقِيَامَةِ ‏\"‏‏.‏",
+      "text_en": "I heard the Prophet (ﷺ) saying, \"In the last days (of the world) there will appear young people with foolish thoughts and ideas. They will give good talks, but they will go out of Islam as an arrow goes out of its game, their faith will not exceed their throats. So, wherever you find them, kill them, for there will be a reward for their killers on the Day of Resurrection.\"",
+      "url": "https://sunnah.com/bukhari:4853"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 1155,
+      "text": "حَدَّثَنَا مُوسَى بْنُ إِسْمَاعِيلَ، حَدَّثَنَا عَبْدُ الْعَزِيزِ بْنُ مُسْلِمٍ، عَنْ عَبْدِ اللَّهِ بْنِ دِينَارٍ، عَنِ ابْنِ عُمَرَ ـ رضى الله عنهما ـ قَالَ كَانَ النَّبِيُّ صلى الله عليه وسلم يَأْتِي مَسْجِدَ قُبَاءٍ كُلَّ سَبْتٍ مَاشِيًا وَرَاكِبًا‏.‏ وَكَانَ عَبْدُ اللَّهِ ـ رضى الله عنهما ـ يَفْعَلُهُ‏.‏",
+      "text_en": "Ibn `Umar said, \"The Prophet (ﷺ) used to go to the Mosque of Quba every Saturday (sometimes) walking and (sometimes) riding.\" `Abdullah (Ibn `Umar) used to do the same.",
+      "url": "https://sunnah.com/bukhari:1155"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 4348,
+      "text": "حَدَّثَنَا إِسْمَاعِيلُ، قَالَ حَدَّثَنِي مَالِكٌ، عَنْ إِسْحَاقَ بْنِ عَبْدِ اللَّهِ بْنِ أَبِي طَلْحَةَ، أَنَّهُ سَمِعَ أَنَسَ بْنَ مَالِكٍ ـ رضى الله عنه ـ يَقُولُ كَانَ أَبُو طَلْحَةَ أَكْثَرَ أَنْصَارِيٍّ بِالْمَدِينَةِ نَخْلاً، وَكَانَ أَحَبَّ أَمْوَالِهِ إِلَيْهِ بَيْرُحَاءٍ، وَكَانَتْ مُسْتَقْبِلَةَ الْمَسْجِدِ، وَكَانَ رَسُولُ اللَّهِ صلى الله عليه وسلم يَدْخُلُهَا وَيَشْرَبُ مِنْ مَاءٍ فِيهَا طَيِّبٍ، فَلَمَّا أُنْزِلَتْ ‏{‏لَنْ تَنَالُوا الْبِرَّ حَتَّى تُنْفِقُوا مِمَّا تُحِبُّونَ‏}‏ قَامَ أَبُو طَلْحَةَ فَقَالَ يَا رَسُولَ اللَّهِ، إِنَّ اللَّهَ يَقُولُ ‏{‏لَنْ تَنَالُوا الْبِرَّ حَتَّى تُنْفِقُوا مِمَّا تُحِبُّونَ‏}‏ وَإِنَّ أَحَبَّ أَمْوَالِي إِلَىَّ بَيْرُحَاءٍ وَإِنَّهَا صَدَقَةٌ لِلَّهِ، أَرْجُو بِرَّهَا وَذُخْرَهَا عِنْدَ اللَّهِ، فَضَعْهَا يَا رَسُولَ اللَّهِ حَيْثُ أَرَاكَ اللَّهُ‏.‏ قَالَ رَسُولُ اللَّهِ صلى الله عليه وسلم ‏\"‏ بَخْ، ذَلِكَ مَالٌ رَايِحٌ، ذَلِكَ م…",
+      "text_en": "Out of all the Ansar, living in Medina, Abu Talha had the largest number of (date palm trees) gardens, and the most beloved of his property to him was Bairuha garden which was standing opposite the Mosque (of the Prophet). Allah's Messenger (ﷺ) used to enter it and drink of its good water. When the Verse:--\"By no means shall you attain righteousness unless you spend (in charity) of that which you love.\" (3.92) Abu Talha got up and said, \"O Allah's Messenger (ﷺ), Allah says:--\"By no means shall you attain righteousness unless you spend (in charity) of that which you love.\" (3.92) and the mos…",
+      "url": "https://sunnah.com/bukhari:4348"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 3418,
+      "text": "حَدَّثَنِي الْحَسَنُ بْنُ صَبَّاحٍ الْبَزَّارُ، حَدَّثَنَا سُفْيَانُ، عَنِ الزُّهْرِيِّ، عَنْ عُرْوَةَ، عَنْ عَائِشَةَ ـ رضى الله عنها أَنَّ النَّبِيَّ صلى الله عليه وسلم كَانَ يُحَدِّثُ حَدِيثًا لَوْ عَدَّهُ الْعَادُّ لأَحْصَاهُ‏.‏ وَقَالَ اللَّيْثُ حَدَّثَنِي يُونُسُ، عَنِ ابْنِ شِهَابٍ، أَنَّهُ قَالَ أَخْبَرَنِي عُرْوَةُ بْنُ الزُّبَيْرِ، عَنْ عَائِشَةَ، أَنَّهَا قَالَتْ أَلاَ يُعْجِبُكَ أَبُو فُلاَنٍ جَاءَ فَجَلَسَ إِلَى جَانِبِ حُجْرَتِي يُحَدِّثُ عَنْ رَسُولِ اللَّهِ صلى الله عليه وسلم، يُسْمِعُنِي ذَلِكَ وَكُنْتُ أُسَبِّحُ فَقَامَ قَبْلَ أَنْ أَقْضِيَ سُبْحَتِي، وَلَوْ أَدْرَكْتُهُ لَرَدَدْتُ عَلَيْهِ، إِنَّ رَسُولَ اللَّهِ صلى الله عليه وسلم لَمْ يَكُنْ يَسْرُدُ الْحَدِيثَ كَسَرْدِكُمْ‏.‏",
+      "text_en": "The Prophet (ﷺ) used to talk so clearly that if somebody wanted to count the number of his words, he could do so. Narrated `Urwa bin Az-Zubair: `Aisha said (to me), \"Don't you wonder at Abu so-and-so who came and sat by my dwelling and started relating the traditions of Allah's Messenger (ﷺ) intending to let me hear that, while I was performing an optional prayer. He left before I finished my optional prayer. Had I found him still there. I would have said to him, 'Allah's Messenger (ﷺ) never talked so quickly and vaguely as you do.' \"",
+      "url": "https://sunnah.com/bukhari:3418"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 1996,
+      "text": "حَدَّثَنِي مُحَمَّدٌ، حَدَّثَنَا عَبْدُ اللَّهِ بْنُ يَزِيدَ، حَدَّثَنَا سَعِيدٌ، قَالَ حَدَّثَنِي أَبُو الأَسْوَدِ، عَنْ عُرْوَةَ، قَالَ قَالَتْ عَائِشَةُ ـ رضى الله عنها ـ كَانَ أَصْحَابُ رَسُولِ اللَّهِ صلى الله عليه وسلم عُمَّالَ أَنْفُسِهِمْ، وَكَانَ يَكُونُ لَهُمْ أَرْوَاحٌ فَقِيلَ لَهُمْ لَوِ اغْتَسَلْتُمْ‏.‏ رَوَاهُ هَمَّامٌ عَنْ هِشَامٍ عَنْ أَبِيهِ عَنْ عَائِشَةَ‏.‏",
+      "text_en": "The companions of Allah's Messenger (ﷺ) used to practice manual labor, so their sweat used to smell, and they were advised to take a bath.",
+      "url": "https://sunnah.com/bukhari:1996"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 3684,
+      "text": "وَقَالَ ابْنُ وَهْبٍ أَخْبَرَنَا عَمْرٌو، عَنْ بُكَيْرِ بْنِ الأَشَجِّ، أَنَّ كُرَيْبًا، مَوْلَى ابْنِ عَبَّاسٍ حَدَّثَهُ أَنَّ ابْنَ عَبَّاسٍ ـ رضى الله عنهما ـ قَالَ لَيْسَ السَّعْىُ بِبَطْنِ الْوَادِي بَيْنَ الصَّفَا وَالْمَرْوَةِ سُنَّةً، إِنَّمَا كَانَ أَهْلُ الْجَاهِلِيَّةِ يَسْعَوْنَهَا وَيَقُولُونَ لاَ نُجِيزُ الْبَطْحَاءَ إِلاَّ شَدًّا",
+      "text_en": "To run along the valley between two green pillars of Safa and Marwa (mountains) was not Sunna, but the people in the pre-islamic period of ignorance used to run along it, and used to say: \"We do not cross this rain stream except running strongly. \"",
+      "url": "https://sunnah.com/bukhari:3684"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 3992,
+      "text": "حَدَّثَنَا آدَمُ بْنُ أَبِي إِيَاسٍ، حَدَّثَنَا شُعْبَةُ، عَنْ عَمْرِو بْنِ مُرَّةَ، قَالَ سَمِعْتُ عَبْدَ اللَّهِ بْنَ أَبِي أَوْفَى ـ وَكَانَ مِنْ أَصْحَابِ الشَّجَرَةِ ـ قَالَ كَانَ النَّبِيُّ صلى الله عليه وسلم إِذَا أَتَاهُ قَوْمٌ بِصَدَقَةٍ قَالَ ‏\"‏ اللَّهُمَّ صَلِّ عَلَيْهِمْ ‏\"‏‏.‏ فَأَتَاهُ أَبِي بِصَدَقَتِهِ فَقَالَ ‏\"‏ اللَّهُمَّ صَلِّ عَلَى آلِ أَبِي أَوْفَى ‏\"‏‏.‏",
+      "text_en": "(Who was one of those who had given the Pledge of allegiance to the Prophet (ﷺ) beneath the Tree) When the people brought Sadaqa (i.e. rak`at) to the Prophet (ﷺ) he used to say, \"O Allah! Bless them with your Mercy.\" Once my father came with his Sadaqa to him whereupon he (i.e. the Prophet) said. \"O Allah! Bless the family of Abu `Aufa.\"",
+      "url": "https://sunnah.com/bukhari:3992"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 6589,
+      "text": "حَدَّثَنَا إِسْمَاعِيلُ بْنُ عَبْدِ اللَّهِ، حَدَّثَنِي مَالِكٌ، عَنْ نَافِعٍ، عَنْ عَبْدِ اللَّهِ بْنِ عُمَرَ ـ رضى الله عنهما ـ أَنَّهُ قَالَ إِنَّ الْيَهُودَ جَاءُوا إِلَى رَسُولِ اللَّهِ صلى الله عليه وسلم فَذَكَرُوا لَهُ أَنَّ رَجُلاً مِنْهُمْ وَامْرَأَةً زَنَيَا فَقَالَ لَهُمْ رَسُولُ اللَّهِ صلى الله عليه وسلم ‏ \"‏ مَا تَجِدُونَ فِي التَّوْرَاةِ فِي شَأْنِ الرَّجْمِ ‏\"‏‏.‏ فَقَالُوا نَفْضَحُهُمْ وَيُجْلَدُونَ‏.‏ قَالَ عَبْدُ اللَّهِ بْنُ سَلاَمٍ كَذَبْتُمْ إِنَّ فِيهَا الرَّجْمَ‏.‏ فَأَتَوْا بِالتَّوْرَاةِ فَنَشَرُوهَا، فَوَضَعَ أَحَدُهُمْ يَدَهُ عَلَى آيَةِ الرَّجْمِ فَقَرَأَ مَا قَبْلَهَا وَمَا بَعْدَهَا‏.‏ فَقَالَ لَهُ عَبْدُ اللَّهِ بْنُ سَلاَمٍ ارْفَعْ يَدَكَ‏.‏ فَرَفَعَ يَدَهُ فَإِذَا فِيهَا آيَةُ الرَّجْمِ‏.‏ قَالُوا صَدَقَ يَا مُحَمَّدُ فِيهَا آيَةُ الرَّجْمِ‏.‏ فَأَمَرَ بِهِمَا رَسُولُ اللَّهِ صلى الله عليه وسلم فَرُجِمَا، فَرَأَيْتُ الرَّجُلَ يَحْنِي عَلَى الْمَرْأَةِ…",
+      "text_en": "The jews came to Allah's Messenger (ﷺ) and mentioned to him that a man and a lady among them had committed illegal sexual intercourse. Allah's Messenger (ﷺ) said to them, \"What do you find in the Torah regarding the Rajam?\" They replied, \"We only disgrace and flog them with stripes.\" `Abdullah bin Salam said to them, 'You have told a lie the penalty of Rajam is in the Torah.' They brought the Torah and opened it. One of them put his hand over the verse of the Rajam and read what was before and after it. `Abdullah bin Salam said to him, \"Lift up your hand.\" Where he lifted it there appeared …",
+      "url": "https://sunnah.com/bukhari:6589"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 3942,
+      "text": "حَدَّثَنَا قُتَيْبَةُ بْنُ سَعِيدٍ، حَدَّثَنَا اللَّيْثُ، عَنْ سَعِيدِ بْنِ أَبِي سَعِيدٍ، عَنْ أَبِيهِ، عَنْ أَبِي هُرَيْرَةَ ـ رضى الله عنه ـ أَنَّ رَسُولَ اللَّهِ صلى الله عليه وسلم كَانَ يَقُولُ ‏ \"‏ لاَ إِلَهَ إِلاَّ اللَّهُ وَحْدَهُ، أَعَزَّ جُنْدَهُ، وَنَصَرَ عَبْدَهُ وَغَلَبَ الأَحْزَابَ وَحْدَهُ، فَلاَ شَىْءَ بَعْدَهُ ‏\"‏‏.‏",
+      "text_en": "Allah's Messenger (ﷺ) used to say, \"None has the right to be worshipped except Allah Alone (Who) honored His Warriors and made His Slave victorious, and He (Alone) defeated the (infidel) clans; so there is nothing after Him.",
+      "url": "https://sunnah.com/bukhari:3942"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 7053,
+      "text": "حَدَّثَنَا إِبْرَاهِيمُ بْنُ الْمُنْذِرِ، حَدَّثَنَا أَبُو ضَمْرَةَ، حَدَّثَنَا مُوسَى بْنُ عُقْبَةَ، عَنْ نَافِعٍ، عَنِ ابْنِ عُمَرَ، أَنَّ الْيَهُودَ، جَاءُوا إِلَى النَّبِيِّ صلى الله عليه وسلم بِرَجُلٍ وَامْرَأَةٍ زَنَيَا، فَأَمَرَ بِهِمَا فَرُجِمَا قَرِيبًا مِنْ حَيْثُ تُوضَعُ الْجَنَائِزُ عِنْدَ الْمَسْجِدِ‏.‏",
+      "text_en": "The Jews brought a man and a woman who had committed illegal sexual intercourse, to the Prophet (ﷺ) and the Prophet (ﷺ) ordered them to be stoned to death, and they were stoned to death near the mosque where the biers used to be placed.",
+      "url": "https://sunnah.com/bukhari:7053"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 3480,
+      "text": "حَدَّثَنَا عَبْدُ اللَّهِ بْنُ يُوسُفَ، أَخْبَرَنَا مَالِكُ بْنُ أَنَسٍ، عَنْ نَافِعٍ، عَنْ عَبْدِ اللَّهِ بْنِ عُمَرَ ـ رضى الله عنهما ـ أَنَّ الْيَهُودَ، جَاءُوا إِلَى رَسُولِ اللَّهِ صلى الله عليه وسلم فَذَكَرُوا لَهُ أَنَّ رَجُلاً مِنْهُمْ وَامْرَأَةً زَنَيَا فَقَالَ لَهُمْ رَسُولُ اللَّهِ صلى الله عليه وسلم ‏ \"‏ مَا تَجِدُونَ فِي التَّوْرَاةِ فِي شَأْنِ الرَّجْمِ ‏\"‏‏.‏ فَقَالُوا نَفْضَحُهُمْ وَيُجْلَدُونَ‏.‏ فَقَالَ عَبْدُ اللَّهِ بْنُ سَلاَمٍ كَذَبْتُمْ، إِنَّ فِيهَا الرَّجْمَ‏.‏ فَأَتَوْا بِالتَّوْرَاةِ فَنَشَرُوهَا، فَوَضَعَ أَحَدُهُمْ يَدَهُ عَلَى آيَةِ الرَّجْمِ، فَقَرَأَ مَا قَبْلَهَا وَمَا بَعْدَهَا‏.‏ فَقَالَ لَهُ عَبْدُ اللَّهِ بْنُ سَلاَمٍ ارْفَعْ يَدَكَ‏.‏ فَرَفَعَ يَدَهُ فَإِذَا فِيهَا آيَةُ الرَّجْمِ‏.‏ فَقَالُوا صَدَقَ يَا مُحَمَّدُ، فِيهَا آيَةُ الرَّجْمِ‏.‏ فَأَمَرَ بِهِمَا رَسُولُ اللَّهِ صلى الله عليه وسلم فَرُجِمَا‏.‏ قَالَ عَبْدُ اللَّهِ فَرَأَيْتُ الرَّجُلَ …",
+      "text_en": "The Jews came to Allah's Messenger (ﷺ) and told him that a man and a woman from amongst them had committed illegal sexual intercourse. Allah's Messenger (ﷺ) said to them, \"What do you find in the Torah (old Testament) about the legal punishment of Ar-Rajm (stoning)?\" They replied, (But) we announce their crime and lash them.\" `Abdullah bin Salam said, \"You are telling a lie; Torah contains the order of Rajm.\" They brought and opened the Torah and one of them solaced his hand on the Verse of Rajm and read the verses preceding and following it. `Abdullah bin Salam said to him, \"Lift your hand…",
+      "url": "https://sunnah.com/bukhari:3480"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 340,
+      "text": "حَدَّثَنَا مُسَدَّدٌ، قَالَ حَدَّثَنِي يَحْيَى بْنُ سَعِيدٍ، قَالَ حَدَّثَنَا عَوْفٌ، قَالَ حَدَّثَنَا أَبُو رَجَاءٍ، عَنْ عِمْرَانَ، قَالَ كُنَّا فِي سَفَرٍ مَعَ النَّبِيِّ صلى الله عليه وسلم وَإِنَّا أَسْرَيْنَا، حَتَّى كُنَّا فِي آخِرِ اللَّيْلِ، وَقَعْنَا وَقْعَةً وَلاَ وَقْعَةَ أَحْلَى عِنْدَ الْمُسَافِرِ مِنْهَا، فَمَا أَيْقَظَنَا إِلاَّ حَرُّ الشَّمْسِ، وَكَانَ أَوَّلَ مَنِ اسْتَيْقَظَ فُلاَنٌ ثُمَّ فُلاَنٌ ثُمَّ فُلاَنٌ ـ يُسَمِّيهِمْ أَبُو رَجَاءٍ فَنَسِيَ عَوْفٌ ـ ثُمَّ عُمَرُ بْنُ الْخَطَّابِ الرَّابِعُ، وَكَانَ النَّبِيُّ صلى الله عليه وسلم إِذَا نَامَ لَمْ يُوقَظْ حَتَّى يَكُونَ هُوَ يَسْتَيْقِظُ، لأَنَّا لاَ نَدْرِي مَا يَحْدُثُ لَهُ فِي نَوْمِهِ، فَلَمَّا اسْتَيْقَظَ عُمَرُ، وَرَأَى مَا أَصَابَ النَّاسَ، وَكَانَ رَجُلاً جَلِيدًا، فَكَبَّرَ وَرَفَعَ صَوْتَهُ بِالتَّكْبِيرِ، فَمَا زَالَ يُكَبِّرُ وَيَرْفَعُ صَوْتَهُ بِالتَّكْبِيرِ حَتَّى اسْتَيْقَظَ لِصَوْتِهِ النَّبِيُّ …",
+      "text_en": "Once we were traveling with the Prophet (ﷺ) and we carried on traveling till the last part of the night and then we (halted at a place) and slept (deeply). There is nothing sweeter than sleep for a traveler in the last part of the night. So it was only the heat of the sun that made us to wake up and the first to wake up was so and so, then so and so and then so and so (the narrator `Auf said that Abu Raja' had told him their names but he had forgotten them) and the fourth person to wake up was `Umar bin Al- Khattab. And whenever the Prophet (ﷺ) used to sleep, nobody would wake up him till h…",
+      "url": "https://sunnah.com/bukhari:340"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 3080,
+      "text": "حَدَّثَنَا حَفْصُ بْنُ عُمَرَ، حَدَّثَنَا شُعْبَةُ، عَنْ عَدِيِّ بْنِ ثَابِتٍ، عَنِ الْبَرَاءِ ـ رضى الله عنه ـ قَالَ قَالَ النَّبِيُّ صلى الله عليه وسلم لِحَسَّانَ ‏ \"‏ اهْجُهُمْ ـ أَوْ هَاجِهِمْ ـ وَجِبْرِيلُ مَعَكَ ‏\"‏‏.‏",
+      "text_en": "The Prophet (ﷺ) said to Hassan, \"Lampoon them (i.e. the pagans) and Gabriel is with you.\"",
+      "url": "https://sunnah.com/bukhari:3080"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 5238,
+      "text": "حَدَّثَنَا مُسَدَّدٌ، حَدَّثَنَا عَبْدُ الْوَارِثِ، عَنْ عَبْدِ الْعَزِيزِ، قَالَ قِيلَ لأَنَسٍ مَا سَمِعْتَ النَّبِيَّ صلى الله عليه وسلم فِي الثُّومِ فَقَالَ ‏ \"‏ مَنْ أَكَلَ فَلاَ يَقْرَبَنَّ مَسْجِدَنَا ‏\"‏‏.‏",
+      "text_en": "It was said to Anas \"What did you hear the Prophet (ﷺ) saying about garlic?\" Anas replied, \"Whoever has eaten (garlic) should not approach our mosque.\"",
+      "url": "https://sunnah.com/bukhari:5238"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 1746,
+      "text": "حَدَّثَنَا عَبْدُ اللَّهِ بْنُ يُوسُفَ، أَخْبَرَنَا مَالِكٌ، عَنْ حُمَيْدِ بْنِ قَيْسٍ، عَنْ مُجَاهِدٍ، عَنْ عَبْدِ الرَّحْمَنِ بْنِ أَبِي لَيْلَى، عَنْ كَعْبِ بْنِ عُجْرَةَ ـ رضى الله عنه ـ عَنْ رَسُولِ اللَّهِ صلى الله عليه وسلم أَنَّهُ قَالَ ‏\"‏ لَعَلَّكَ آذَاكَ هَوَامُّكَ ‏\"‏‏.‏ قَالَ نَعَمْ يَا رَسُولَ اللَّهِ‏.‏ فَقَالَ رَسُولُ اللَّهِ صلى الله عليه وسلم ‏\"‏ احْلِقْ رَأْسَكَ وَصُمْ ثَلاَثَةَ أَيَّامٍ، أَوْ أَطْعِمْ سِتَّةَ مَسَاكِينَ، أَوِ انْسُكْ بِشَاةٍ ‏\"‏‏.‏",
+      "text_en": "Ka`b bin 'Ujra said that Allah's Messenger (ﷺ) said to him (Ka`b), \"Perhaps your lice have troubled you?\" Ka`b replied, \"Yes! O Allah's Messenger (ﷺ).\" Allah's Messenger (ﷺ) said, \"Have your head shaved and then either fast three days or feed six poor persons or slaughter one sheep as a sacrifice.\"",
+      "url": "https://sunnah.com/bukhari:1746"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 6325,
+      "text": "حَدَّثَنَا إِبْرَاهِيمُ بْنُ حَمْزَةَ، حَدَّثَنَا ابْنُ أَبِي حَازِمٍ، وَالدَّرَاوَرْدِيُّ، عَنْ يَزِيدَ، عَنْ عَبْدِ اللَّهِ بْنِ خَبَّابٍ، عَنْ أَبِي سَعِيدٍ الْخُدْرِيِّ ـ رضى الله عنه ـ أَنَّهُ سَمِعَ رَسُولَ اللَّهِ صلى الله عليه وسلم وَذُكِرَ عِنْدَهُ عَمُّهُ أَبُو طَالِبٍ فَقَالَ ‏ \"‏ لَعَلَّهُ تَنْفَعُهُ شَفَاعَتِي يَوْمَ الْقِيَامَةِ فَيُجْعَلُ فِي ضَحْضَاحٍ مِنَ النَّارِ، يَبْلُغُ كَعْبَيْهِ، يَغْلِي مِنْهُ أُمُّ دِمَاغِهِ ‏\"‏‏.‏",
+      "text_en": "I heard Allah's Messenger (ﷺ)s when his uncle, Abu Talib had been mentioned in his presence, saying, \"May be my intercession will help him (Abu Talib) on the Day of Resurrection so that he may be put in a shallow place in the Fire, with fire reaching his ankles and causing his brain to boil.\"",
+      "url": "https://sunnah.com/bukhari:6325"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 5254,
+      "text": "حَدَّثَنِي إِسْحَاقُ بْنُ نَصْرٍ، حَدَّثَنَا أَبُو أُسَامَةَ، قَالَ حَدَّثَنِي بُرَيْدٌ، عَنْ أَبِي بُرْدَةَ، عَنْ أَبِي مُوسَى ـ رضى الله عنه ـ قَالَ وُلِدَ لِي غُلاَمٌ، فَأَتَيْتُ بِهِ النَّبِيَّ صلى الله عليه وسلم فَسَمَّاهُ إِبْرَاهِيمَ، فَحَنَّكَهُ بِتَمْرَةٍ، وَدَعَا لَهُ بِالْبَرَكَةِ وَدَفَعَهُ إِلَىَّ، وَكَانَ أَكْبَرَ وَلَدِ أَبِي مُوسَى‏.‏",
+      "text_en": "A son was born to me and I took him to the Prophet (ﷺ) who named him Ibrahim, did Tahnik for him with a date, invoked Allah to bless him and returned him to me. (The narrator added: That was Abu Musa's eldest son.)",
+      "url": "https://sunnah.com/bukhari:5254"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 1020,
+      "text": "حَدَّثَنَا قُتَيْبَةُ بْنُ سَعِيدٍ، قَالَ حَدَّثَنَا حَمَّادُ بْنُ زَيْدٍ، عَنْ يُونُسَ، عَنِ الْحَسَنِ، عَنْ أَبِي بَكْرَةَ، قَالَ قَالَ رَسُولُ اللَّهِ صلى الله عليه وسلم ‏\"‏ إِنَّ الشَّمْسَ وَالْقَمَرَ آيَتَانِ مِنْ آيَاتِ اللَّهِ، لاَ يَنْكَسِفَانِ لِمَوْتِ أَحَدٍ، وَلَكِنَّ اللَّهَ تَعَالَى يُخَوِّفُ بِهَا عِبَادَهُ ‏\"‏‏.‏ وَقَالَ أَبُو عَبْدِ اللَّهِ لَمْ يَذْكُرْ عَبْدُ الْوَارِثِ وَشُعْبَةُ وَخَالِدُ بْنُ عَبْدِ اللَّهِ وَحَمَّادُ بْنُ سَلَمَةَ عَنْ يُونُسَ ‏\"‏ يُخَوِّفُ بِهَا عِبَادَهُ ‏\"‏‏.‏ وَتَابَعَهُ مُوسَى عَنْ مُبَارَكٍ عَنِ الْحَسَنِ قَالَ أَخْبَرَنِي أَبُو بَكْرَةَ عَنِ النَّبِيِّ صلى الله عليه وسلم‏.‏ ‏\"‏ إِنَّ اللَّهَ تَعَالَى يُخَوِّفُ بِهِمَا عِبَادَهُ ‏\"‏‏.‏ وَتَابَعَهُ أَشْعَثُ عَنِ الْحَسَنِ‏.‏",
+      "text_en": "Allah's Messenger (ﷺ) said: \"The sun and the moon are two signs amongst the signs of Allah and they do not eclipse because of the death of someone but Allah frightens His devotees with them.\"",
+      "url": "https://sunnah.com/bukhari:1020"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 2236,
+      "text": "حَدَّثَنَا الْحَكَمُ بْنُ نَافِعٍ، أَخْبَرَنَا شُعَيْبٌ، حَدَّثَنَا أَبُو الزِّنَادِ، عَنِ الأَعْرَجِ، عَنْ أَبِي هُرَيْرَةَ ـ رضى الله عنه ـ قَالَ قَالَتِ الأَنْصَارُ لِلنَّبِيِّ صلى الله عليه وسلم اقْسِمْ بَيْنَنَا وَبَيْنَ إِخْوَانِنَا النَّخِيلَ‏.‏ قَالَ ‏ \"‏ لاَ ‏\"‏‏.‏ فَقَالُوا تَكْفُونَا الْمَئُونَةَ وَنُشْرِكُكُمْ فِي الثَّمَرَةِ‏.‏ قَالُوا سَمِعْنَا وَأَطَعْنَا‏.‏",
+      "text_en": "The Ansar said to the Prophet (ﷺ) \"Distribute the date palm trees between us and our emigrant brothers.\" He replied, \"No.\" The Ansar said (to the emigrants), \"Look after the trees (water and watch them) and share the fruits with us.\" The emigrants said, \"We listen and obey.\"",
+      "url": "https://sunnah.com/bukhari:2236"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 5136,
+      "text": "حَدَّثَنَا قُتَيْبَةُ بْنُ سَعِيدٍ، حَدَّثَنَا سُفْيَانُ، عَنْ عَمْرٍو، عَنْ سَعِيدِ بْنِ جُبَيْرٍ، عَنِ ابْنِ عُمَرَ، أَنَّ النَّبِيَّ صلى الله عليه وسلم قَالَ لِلْمُتَلاَعِنَيْنِ ‏\"‏ حِسَابُكُمَا عَلَى اللَّهِ، أَحَدُكُمَا كَاذِبٌ، لاَ سَبِيلَ لَكَ عَلَيْهَا ‏\"‏‏.‏ قَالَ يَا رَسُولَ اللَّهِ مَالِي‏.‏ قَالَ ‏\"‏ لاَ مَالَ لَكَ، إِنْ كُنْتَ صَدَقْتَ عَلَيْهَا، فَهْوَ بِمَا اسْتَحْلَلْتَ مِنْ فَرْجِهَا، وَإِنْ كُنْتَ كَذَبْتَ عَلَيْهَا، فَذَاكَ أَبْعَدُ وَأَبْعَدُ لَكَ مِنْهَا ‏\"‏‏.‏",
+      "text_en": "The Prophet (ﷺ) said to those who were involved in a case of Lian, \"Your accounts are with Allah. One of you two is a liar. You (husband) have right on her (wife).\" The husband said, \"My money, O Allah's Apostle!\" The Prophet (ﷺ) said, \"You are not entitled to take back any money. If you have told the truth, the Mahr that you paid, was for having sexual relations with her lawfully; and if you are a liar, then you are less entitled to get it back.\"",
+      "url": "https://sunnah.com/bukhari:5136"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 1772,
+      "text": "حَدَّثَنَا عَبْدُ اللَّهِ بْنُ يُوسُفَ، أَخْبَرَنَا مَالِكٌ، عَنْ زَيْدِ بْنِ أَسْلَمَ، عَنْ إِبْرَاهِيمَ بْنِ عَبْدِ اللَّهِ بْنِ حُنَيْنٍ، عَنْ أَبِيهِ، أَنَّ عَبْدَ اللَّهِ بْنَ الْعَبَّاسِ، وَالْمِسْوَرَ بْنَ مَخْرَمَةَ، اخْتَلَفَا بِالأَبْوَاءِ، فَقَالَ عَبْدُ اللَّهِ بْنُ عَبَّاسٍ يَغْسِلُ الْمُحْرِمُ رَأْسَهُ‏.‏ وَقَالَ الْمِسْوَرُ لاَ يَغْسِلُ الْمُحْرِمُ رَأْسَهُ‏.‏ فَأَرْسَلَنِي عَبْدُ اللَّهِ بْنُ الْعَبَّاسِ إِلَى أَبِي أَيُّوبَ الأَنْصَارِيِّ، فَوَجَدْتُهُ يَغْتَسِلُ بَيْنَ الْقَرْنَيْنِ، وَهُوَ يُسْتَرُ بِثَوْبٍ، فَسَلَّمْتُ عَلَيْهِ فَقَالَ مَنْ هَذَا فَقُلْتُ أَنَا عَبْدُ اللَّهِ بْنُ حُنَيْنٍ، أَرْسَلَنِي إِلَيْكَ عَبْدُ اللَّهِ بْنُ الْعَبَّاسِ، أَسْأَلُكَ كَيْفَ كَانَ رَسُولُ اللَّهِ صلى الله عليه وسلم يَغْسِلُ رَأْسَهُ، وَهُوَ مُحْرِمٌ، فَوَضَعَ أَبُو أَيُّوبَ يَدَهُ عَلَى الثَّوْبِ، فَطَأْطَأَهُ حَتَّى بَدَا لِي رَأْسُهُ ثُمَّ قَالَ لإِنْسَانٍ يَصُبُّ عَلَيْهِ اصْ…",
+      "text_en": "`Abdullah bin Al-Abbas and Al-Miswar bin Makhrama differed at Al-Abwa'; Ibn `Abbas said that a Muhrim could wash his head; while Al-Miswar maintained that he should not do so. `Abdullah bin `Abbas sent me to Abu Aiyub Al-Ansari and I found him bathing between the two wooden posts (of the well) and was screened with a sheet of cloth. I greeted him and he asked who I was. I replied, \"I am `Abdullah bin Hunain and I have been sent to you by Ibn `Abbas to ask you how Allah's Messenger (ﷺ) used to wash his head while in the state of lhram.\" Abu Aiyub Al-Ansari caught hold of the sheet of cloth a…",
+      "url": "https://sunnah.com/bukhari:1772"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 1727,
+      "text": "حَدَّثَنَا مُحَمَّدُ بْنُ بَشَّارٍ، حَدَّثَنَا غُنْدَرٌ، حَدَّثَنَا شُعْبَةُ، عَنْ قَيْسِ بْنِ مُسْلِمٍ، عَنْ طَارِقِ بْنِ شِهَابٍ، عَنْ أَبِي مُوسَى الأَشْعَرِيِّ ـ رضى الله عنه ـ قَالَ قَدِمْتُ عَلَى النَّبِيِّ صلى الله عليه وسلم بِالْبَطْحَاءِ وَهُوَ مُنِيخٌ فَقَالَ ‏\"‏ أَحَجَجْتَ ‏\"‏‏.‏ قُلْتُ نَعَمْ‏.‏ قَالَ ‏\"‏ بِمَا أَهْلَلْتَ ‏\"‏‏.‏ قُلْتُ لَبَّيْكَ بِإِهْلاَلٍ كَإِهْلاَلِ النَّبِيِّ صلى الله عليه وسلم قَالَ ‏\"‏ أَحْسَنْتَ‏.‏ طُفْ بِالْبَيْتِ وَبِالصَّفَا وَالْمَرْوَةِ ثُمَّ أَحِلَّ ‏\"‏‏.‏ فَطُفْتُ بِالْبَيْتِ، وَبِالصَّفَا وَالْمَرْوَةِ، ثُمَّ أَتَيْتُ امْرَأَةً مِنْ قَيْسٍ، فَفَلَتْ رَأْسِي، ثُمَّ أَهْلَلْتُ بِالْحَجِّ‏.‏ فَكُنْتُ أُفْتِي بِهِ، حَتَّى كَانَ فِي خِلاَفَةِ عُمَرَ فَقَالَ إِنْ أَخَذْنَا بِكِتَابِ اللَّهِ فَإِنَّهُ يَأْمُرُنَا بِالتَّمَامِ، وَإِنْ أَخَذْنَا بِقَوْلِ النَّبِيِّ صلى الله عليه وسلم فَإِنَّهُ لَمْ يَحِلَّ حَتَّى يَبْلُغَ الْهَدْىُ مَحِلَّهُ‏.‏",
+      "text_en": "I came to the Prophet (ﷺ) at Al-Batha' while his camel was kneeling down and he asked me, \"Have you intended to perform the Hajj?\" I replied in the affirmative. He asked me, 'With what intention have you assumed Ihram?\" I replied, \"I have assumed Ihram with the same intention as that of the Prophet. He said, \"You have done well. Perform the Tawaf of the Ka`ba and (the Sai) between As-Safa and Al- Marwa and then finish the Ihram.\" So, I performed the Tawaf around the Ka`ba and the Sai) between As-Safa and Al-Marwa and then went to a woman of the tribe of Qais who cleaned my head from lice. L…",
+      "url": "https://sunnah.com/bukhari:1727"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 4733,
+      "text": "حَدَّثَنَا سَعِيدُ بْنُ النَّضْرِ، أَخْبَرَنَا هُشَيْمٌ، أَخْبَرَنَا أَبُو بِشْرٍ، جَعْفَرُ بْنُ إِيَاسٍ عَنْ مُجَاهِدٍ، قَالَ قَالَ ابْنُ عَبَّاسٍ ‏{‏لَتَرْكَبُنَّ طَبَقًا عَنْ طَبَقٍ‏}‏ حَالاً بَعْدَ حَالٍ، قَالَ هَذَا نَبِيُّكُمْ صلى الله عليه وسلم‏.‏",
+      "text_en": "(as regards the Verse):--'You shall surely travel from stage to stage (in this life and in the Hereafter).' (It means) from one state to another. That concerns your Prophet.",
+      "url": "https://sunnah.com/bukhari:4733"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 5935,
+      "text": "حَدَّثَنَا بِشْرُ بْنُ خَالِدٍ، حَدَّثَنَا مُحَمَّدُ بْنُ جَعْفَرٍ، عَنْ شُعْبَةَ، عَنْ سُلَيْمَانَ، عَنْ أَبِي وَائِلٍ، عَنْ عَبْدِ اللَّهِ، عَنِ النَّبِيِّ صلى الله عليه وسلم أَنَّهُ قَالَ ‏ \"‏ الْمَرْءُ مَعَ مَنْ أَحَبَّ ‏\"‏‏.‏",
+      "text_en": "The Prophet (ﷺ) said, \"Everyone will be with those whom he loves.\"",
+      "url": "https://sunnah.com/bukhari:5935"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 7076,
+      "text": "حَدَّثَنَا يَحْيَى، حَدَّثَنَا ابْنُ عُيَيْنَةَ، عَنْ مَنْصُورِ بْنِ صَفِيَّةَ، عَنْ أُمِّهِ، عَنْ عَائِشَةَ، أَنَّ امْرَأَةً، سَأَلَتِ النَّبِيَّ صلى الله عليه وسلم‏.‏ حَدَّثَنَا مُحَمَّدٌ ـ هُوَ ابْنُ عُقْبَةَ ـ حَدَّثَنَا الْفُضَيْلُ بْنُ سُلَيْمَانَ النُّمَيْرِيُّ الْبَصْرِيُّ حَدَّثَنَا مَنْصُورُ بْنُ عَبْدِ الرَّحْمَنِ ابْنُ شَيْبَةَ حَدَّثَتْنِي أُمِّي عَنْ عَائِشَةَ ـ رضى الله عنها ـ أَنَّ امْرَأَةً سَأَلَتِ النَّبِيَّ صلى الله عليه وسلم عَنِ الْحَيْضِ كَيْفَ تَغْتَسِلُ مِنْهُ قَالَ ‏\"‏ تَأْخُذِينَ فِرْصَةً مُمَسَّكَةً فَتَوَضَّئِينَ بِهَا ‏\"‏‏.‏ قَالَتْ كَيْفَ أَتَوَضَّأُ بِهَا يَا رَسُولَ اللَّهِ قَالَ النَّبِيُّ صلى الله عليه وسلم ‏\"‏ تَوَضَّئِي ‏\"‏‏.‏ قَالَتْ كَيْفَ أَتَوَضَّأُ بِهَا يَا رَسُولَ اللَّهِ قَالَ النَّبِيُّ صلى الله عليه وسلم ‏\"‏ تَوَضَّئِينَ بِهَا ‏\"‏‏.‏ قَالَتْ عَائِشَةُ فَعَرَفْتُ الَّذِي يُرِيدُ رَسُولُ اللَّهِ صلى الله عليه وسلم فَجَذَبْتُهَا إِلَىَّ فَعَ…",
+      "text_en": "A woman asked the Prophet (Hadith 456). Narrated `Aisha: A woman asked the Prophet (ﷺ) about the periods: How to take a bath after the periods. He said, \"Take a perfumed piece of cloth and clean yourself with it.\" She said,' \"How shall I clean myself with it, O Allah's Messenger (ﷺ)?\" The Prophet (ﷺ) said, \"Clean yourself\" She said again, \"How shall I clean myself, O Allah's Messenger (ﷺ)?\" The Prophet (ﷺ) said, \"Clean yourself with it.\" Then I knew what Allah's Messenger (ﷺ) meant. So I pulled her aside and explained it to her.",
+      "url": "https://sunnah.com/bukhari:7076"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 253,
+      "text": "حَدَّثَنَا أَبُو نُعَيْمٍ، قَالَ حَدَّثَنَا ابْنُ عُيَيْنَةَ، عَنْ عَمْرٍو، عَنْ جَابِرِ بْنِ زَيْدٍ، عَنِ ابْنِ عَبَّاسٍ، أَنَّ النَّبِيَّ صلى الله عليه وسلم وَمَيْمُونَةَ كَانَا يَغْتَسِلاَنِ مِنْ إِنَاءٍ وَاحِدٍ‏.‏ قَالَ أَبُو عَبْدِ اللَّهِ كَانَ ابْنُ عُيَيْنَةَ يَقُولُ أَخِيرًا عَنِ ابْنِ عَبَّاسٍ عَنْ مَيْمُونَةَ، وَالصَّحِيحُ مَا رَوَى أَبُو نُعَيْمٍ‏.‏",
+      "text_en": "The Prophet (ﷺ) and Maimuna used to take a bath from a single pot.",
+      "url": "https://sunnah.com/bukhari:253"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 1240,
+      "text": "حَدَّثَنَا مُسَدَّدٌ، حَدَّثَنَا بِشْرُ بْنُ الْمُفَضَّلِ، حَدَّثَنَا سَلَمَةُ بْنُ عَلْقَمَةَ، عَنْ مُحَمَّدِ بْنِ سِيرِينَ، قَالَ تُوُفِّيَ ابْنٌ لأُمِّ عَطِيَّةَ ـ رضى الله عنها ـ فَلَمَّا كَانَ الْيَوْمُ الثَّالِثُ دَعَتْ بِصُفْرَةٍ، فَتَمَسَّحَتْ بِهِ وَقَالَتْ نُهِينَا أَنْ نُحِدَّ أَكْثَرَ مِنْ ثَلاَثٍ إِلاَّ بِزَوْجٍ‏.‏",
+      "text_en": "One of the sons of Um 'Atiyya died, and when it was the third day she asked for a yellow perfume and put it over her body, and said, \"We were forbidden to mourn for more than three days except for our husbands.\"",
+      "url": "https://sunnah.com/bukhari:1240"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 832,
+      "text": "حَدَّثَنَا مُسَدَّدٌ، قَالَ حَدَّثَنَا يَحْيَى، عَنْ عُبَيْدِ اللَّهِ، قَالَ حَدَّثَنِي نَافِعٌ، عَنِ ابْنِ عُمَرَ ـ رضى الله عنهما ـ أَنَّ النَّبِيَّ صلى الله عليه وسلم قَالَ فِي غَزْوَةِ خَيْبَرَ ‏ \"‏ مَنْ أَكَلَ مِنْ هَذِهِ الشَّجَرَةِ ـ يَعْنِي الثُّومَ ـ فَلاَ يَقْرَبَنَّ مَسْجِدَنَا ‏\"‏‏.‏",
+      "text_en": "During the holy battle of Khaibar the Prophet (ﷺ) said, \"Whoever ate from this plant (i.e. garlic) should not enter our mosque.\"",
+      "url": "https://sunnah.com/bukhari:832"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 1481,
+      "text": "حَدَّثَنَا إِبْرَاهِيمُ بْنُ الْمُنْذِرِ، حَدَّثَنَا أَنَسُ بْنُ عِيَاضٍ، عَنْ عُبَيْدِ اللَّهِ، عَنْ نَافِعٍ، عَنْ عَبْدِ اللَّهِ بْنِ عُمَرَ ـ رضى الله عنهما ـ أَنَّ رَسُولَ اللَّهِ صلى الله عليه وسلم كَانَ يَخْرُجُ مِنْ طَرِيقِ الشَّجَرَةِ، وَيَدْخُلُ مِنْ طَرِيقِ الْمُعَرَّسِ، وَأَنَّ رَسُولَ اللَّهِ صلى الله عليه وسلم كَانَ إِذَا خَرَجَ إِلَى مَكَّةَ يُصَلِّي فِي مَسْجِدِ الشَّجَرَةِ، وَإِذَا رَجَعَ صَلَّى بِذِي الْحُلَيْفَةِ بِبَطْنِ الْوَادِي، وَبَاتَ حَتَّى يُصْبِحَ‏.‏",
+      "text_en": "Allah's Messenger (ﷺ) used to go (for Hajj) via Ash-Shajara way and return via Muarras way; and no doubt, whenever Allah's Messenger (ﷺ) went to Mecca, he used to offer the prayer in the Mosque of Ash-Shajara; and on his return, he used to offer the prayer at Dhul-Hulaifa in the middle of the valley, and pass the night there till morning.",
+      "url": "https://sunnah.com/bukhari:1481"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 1303,
+      "text": "حَدَّثَنَا مُحَمَّدُ بْنُ عَبْدِ اللَّهِ بْنِ حَوْشَبٍ، حَدَّثَنَا عَبْدُ الْوَهَّابِ، حَدَّثَنَا خَالِدٌ، عَنْ عِكْرِمَةَ، عَنِ ابْنِ عَبَّاسٍ ـ رضى الله عنهما ـ عَنِ النَّبِيِّ صلى الله عليه وسلم قَالَ ‏\"‏ حَرَّمَ اللَّهُ مَكَّةَ، فَلَمْ تَحِلَّ لأَحَدٍ قَبْلِي وَلاَ لأَحَدٍ بَعْدِي، أُحِلَّتْ لِي سَاعَةً مِنْ نَهَارٍ، لاَ يُخْتَلَى خَلاَهَا، وَلاَ يُعْضَدُ شَجَرُهَا، وَلاَ يُنَفَّرُ صَيْدُهَا، وَلاَ تُلْتَقَطُ لُقَطَتُهَا إِلاَّ لِمُعَرِّفٍ ‏\"‏‏.‏ فَقَالَ الْعَبَّاسُ ـ رضى الله عنه ـ إِلاَّ الإِذْخِرَ لِصَاغَتِنَا وَقُبُورِنَا‏.‏ فَقَالَ ‏\"‏ إِلاَّ الإِذْخِرَ ‏\"‏‏.‏ وَقَالَ أَبُو هُرَيْرَةَ ـ رضى الله عنه ـ عَنِ النَّبِيِّ صلى الله عليه وسلم ‏\"‏ لِقُبُورِنَا وَبُيُوتِنَا ‏\"‏‏.‏ وَقَالَ أَبَانُ بْنُ صَالِحٍ عَنِ الْحَسَنِ بْنِ مُسْلِمٍ، عَنْ صَفِيَّةَ بِنْتِ شَيْبَةَ، سَمِعْتُ النَّبِيَّ صلى الله عليه وسلم مِثْلَهُ‏.‏ وَقَالَ مُجَاهِدٌ عَنْ طَاوُسٍ عَنِ ابْنِ عَبَّاسٍ ـ رضى الله عنه…",
+      "text_en": "The Prophet (ﷺ) said, \"Allah has made Mecca a sanctuary (sacred place) and it was a sanctuary before me and will be so after me. It was made legal for me (to fight in it) for a few hours of the day. None is allowed to uproot its thorny shrubs or to cut its trees or to chase its game or to pick up its fallen things except by a person who announces it publicly.\" On that Al-Abbas said (to the Prophet), \"Except Al- Idhkhir for our goldsmiths and for our graves.\" And so the Prophet (ﷺ) added, \"Except Al-Idhkhir. \" And Abu Huraira narrated that the Prophet (ﷺ) said, \"Except Al-Idhkhir for our gra…",
+      "url": "https://sunnah.com/bukhari:1303"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 6356,
+      "text": "حَدَّثَنَا آدَمُ، حَدَّثَنَا شُعْبَةُ، حَدَّثَنَا يَزِيدُ الرِّشْكُ، قَالَ سَمِعْتُ مُطَرِّفَ بْنَ عَبْدِ اللَّهِ بْنِ الشِّخِّيرِ، يُحَدِّثُ عَنْ عِمْرَانَ بْنِ حُصَيْنٍ، قَالَ قَالَ رَجُلٌ يَا رَسُولَ اللَّهِ أَيُعْرَفُ أَهْلُ الْجَنَّةِ مِنْ أَهْلِ النَّارِ قَالَ ‏\"‏ نَعَمْ ‏\"‏‏.‏ قَالَ فَلِمَ يَعْمَلُ الْعَامِلُونَ قَالَ ‏\"‏كُلٌّ يَعْمَلُ لِمَا خُلِقَ لَهُ ـ أَوْ لِمَا يُسِّرَ لَهُ‏\"‏ ‏.‏",
+      "text_en": "A man said, \"O Allah's Messenger (ﷺ)! Can the people of Paradise be known (differentiated) from the people of the Fire; The Prophet (ﷺ) replied, \"Yes.\" The man said, \"Why do people (try to) do (good) deeds?\" The Prophet said, \"Everyone will do the deeds for which he has been created to do or he will do those deeds which will be made easy for him to do.\" (i.e. everybody will find easy to do such deeds as will lead him to his destined place for which he has been created).",
+      "url": "https://sunnah.com/bukhari:6356"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 1256,
+      "text": "حَدَّثَنَا عُمَرُ بْنُ حَفْصٍ، حَدَّثَنَا أَبِي، حَدَّثَنَا الأَعْمَشُ، عَنْ عَبْدِ اللَّهِ بْنِ مُرَّةَ، عَنْ مَسْرُوقٍ، عَنْ عَبْدِ اللَّهِ ـ رضى الله عنه ـ قَالَ قَالَ النَّبِيُّ صلى الله عليه وسلم ‏ \"‏ لَيْسَ مِنَّا مَنْ ضَرَبَ الْخُدُودَ، وَشَقَّ الْجُيُوبَ، وَدَعَا بِدَعْوَى الْجَاهِلِيَّةِ ‏\"‏‏.‏",
+      "text_en": "The Prophet (ﷺ) said, \"He who slaps the cheeks, tears the clothes and follows the traditions of the Days of Ignorance is not from us.\"",
+      "url": "https://sunnah.com/bukhari:1256"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 1292,
+      "text": "حَدَّثَنَا مُحَمَّدُ بْنُ الْفَضْلِ، حَدَّثَنَا حَمَّادُ بْنُ زَيْدٍ، عَنْ ثَابِتٍ، عَنْ أَبِي رَافِعٍ، عَنْ أَبِي هُرَيْرَةَ ـ رضى الله عنه ـ أَنَّ أَسْوَدَ ـ رَجُلاً أَوِ امْرَأَةً ـ كَانَ يَقُمُّ الْمَسْجِدَ فَمَاتَ، وَلَمْ يَعْلَمِ النَّبِيُّ صلى الله عليه وسلم بِمَوْتِهِ فَذَكَرَهُ ذَاتَ يَوْمٍ فَقَالَ ‏\"‏ مَا فَعَلَ ذَلِكَ الإِنْسَانُ ‏\"‏‏.‏ قَالُوا مَاتَ يَا رَسُولَ اللَّهِ‏.‏ قَالَ ‏\"‏ أَفَلاَ آذَنْتُمُونِي ‏\"‏‏.‏ فَقَالُوا إِنَّهُ كَانَ كَذَا وَكَذَا قِصَّتَهُ‏.‏ قَالَ فَحَقَرُوا شَأْنَهُ‏.‏ قَالَ ‏\"‏ فَدُلُّونِي عَلَى قَبْرِهِ ‏\"‏‏.‏ فَأَتَى قَبْرَهُ فَصَلَّى عَلَيْهِ‏.‏",
+      "text_en": "A black person, a male or a female used to clean the Mosque and then died. The Prophet (p.b.u.h) did not know about it . One day the Prophet (ﷺ) remembered him and said, \"What happened to that person?\" The people replied, \"O Allah's Messenger (ﷺ)! He died.\" He said, \"Why did you not inform me?\" They said, \"His story was so and so (i.e. regarded him as insignificant).\" He said, \"Show me his grave.\" He then went to his grave and offered the funeral prayer.",
+      "url": "https://sunnah.com/bukhari:1292"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 2310,
+      "text": "حَدَّثَنَا مُوسَى، حَدَّثَنَا أَبُو عَوَانَةَ، عَنْ مُغِيرَةَ، عَنْ عَامِرٍ، عَنْ جَابِرٍ ـ رضى الله عنه ـ قَالَ أُصِيبَ عَبْدُ اللَّهِ وَتَرَكَ عِيَالاً وَدَيْنًا، فَطَلَبْتُ إِلَى أَصْحَابِ الدَّيْنِ أَنْ يَضَعُوا بَعْضًا مِنْ دَيْنِهِ فَأَبَوْا، فَأَتَيْتُ النَّبِيَّ صلى الله عليه وسلم فَاسْتَشْفَعْتُ بِهِ عَلَيْهِمْ فَأَبَوْا، فَقَالَ ‏\"‏ صَنِّفْ تَمْرَكَ كُلَّ شَىْءٍ مِنْهُ عَلَى حِدَتِهِ، عِذْقَ ابْنِ زَيْدٍ عَلَى حِدَةٍ، وَاللِّينَ عَلَى حِدَةٍ، وَالْعَجْوَةَ عَلَى حِدَةٍ، ثُمَّ أَحْضِرْهُمْ حَتَّى آتِيَكَ ‏\"‏‏.‏ فَفَعَلْتُ، ثُمَّ جَاءَ صلى الله عليه وسلم فَقَعَدَ عَلَيْهِ، وَكَالَ لِكُلِّ رَجُلٍ حَتَّى اسْتَوْفَى، وَبَقِيَ التَّمْرُ كَمَا هُوَ كَأَنَّهُ لَمْ يُمَسَّ‏.‏ وَغَزَوْتُ مَعَ النَّبِيِّ صلى الله عليه وسلم عَلَى نَاضِحٍ لَنَا، فَأَزْحَفَ الْجَمَلُ فَتَخَلَّفَ عَلَىَّ فَوَكَزَهُ النَّبِيُّ صلى الله عليه وسلم مِنْ خَلْفِهِ، قَالَ ‏\"‏ بِعْنِيهِ وَلَكَ ظَهْرُهُ إِلَى الْمَ…",
+      "text_en": "When `Abdullah (my father) died, he left behind children and debts. I asked the lenders to put down some of his debt, but they refused, so I went to the Prophet (ﷺ) to intercede with them, yet they refused. The Prophet (ﷺ) said (to me), \"Classify your dates into their different kinds: 'Adha bin Zaid, Lean and 'Ajwa, each kind alone and call all the creditors and wait till I come to you.\" I did so and the Prophet (ﷺ) came and sat beside the dates and started measuring to each his due till he paid them fully, and the amount of dates remained as it was before, as if he had not touched them. (O…",
+      "url": "https://sunnah.com/bukhari:2310"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 2340,
+      "text": "حَدَّثَنَا سُلَيْمَانُ بْنُ حَرْبٍ، حَدَّثَنَا شُعْبَةُ، عَنْ سَلَمَةَ بْنِ كُهَيْلٍ، قَالَ سَمِعْتُ سُوَيْدَ بْنَ غَفَلَةَ، قَالَ كُنْتُ مَعَ سَلْمَانَ بْنِ رَبِيعَةَ، وَزَيْدِ بْنِ صُوحَانَ فِي غَزَاةٍ، فَوَجَدْتُ سَوْطًا‏.‏ فَقَالَ لِي أَلْقِهِ‏.‏ قُلْتُ لاَ، وَلَكِنْ إِنْ وَجَدْتُ صَاحِبَهُ، وَإِلاَّ اسْتَمْتَعْتُ بِهِ‏.‏ فَلَمَّا رَجَعْنَا حَجَجْنَا فَمَرَرْتُ بِالْمَدِينَةِ، فَسَأَلْتُ أُبَىَّ بْنَ كَعْبٍ ـ رضى الله عنه ـ فَقَالَ وَجَدْتُ صُرَّةً عَلَى عَهْدِ النَّبِيِّ صلى الله عليه وسلم فِيهَا مِائَةُ دِينَارٍ، فَأَتَيْتُ بِهَا النَّبِيَّ صلى الله عليه وسلم فَقَالَ ‏\"‏ عَرِّفْهَا حَوْلاً ‏\"‏‏.‏ فَعَرَّفْتُهَا حَوْلاً ثُمَّ أَتَيْتُ، فَقَالَ ‏\"‏ عَرِّفْهَا حَوْلاً ‏\"‏‏.‏ فَعَرَّفْتُهَا حَوْلاً ثُمَّ أَتَيْتُهُ، فَقَالَ ‏\"‏ عَرِّفْهَا حَوْلاً ‏\"‏‏.‏ فَعَرَّفْتُهَا حَوْلاً ثُمَّ أَتَيْتُهُ الرَّابِعَةَ فَقَالَ ‏\"‏ اعْرِفْ عِدَّتَهَا وَوِكَاءَهَا وَوِعَاءَهَا، فَإِنْ جَاءَ صَاحِبُ…",
+      "text_en": "While I as in the company of Salman bin Rabi`a and Suhan, in one of the holy battles, I found a whip. One of them told me to drop it but I refused to do so and said that I would give it to its owner if I found him, otherwise I would utilize it. On our return we performed Hajj and on passing by Medina, I asked Ubai bin Ka`b about it. He said, \"I found a bag containing a hundred Dinars in the lifetime of the Prophet (ﷺ) and took it to the Prophet (ﷺ) who said to me, 'Make public announcement about it for one year.' So, I announced it for one year and went to the Prophet (ﷺ) who said, 'Announc…",
+      "url": "https://sunnah.com/bukhari:2340"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 3745,
+      "text": "حَدَّثَنَا مُحَمَّدُ بْنُ بَشَّارٍ، حَدَّثَنَا غُنْدَرٌ، حَدَّثَنَا شُعْبَةُ، عَنْ أَبِي إِسْحَاقَ، قَالَ سَمِعْتُ الْبَرَاءَ ـ رضى الله عنه ـ قَالَ لَمَّا أَقْبَلَ النَّبِيُّ صلى الله عليه وسلم إِلَى الْمَدِينَةِ تَبِعَهُ سُرَاقَةُ بْنُ مَالِكِ بْنِ جُعْشُمٍ، فَدَعَا عَلَيْهِ النَّبِيُّ صلى الله عليه وسلم فَسَاخَتْ بِهِ فَرَسُهُ‏.‏ قَالَ ادْعُ اللَّهَ لِي وَلاَ أَضُرُّكَ‏.‏ فَدَعَا لَهُ‏.‏ قَالَ فَعَطِشَ رَسُولُ اللَّهِ صلى الله عليه وسلم فَمَرَّ بِرَاعٍ، قَالَ أَبُو بَكْرٍ فَأَخَذْتُ قَدَحًا فَحَلَبْتُ فِيهِ كُثْبَةً مِنْ لَبَنٍ، فَأَتَيْتُهُ فَشَرِبَ حَتَّى رَضِيتُ‏.‏",
+      "text_en": "When the Prophet (ﷺ) migrated to Medina, Suraqa bin Malik bin Ju'sham pursued him. The Prophet (ﷺ) invoked evil on him, therefore the forelegs of his horse sank into the ground. Suraqa said (to the Prophet ), \"Invoke Allah to rescue me, and I will not harm you. \"The Prophet (ﷺ) invoked Allah for him. Then Allah's Messenger (ﷺ) felt thirsty and he passed by a shepherd. Abu Bakr said, \"I took a bowl and milked a little milk in it and brought it to the Prophet (ﷺ) and he drank till I was pleased.\"",
+      "url": "https://sunnah.com/bukhari:3745"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 4520,
+      "text": "حَدَّثَنَا إِبْرَاهِيمُ بْنُ مُوسَى، أَخْبَرَنَا هِشَامُ بْنُ يُوسُفَ، أَنَّ ابْنَ جُرَيْجٍ، أَخْبَرَهُمْ قَالَ أَخْبَرَنِي يَعْلَى بْنُ مُسْلِمٍ، وَعَمْرُو بْنُ دِينَارٍ، عَنْ سَعِيدِ بْنِ جُبَيْرٍ، يَزِيدُ أَحَدُهُمَا عَلَى صَاحِبِهِ وَغَيْرَهُمَا قَدْ سَمِعْتُهُ يُحَدِّثُهُ عَنْ سَعِيدٍ قَالَ إِنَّا لَعِنْدَ ابْنِ عَبَّاسٍ فِي بَيْتِهِ، إِذْ قَالَ سَلُونِي قُلْتُ أَىْ أَبَا عَبَّاسٍ ـ جَعَلَنِي اللَّهُ فِدَاكَ ـ بِالْكُوفَةِ رَجُلٌ قَاصٌّ يُقَالُ لَهُ نَوْفٌ، يَزْعُمُ أَنَّهُ لَيْسَ بِمُوسَى بَنِي إِسْرَائِيلَ، أَمَّا عَمْرٌو فَقَالَ لِي قَالَ قَدْ كَذَبَ عَدُوُّ اللَّهِ، وَأَمَّا يَعْلَى فَقَالَ لِي قَالَ ابْنُ عَبَّاسٍ حَدَّثَنِي أُبَىُّ بْنُ كَعْبٍ قَالَ قَالَ رَسُولُ اللَّهِ صلى الله عليه وسلم ‏\"‏ مُوسَى رَسُولُ اللَّهِ ـ عَلَيْهِ السَّلاَمُ ـ قَالَ ذَكَّرَ النَّاسَ يَوْمًا حَتَّى إِذَا فَاضَتِ الْعُيُونُ، وَرَقَّتِ الْقُلُوبُ وَلَّى، فَأَدْرَكَهُ رَجُلٌ، فَقَالَ أَىْ رَسُولَ ا…",
+      "text_en": "Ya`la bin Muslim and `Amr bin Dinar and some others narrated the narration of Sa`id bin Jubair. Narrated Sa`id: While we were at the house of Ibn `Abbas, Ibn `Abbas said, \"Ask me (any question)\" I said, \"O Abu `Abbas! May Allah let me be sacrificed for you ! There is a man at Kufa who is a storyteller called Nauf; who claims that he (Al-Khadir's companion) is not Moses of Bani Israel.\" As for `Amr, he said to me, \"Ibn `Abbas said, \"(Nauf) the enemy of Allah told a lie.\" But Ya`la said to me, \"Ibn `Abbas said, Ubai bin Ka`b said, Allah's Messenger (ﷺ) said, 'Once Moses, Allah's Messenger (ﷺ)…",
+      "url": "https://sunnah.com/bukhari:4520"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 3158,
+      "text": "حَدَّثَنَا عَبْدُ اللَّهِ بْنُ يُوسُفَ، أَخْبَرَنَا مَالِكٌ، عَنْ سُمَىٍّ، مَوْلَى أَبِي بَكْرٍ عَنْ أَبِي صَالِحٍ، عَنْ أَبِي هُرَيْرَةَ ـ رضى الله عنه ـ أَنَّ رَسُولَ اللَّهِ صلى الله عليه وسلم قَالَ ‏ \"‏ مَنْ قَالَ لاَ إِلَهَ إِلاَّ اللَّهُ وَحْدَهُ لاَ شَرِيكَ لَهُ، لَهُ الْمُلْكُ، وَلَهُ الْحَمْدُ، وَهُوَ عَلَى كُلِّ شَىْءٍ قَدِيرٌ‏.‏ فِي يَوْمٍ مِائَةَ مَرَّةٍ، كَانَتْ لَهُ عَدْلَ عَشْرِ رِقَابٍ، وَكُتِبَتْ لَهُ مِائَةُ حَسَنَةٍ، وَمُحِيَتْ عَنْهُ مِائَةُ سَيِّئَةٍ، وَكَانَتْ لَهُ حِرْزًا مِنَ الشَّيْطَانِ يَوْمَهُ ذَلِكَ حَتَّى يُمْسِيَ، وَلَمْ يَأْتِ أَحَدٌ بِأَفْضَلَ مِمَّا جَاءَ بِهِ، إِلاَّ أَحَدٌ عَمِلَ أَكْثَرَ مِنْ ذَلِكَ ‏\"‏‏.‏",
+      "text_en": "Allah's Messenger (ﷺ) said, \"If one says one-hundred times in one day: \"None has the right to be worshipped but Allah, the Alone Who has no partners, to Him belongs Dominion and to Him belong all the Praises, and He has power over all things (i.e. Omnipotent)\", one will get the reward of manumitting ten slaves, and one-hundred good deeds will be written in his account, and one-hundred bad deeds will be wiped off or erased from his account, and on that day he will be protected from the morning till evening from Satan, and nobody will be superior to him except one who has done more than that …",
+      "url": "https://sunnah.com/bukhari:3158"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 7266,
+      "text": "حَدَّثَنِي مُحَمَّدُ بْنُ بَشَّارٍ، حَدَّثَنَا غُنْدَرٌ، حَدَّثَنَا شُعْبَةُ، عَنْ مَنْصُورٍ، وَالأَعْمَشِ، سَمِعَا سَعْدَ بْنَ عُبَيْدَةَ، عَنْ أَبِي عَبْدِ الرَّحْمَنِ، عَنْ عَلِيٍّ ـ رضى الله عنه ـ عَنِ النَّبِيِّ صلى الله عليه وسلم أَنَّهُ كَانَ فِي جِنَازَةٍ فَأَخَذَ عُودًا فَجَعَلَ يَنْكُتُ فِي الأَرْضِ فَقَالَ ‏\"‏ مَا مِنْكُمْ مِنْ أَحَدٍ إِلاَّ كُتِبَ مَقْعَدُهُ مِنَ النَّارِ أَوْ مِنَ الْجَنَّةِ ‏\"‏‏.‏ قَالُوا أَلاَ نَتَّكِلُ‏.‏ قَالَ ‏\"‏ اعْمَلُوا فَكُلٌّ مُيَسَّرٌ ‏{‏فَأَمَّا مَنْ أَعْطَى وَاتَّقَى‏}‏ ‏\"‏‏.‏ الآيَةَ‏.‏",
+      "text_en": "While the Prophet (ﷺ) was in a funeral procession, he took a stick and started scraping the earth with it and said, \"There is none of you but has his place assigned either in Hell or in Paradise.\" They (the people) said, \"Shall we not depend upon that (and give up doing any deeds)?' He said, \" Carry on doing (good deeds) for everybody will find it easy to do such deeds as will lead him to his destined place for which he has been created .\" (And then the Prophet (ﷺ) recited the Verse):-- 'As for him who gives (in charity) and keeps his duty to Allah...' (92.5)",
+      "url": "https://sunnah.com/bukhari:7266"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 4041,
+      "text": "حَدَّثَنَا مُحَمَّدُ بْنُ مُقَاتِلٍ، أَخْبَرَنَا عَبْدُ اللَّهِ، حَدَّثَنَا عُبَيْدُ اللَّهِ بْنُ عُمَرَ، عَنْ نَافِعٍ، عَنِ ابْنِ عُمَرَ، أَنَّ رَسُولَ اللَّهِ صلى الله عليه وسلم نَهَى يَوْمَ خَيْبَرَ عَنْ لُحُومِ الْحُمُرِ الأَهْلِيَّةِ‏.‏",
+      "text_en": "On the day of Khaibar, Allah's Messenger (ﷺ) forbade the eating of donkey meat.",
+      "url": "https://sunnah.com/bukhari:4041"
+    },
+    {
+      "book": "Sahih al-Bukhari",
+      "book_ar": "صحيح البخاري",
+      "number": 7033,
+      "text": "حَدَّثَنَا مُسَدَّدٌ، حَدَّثَنَا أَبُو عَوَانَةَ، عَنْ عَبْدِ الرَّحْمَنِ بْنِ الأَصْبَهَانِيِّ، عَنْ أَبِي صَالِحٍ، ذَكْوَانَ عَنْ أَبِي سَعِيدٍ، جَاءَتِ امْرَأَةٌ إِلَى رَسُولِ اللَّهِ صلى الله عليه وسلم فَقَالَتْ يَا رَسُولَ اللَّهِ ذَهَبَ الرِّجَالُ بِحَدِيثِكَ، فَاجْعَلْ لَنَا مِنْ نَفْسِكَ، يَوْمًا نَأْتِيكَ فِيهِ تُعَلِّمُنَا مِمَّا عَلَّمَكَ اللَّهُ‏.‏ فَقَالَ ‏\"‏ اجْتَمِعْنَ فِي يَوْمِ كَذَا وَكَذَا فِي مَكَانِ كَذَا وَكَذَا ‏\"‏‏.‏ فَاجْتَمَعْنَ فَأَتَاهُنَّ رَسُولُ اللَّهِ صلى الله عليه وسلم فَعَلَّمَهُنَّ مِمَّا عَلَّمَهُ اللَّهُ ثُمَّ قَالَ ‏\"‏ مَا مِنْكُنَّ امْرَأَةٌ تُقَدِّمُ بَيْنَ يَدَيْهَا مِنْ وَلَدِهَا ثَلاَثَةً، إِلاَّ كَانَ لَهَا حِجَابًا مِنَ النَّارِ ‏\"‏‏.‏ فَقَالَتِ امْرَأَةٌ مِنْهُنَّ يَا رَسُولَ اللَّهِ اثْنَيْنِ قَالَ فَأَعَادَتْهَا مَرَّتَيْنِ ثُمَّ قَالَ ‏\"‏ وَاثْنَيْنِ وَاثْنَيْنِ وَاثْنَيْنِ ‏\"‏‏.‏",
+      "text_en": "A woman came to Allah's Messenger (ﷺ) and said, \"O Allah's Messenger (ﷺ)! Men (only) benefit by your teachings, so please devote to us from (some of) your time, a day on which we may come to you so that you may teach us of what Allah has taught you.\" Allah's Messenger (ﷺ) said, \"Gather on such-and-such a day at suchand- such a place.\" They gathered and Allah's Messenger (ﷺ) came to them and taught them of what Allah had taught him. He then said, \"No woman among you who has lost her three children (died) but that they will screen her from the Fire.\" A woman among them said, \"O Allah's Messen…",
+      "url": "https://sunnah.com/bukhari:7033"
+    }
+  ]
+}
