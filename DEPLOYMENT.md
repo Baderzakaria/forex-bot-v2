@@ -39,3 +39,12 @@ docker compose up -d
 - Google Sheets is legacy optional only.
 - If you change the database location, update `DB_PATH` for both services.
 
+
+## Container images (GHCR)
+
+Published images (after CI/manual push):
+
+- `ghcr.io/baderzakaria/forex-bot-v2:latest` — Telegram bot + crons
+- `ghcr.io/baderzakaria/forex-bot-v2-cms:latest` — Next.js CMS
+
+Pull and run via `docker compose` on a VPS with a persistent `./data` volume. Do not use Vercel (no always-on crons / SQLite / polling).
