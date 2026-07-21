@@ -1,17 +1,29 @@
 import { NextResponse } from "next/server";
 
+import { getSettingsView } from "@/lib/bot-data";
 import { getEnv, loadRootEnv } from "@/lib/env";
 
 type Channel = "telegram_admin" | "telegram_writing" | "telegram_public";
 
 function chatIdFor(channel: Channel) {
+  const settings = getSettingsView();
   if (channel === "telegram_writing") {
-    return getEnv("TELEGRAM_WRITING_CHAT_ID") || getEnv("TELEGRAM_ADMIN_CHAT_ID");
+    return (
+      settings.telegramWritingChatId ||
+      settings.telegramAdminChatId ||
+      getEnv("TELEGRAM_WRITING_CHAT_ID") ||
+      getEnv("TELEGRAM_ADMIN_CHAT_ID")
+    );
   }
   if (channel === "telegram_public") {
-    return getEnv("TELEGRAM_PUBLIC_CHAT_ID") || getEnv("TELEGRAM_ADMIN_CHAT_ID");
+    return (
+      settings.telegramPublicChatId ||
+      settings.telegramAdminChatId ||
+      getEnv("TELEGRAM_PUBLIC_CHAT_ID") ||
+      getEnv("TELEGRAM_ADMIN_CHAT_ID")
+    );
   }
-  return getEnv("TELEGRAM_ADMIN_CHAT_ID");
+  return settings.telegramAdminChatId || getEnv("TELEGRAM_ADMIN_CHAT_ID");
 }
 
 export async function POST(request: Request) {
