@@ -115,7 +115,7 @@ function buildHelpText() {
     '  /calendar_month — full month',
     '  Calendar auto-refreshes if empty',
     '  /discover_calendar [month|force] — refresh macro calendar',
-    '  Alerts: T-30 pre-alerts, T+0 release drafts, actual follow-ups',
+    '  Alerts: T-30 pre-alerts, T+0 release drafts, targeted Apify actual fetches, actual follow-ups',
     '  /plan_days [N] — sync legacy Sheets for N days',
     '  /sync_sheet [N] — rebuild legacy Sheets tabs',
     '  /status — pipeline health',
@@ -147,8 +147,7 @@ function buildScheduleText() {
     '',
     '  07:00 — macro discover',
     '  07:15 — morning brief + optional legacy sheet sync',
-    '  Every minute — T-30, T+0, and actual alert scan',
-    '  Every 5 min — actual refresh window',
+    '  Every minute — T-30, T+0, targeted Apify actual fetches, and actual alert scan',
     '  07:30 — daily quote',
     '',
     `Auto-publish: ${config.autoApprove && config.autoPublish ? 'ON' : 'OFF'}`,
@@ -160,6 +159,15 @@ async function buildStatusText() {
   const pending = db.prepare(`SELECT COUNT(*) as c FROM outbox WHERE status IN ('pending','scheduled','failed')`).get();
   const posts = db.prepare(`SELECT status, COUNT(*) as c FROM posts GROUP BY status`).all();
   const events = db.prepare(`SELECT COUNT(*) as c FROM events WHERE event_time_utc >= datetime('now', '-1 day')`).get();
+  const lastApify = db.prepare(`
+    SELECT
+      MAX(CASE WHEN key = 'apify_last_run_at' THEN value END) AS last_run_at,
+      MAX(CASE WHEN key = 'apify_last_run_caller' THEN value END) AS last_run_caller,
+      MAX(CASE WHEN key = 'apify_last_run_ok' THEN value END) AS last_run_ok,
+      MAX(CASE WHEN key = 'apify_last_run_summary' THEN value END) AS last_run_summary
+    FROM settings
+    WHERE key IN ('apify_last_run_at', 'apify_last_run_caller', 'apify_last_run_ok', 'apify_last_run_summary')
+  `).get();
   const postStr = posts.map(r => `${r.status}=${r.c}`).join(', ') || 'none';
   return withSheetFooter([
     '🩺 Forex Bot v2',
@@ -168,6 +176,8 @@ async function buildStatusText() {
     `Posts: ${postStr}`,
     `Events (24h): ${events?.c || 0}`,
     `Alerts: T-30=${config.preAlertMinutes}m, T+0=${config.releaseAlertEnabled ? 'on' : 'off'}, actual=${config.actualAlertEnabled ? 'on' : 'off'}`,
+    `Apify last run: ${lastApify?.last_run_caller || 'none'} @ ${lastApify?.last_run_at || 'n/a'} · ${lastApify?.last_run_ok === 'true' ? 'ok' : (lastApify?.last_run_ok === 'false' ? 'fail' : 'n/a')}`,
+    `Apify summary: ${lastApify?.last_run_summary || 'n/a'}`,
     `Auto-publish: ${config.autoApprove && config.autoPublish ? 'ON' : 'OFF'}`,
     `Public chat: ${config.publicChatId || 'same as admin'}`,
   ].join('\n'));
@@ -215,6 +225,7 @@ async function buildCalendarText() {
   const rows = db.prepare(`
     SELECT title, currency, event_time_utc, forecast, previous
     FROM events WHERE importance = 'high' AND event_time_utc >= ? AND event_time_utc < ?
+      AND COALESCE(NULLIF(TRIM(title), ''), '') <> 'Event'
     ORDER BY event_time_utc ASC LIMIT 12
   `).all(start + 'T00:00:00Z', end + 'T00:00:00Z');
 
@@ -235,6 +246,7 @@ async function buildCalendarMonthText() {
   const rows = db.prepare(`
     SELECT title, currency, event_time_utc, forecast, previous FROM events
     WHERE importance = 'high' AND event_time_utc >= ? AND event_time_utc < ?
+      AND COALESCE(NULLIF(TRIM(title), ''), '') <> 'Event'
     ORDER BY event_time_utc ASC LIMIT 40
   `).all(start, end);
   if (!rows.length) return withSheetFooter(`📅 No events this month.\nUse /discover_calendar month to refresh the macro calendar.`);
@@ -264,12 +276,14 @@ function getCalendarRows(month) {
     return db.prepare(`
       SELECT title, currency, event_time_utc, forecast, previous FROM events
       WHERE importance = 'high' AND event_time_utc >= ? AND event_time_utc < ?
+        AND COALESCE(NULLIF(TRIM(title), ''), '') <> 'Event'
       ORDER BY event_time_utc ASC LIMIT 40
     `).all(start, end);
   }
   return db.prepare(`
     SELECT title, currency, event_time_utc, forecast, previous
     FROM events WHERE importance = 'high' AND event_time_utc >= ? AND event_time_utc < ?
+      AND COALESCE(NULLIF(TRIM(title), ''), '') <> 'Event'
     ORDER BY event_time_utc ASC LIMIT 12
   `).all(start, end);
 }
@@ -297,8 +311,12 @@ async function handleCalendarCommand(chatId, month) {
       daysAhead: month ? 31 : config.apifyDaysAhead,
       countries: config.apifyCountries,
       force: true,
+      caller: 'telegram-command',
     });
     console.log(formatDiscoverSummary(result).replace(/\n/g, ' | '));
+    if (!result.ok) {
+      return sendMessage(chatId, `⚠️ Calendar refresh failed: ${result.error || 'unknown error'}`);
+    }
   } catch (err) {
     console.error('[calendar-discover]', err.message);
     return sendMessage(chatId, `⚠️ Calendar refresh failed: ${err.message}`);
@@ -341,7 +359,12 @@ async function handleDiscoverCalendar(argsText) {
     daysAhead: month ? 31 : config.apifyDaysAhead,
     countries: config.apifyCountries,
     force,
+    caller: 'telegram-command',
   });
+
+  if (!result.ok) {
+    return `⚠️ Macro discover failed: ${result.error || 'unknown error'}`;
+  }
 
   if (result.skipped) {
     return [

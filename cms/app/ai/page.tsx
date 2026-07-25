@@ -8,7 +8,7 @@ export default function AiPage() {
         title="AI Desk"
         subtitle="General assistant with live financial web research for market notes, related news, and reports."
       >
-        <div className="overflow-hidden rounded-3xl border border-zinc-200">
+        <div className="overflow-hidden rounded-[28px] border border-[var(--fx-border-soft)] shadow-[var(--fx-shadow-soft)]">
           <AiChat
             variant="desk"
             title="General AI"

@@ -89,6 +89,9 @@ db.exec(`
     last_actual TEXT DEFAULT '',
     actual_first_seen_at TEXT,
     actual_posted_at TEXT,
+    actual_apify_requested_at TEXT,
+    actual_apify_fetched_at TEXT,
+    actual_apify_request_scope TEXT,
     t0_posted_at TEXT,
     refreshed_at TEXT DEFAULT (datetime('now'))
   );
@@ -116,6 +119,20 @@ db.exec(`
   CREATE INDEX IF NOT EXISTS idx_tokens_token ON approval_tokens(token);
   CREATE INDEX IF NOT EXISTS idx_event_alert_state_refresh ON event_alert_state(refreshed_at);
 `);
+
+for (const sql of [
+  `ALTER TABLE event_alert_state ADD COLUMN actual_apify_requested_at TEXT`,
+  `ALTER TABLE event_alert_state ADD COLUMN actual_apify_fetched_at TEXT`,
+  `ALTER TABLE event_alert_state ADD COLUMN actual_apify_request_scope TEXT`,
+]) {
+  try {
+    db.exec(sql);
+  } catch (err) {
+    if (!String(err?.message || '').toLowerCase().includes('duplicate column name')) {
+      throw err;
+    }
+  }
+}
 
 // Seed default settings
 const seedSettings = db.prepare(`

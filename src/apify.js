@@ -1,7 +1,8 @@
 import db from './db.js';
 import config from './config.js';
-import { enqueue } from './outbox.js';
+import { enqueue, setSetting } from './outbox.js';
 import { createTokens, keyboard } from './approval.js';
+import { sendMessage } from './telegram.js';
 import {
   formatHighImpactEvent,
   formatReleaseAlert,
@@ -15,6 +16,137 @@ import { syncAllFromDb } from './sheets.js';
 const APIFY_API_BASE = 'https://api.apify.com/v2';
 const POLL_INTERVAL_MS = 10_000;
 const MAX_RUN_MS = 15 * 60 * 1000;
+const APIFY_ERROR_NOTICE_MS = 15 * 60 * 1000;
+const MAX_DRAFTS_PER_TICK = 3;
+const APIFY_ACTUAL_RELEASE_WINDOW_MS = 3 * 60 * 1000;
+
+const COUNTRY_NAME_BY_CODE = {
+  US: 'united states',
+  GB: 'united kingdom',
+  DE: 'germany',
+  JP: 'japan',
+  CH: 'switzerland',
+  CA: 'canada',
+  AU: 'australia',
+  NZ: 'new zealand',
+  EU: 'euro zone',
+};
+
+class ApifyPipelineError extends Error {
+  constructor(message, code, meta = {}) {
+    super(message);
+    this.name = 'ApifyPipelineError';
+    this.code = code;
+    this.meta = meta;
+  }
+}
+
+class ApifyActorError extends ApifyPipelineError {
+  constructor(message, meta = {}) {
+    super(message, 'APIFY_ACTOR_FAIL', meta);
+    this.name = 'ApifyActorError';
+  }
+}
+
+class ApifyTimeoutError extends ApifyPipelineError {
+  constructor(message, meta = {}) {
+    super(message, 'APIFY_TIMEOUT', meta);
+    this.name = 'ApifyTimeoutError';
+  }
+}
+
+class ApifyParseError extends ApifyPipelineError {
+  constructor(message, meta = {}) {
+    super(message, 'APIFY_PARSE', meta);
+    this.name = 'ApifyParseError';
+  }
+}
+
+function isSmokeTitle(title) {
+  const text = String(title || '').trim().toLowerCase();
+  return text.startsWith('selftest') || text.startsWith('smoke ');
+}
+
+function truncateText(value, max = 180) {
+  const text = String(value || '').trim();
+  if (text.length <= max) return text;
+  return `${text.slice(0, max - 1)}…`;
+}
+
+function compactErrorMessage(error) {
+  if (!error) return '';
+  const code = error.code ? `${error.code}: ` : '';
+  return truncateText(`${code}${error.message || error}`, 180);
+}
+
+function summariseCountries(countries) {
+  return normalizeCountries(countries).map((country) => String(country).toUpperCase()).join(', ');
+}
+
+function countryNameFromCode(countryCode) {
+  const code = String(countryCode || '').trim().toUpperCase();
+  return COUNTRY_NAME_BY_CODE[code] || String(countryCode || '').trim().toLowerCase();
+}
+
+function eventDateUtc(value) {
+  return String(value || '').slice(0, 10);
+}
+
+function buildWindowText(fromDate, toDate) {
+  return `${fromDate || 'n/a'}..${toDate || 'n/a'}`;
+}
+
+function buildRunSummary(result) {
+  const parts = [
+    `caller=${result.caller}`,
+    `countries=${summariseCountries(result.countries) || 'none'}`,
+    `window=${buildWindowText(result.fromDate, result.toDate)}`,
+    `started_at=${result.started_at || 'n/a'}`,
+    `duration_ms=${result.duration_ms ?? 'n/a'}`,
+    `saved=${result.saved ?? 0}`,
+    `skipped=${result.skipped ? 'true' : 'false'}`,
+    `high_count=${result.high_count ?? 0}`,
+    `rejected=${result.rejected ?? 0}`,
+    `ok=${result.ok ? 'true' : 'false'}`,
+  ];
+  if (result.error) parts.push(`error=${truncateText(result.error, 120)}`);
+  return parts.join(' ');
+}
+
+function persistRunState(result) {
+  setSetting('apify_last_run_at', result.finished_at || new Date().toISOString());
+  setSetting('apify_last_run_caller', result.caller || '');
+  setSetting('apify_last_run_ok', result.ok ? 'true' : 'false');
+  setSetting('apify_last_run_summary', truncateText(buildRunSummary(result), 240));
+}
+
+function logRun(result) {
+  console.log('[apify-run]', buildRunSummary(result));
+}
+
+async function maybeNotifyAdminOfFailure(result) {
+  if (!config.adminChatId || result.ok || !result.error || !config.apifyToken) return;
+
+  const lastNotice = db.prepare(`SELECT value FROM settings WHERE key = 'apify_last_error_notice_at'`).get();
+  const lastNoticeMs = lastNotice?.value ? new Date(lastNotice.value).getTime() : 0;
+  if (Number.isFinite(lastNoticeMs) && Date.now() - lastNoticeMs < APIFY_ERROR_NOTICE_MS) {
+    return;
+  }
+
+  setSetting('apify_last_error_notice_at', new Date().toISOString());
+  try {
+    await sendMessage(
+      config.adminChatId,
+      [
+        `⚠️ Apify ${result.caller} failed`,
+        `Error: ${compactErrorMessage(result.error)}`,
+        `Window: ${buildWindowText(result.fromDate, result.toDate)}`,
+      ].join('\n'),
+    );
+  } catch (err) {
+    console.error('[apify-run] admin notice failed', err.message);
+  }
+}
 
 function normalizeActorId(actorId) {
   return String(actorId || '').trim().replace(/\//g, '~');
@@ -40,11 +172,58 @@ function asText(value) {
   return text ? text : null;
 }
 
+const PLACEHOLDER_TITLES = new Set(['event', 'n/a', 'na', 'unknown', 'null', 'undefined']);
+
+function normalizeTitle(value) {
+  return String(value || '').trim().toLowerCase().replace(/\s+/g, ' ');
+}
+
+function isPlaceholderTitle(title) {
+  return !title || PLACEHOLDER_TITLES.has(normalizeTitle(title));
+}
+
+function hasMeaningfulEventFields(raw) {
+  return [
+    raw.forecast || raw.forecastValue || raw.consensus,
+    raw.previous || raw.previousValue || raw.prior,
+    raw.actual || raw.actualValue,
+  ].some((value) => asText(value));
+}
+
+function hasStrongEventTitle(title) {
+  return String(title || '').trim().length >= 4;
+}
+
+function isUsableEventRow(row) {
+  const title = asText(row.title);
+  const currency = asText(row.currency);
+
+  if (isPlaceholderTitle(title)) return false;
+  if (isSmokeTitle(title)) return false;
+  if (!hasStrongEventTitle(title)) return false;
+  if (!currency) return false;
+  if (!hasMeaningfulEventFields(row) && !asText(row.actual)) return false;
+  return true;
+}
+
 function ensureAlertState(eventKey) {
   db.prepare(`
     INSERT OR IGNORE INTO event_alert_state (event_key)
     VALUES (?)
   `).run(eventKey);
+}
+
+function markActualApifyRequest(eventKey, scope, requestedAt) {
+  markAlertState(eventKey, {
+    actual_apify_requested_at: requestedAt,
+    actual_apify_request_scope: scope,
+  });
+}
+
+function markActualApifyFetched(eventKey, fetchedAt) {
+  markAlertState(eventKey, {
+    actual_apify_fetched_at: fetchedAt,
+  });
 }
 
 function markAlertState(eventKey, patch = {}) {
@@ -71,56 +250,127 @@ function markAlertState(eventKey, patch = {}) {
 }
 
 function normalizeEventItem(raw, fallbackCountry) {
+  const title = asText(raw.title || raw.event || raw.name);
+  const forecast = asText(raw.forecast || raw.forecastValue || raw.consensus);
+  const previous = asText(raw.previous || raw.previousValue || raw.prior);
+  const actual = asText(raw.actual || raw.actualValue);
+  const currency = asText(raw.currency || raw.ccy || raw.symbol);
+
+  if (isPlaceholderTitle(title)) {
+    return null;
+  }
+
   const event_time_utc = parseEventTimeUtc(raw);
+  if (!event_time_utc) {
+    return null;
+  }
+
+  if (!forecast && !previous && !actual && !currency) {
+    return null;
+  }
+
+  if (!forecast && !previous && !actual && !(hasStrongEventTitle(title) && currency)) {
+    return null;
+  }
+
   return {
     id: raw.id || raw.eventId || raw.event_id || raw.apify_id || null,
-    title: asText(raw.title || raw.event || raw.name || raw.description) || 'Event',
-    currency: asText(raw.currency || raw.ccy || raw.symbol) || '',
+    title,
+    currency: currency || '',
     country_code: countryCodeFromZone(raw.zone || raw.country || raw.country_code || raw.countryCode || fallbackCountry),
     event_time_utc,
     importance: String(raw.importance || raw.impact || '').trim().toLowerCase() || 'high',
-    forecast: asText(raw.forecast || raw.forecastValue || raw.consensus),
-    previous: asText(raw.previous || raw.previousValue || raw.prior),
-    actual: asText(raw.actual || raw.actualValue),
+    forecast,
+    previous,
+    actual,
   };
 }
 
+function getDueActualApifyEvents({ windowMs = APIFY_ACTUAL_RELEASE_WINDOW_MS } = {}) {
+  const leadMs = Math.max(60_000, Number(windowMs) || APIFY_ACTUAL_RELEASE_WINDOW_MS);
+  const now = Date.now();
+  const lower = new Date(now - 60_000).toISOString();
+  const upper = new Date(now + Math.max(60_000, leadMs - 60_000)).toISOString();
+  return db.prepare(`
+    SELECT e.event_key, e.title, e.currency, e.country_code, e.event_time_utc, e.importance,
+           e.forecast, e.previous, e.actual,
+           s.actual_apify_requested_at, s.actual_apify_fetched_at, s.actual_apify_request_scope
+    FROM events e
+    LEFT JOIN event_alert_state s ON s.event_key = e.event_key
+    WHERE e.importance = 'high'
+      AND LENGTH(TRIM(COALESCE(e.title, ''))) > 0
+      AND LOWER(TRIM(COALESCE(e.title, ''))) NOT IN ('event', 'n/a', 'na', 'unknown', 'null', 'undefined')
+      AND COALESCE(e.actual, '') = ''
+      AND COALESCE(s.actual_apify_requested_at, '') = ''
+      AND e.event_time_utc >= ?
+      AND e.event_time_utc <= ?
+    ORDER BY e.event_time_utc ASC
+  `).all(lower, upper);
+}
+
+function groupDueActualApifyEvents(rows) {
+  const groups = new Map();
+  for (const row of rows) {
+    const countryCode = String(row.country_code || '').trim().toUpperCase() || 'XX';
+    const eventDate = eventDateUtc(row.event_time_utc);
+    const key = `${countryCode}|${eventDate}`;
+    if (!groups.has(key)) {
+      groups.set(key, {
+        country_code: countryCode,
+        event_date: eventDate,
+        country_name: countryNameFromCode(countryCode),
+        rows: [],
+      });
+    }
+    groups.get(key).rows.push(row);
+  }
+  return [...groups.values()];
+}
+
 async function apifyJson(url, options = {}) {
-  const res = await fetch(url, {
-    ...options,
-    signal: options.signal || AbortSignal.timeout(options.timeoutMs || 30_000),
-    headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
-      ...(options.headers || {}),
-    },
-  });
+  let res;
+  try {
+    res = await fetch(url, {
+      ...options,
+      signal: options.signal || AbortSignal.timeout(options.timeoutMs || 30_000),
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+        ...(options.headers || {}),
+      },
+    });
+  } catch (err) {
+    throw new ApifyPipelineError(err.message || 'Apify request failed', 'APIFY_HTTP', { cause: err });
+  }
+
   const text = await res.text();
   let data = null;
   if (text) {
     try {
       data = JSON.parse(text);
-    } catch {
-      data = text;
+    } catch (err) {
+      throw new ApifyParseError('Apify response was not valid JSON', { responseText: truncateText(text, 200) });
     }
   }
   if (!res.ok) {
-    const message = typeof data === 'string'
-      ? data
-      : data?.error?.message || data?.message || `Apify request failed (${res.status})`;
-    throw new Error(message);
+    const message = data?.error?.message || data?.message || `Apify request failed (${res.status})`;
+    throw new ApifyPipelineError(message, 'APIFY_HTTP', { status: res.status, url });
   }
   return data;
 }
 
 async function startActorRun({ actorId, token, input }) {
   const url = `${APIFY_API_BASE}/acts/${actorId}/runs?token=${encodeURIComponent(token)}`;
-  const payload = await apifyJson(url, {
-    method: 'POST',
-    body: JSON.stringify(input),
-    timeoutMs: 30_000,
-  });
-  return payload?.data || payload;
+  try {
+    const payload = await apifyJson(url, {
+      method: 'POST',
+      body: JSON.stringify(input),
+      timeoutMs: 30_000,
+    });
+    return payload?.data || payload;
+  } catch (err) {
+    throw new ApifyActorError(`Failed to start Apify actor run: ${compactErrorMessage(err)}`, { cause: err });
+  }
 }
 
 async function waitForRun({ runId, token }) {
@@ -133,17 +383,25 @@ async function waitForRun({ runId, token }) {
     const status = String(run?.status || '').toUpperCase();
     if (status === 'SUCCEEDED') return run;
     if (['FAILED', 'ABORTED', 'TIMED-OUT'].includes(status)) {
-      throw new Error(`Apify run ${runId} ended with ${status}${run?.errorMessage ? `: ${run.errorMessage}` : ''}`);
+      throw new ApifyActorError(`Apify run ${runId} ended with ${status}${run?.errorMessage ? `: ${run.errorMessage}` : ''}`, { runId, status });
     }
     await new Promise((resolve) => setTimeout(resolve, POLL_INTERVAL_MS));
   }
-  throw new Error(`Apify run ${runId} timed out after 15 minutes`);
+  throw new ApifyTimeoutError(`Apify run ${runId} timed out after 15 minutes`, { runId });
 }
 
 async function fetchDatasetItems({ datasetId, token }) {
   const url = `${APIFY_API_BASE}/datasets/${datasetId}/items?token=${encodeURIComponent(token)}&clean=true&format=json`;
-  const payload = await apifyJson(url, { timeoutMs: 30_000 });
-  return Array.isArray(payload) ? payload : [];
+  try {
+    const payload = await apifyJson(url, { timeoutMs: 30_000 });
+    if (!Array.isArray(payload)) {
+      throw new ApifyParseError('Apify dataset response was not an array', { datasetId });
+    }
+    return payload;
+  } catch (err) {
+    if (err instanceof ApifyPipelineError) throw err;
+    throw new ApifyParseError(`Failed to parse Apify dataset ${datasetId}`, { cause: err, datasetId });
+  }
 }
 
 function upsertEvent(row) {
@@ -215,13 +473,14 @@ async function runMacroDiscovery({
 }) {
   const countryList = normalizeCountries(countries);
   if (!countryList.length) {
-    throw new Error('APIFY_MACRO_COUNTRIES is empty');
+    throw new ApifyPipelineError('APIFY_MACRO_COUNTRIES is empty', 'APIFY_COUNTRIES_EMPTY');
   }
 
   const actorId = normalizeActorId(config.apifyActorId);
   let total = 0;
   let highCount = 0;
   let saved = 0;
+  let rejected = 0;
   const summary = [];
 
   for (const country of countryList) {
@@ -239,23 +498,25 @@ async function runMacroDiscovery({
     const finishedRun = await waitForRun({ runId: run.id || run.runId, token: config.apifyToken });
     const datasetId = finishedRun.defaultDatasetId || run.defaultDatasetId;
     if (!datasetId) {
-      throw new Error(`Apify run for ${country} did not return a dataset id`);
+      throw new ApifyParseError(`Apify run for ${country} did not return a dataset id`, { country });
     }
 
     const items = await fetchDatasetItems({ datasetId, token: config.apifyToken });
-    const highItems = items
-      .map((item) => normalizeEventItem(item, country))
-      .filter((item) => String(item.importance).toLowerCase() === 'high');
+    const normalizedItems = items.map((item) => normalizeEventItem(item, country));
+    const usableItems = normalizedItems.filter(Boolean);
+    const highItems = usableItems.filter((item) => String(item.importance).toLowerCase() === 'high');
+    const rejectedItems = items.length - usableItems.length;
 
     total += items.length;
     highCount += highItems.length;
+    rejected += rejectedItems;
 
     for (const item of highItems) {
       upsertEvent(item);
       saved++;
     }
 
-    summary.push(`${String(country).toUpperCase()}: ${highItems.length}/${items.length}`);
+    summary.push(`${String(country).toUpperCase()}: saved ${highItems.length}/${items.length} (rejected ${rejectedItems})`);
   }
 
   return {
@@ -264,79 +525,262 @@ async function runMacroDiscovery({
     high_count: highCount,
     total,
     saved,
+    rejected,
     summary,
   };
 }
 
-export async function discoverMacro({ daysAhead = config.apifyDaysAhead, countries = config.apifyCountries, force = false } = {}) {
-  if (!config.apifyToken) {
-    throw new Error('APIFY_TOKEN missing');
-  }
-
+async function executeDiscovery({
+  caller = 'cron-discover',
+  daysAhead,
+  countries,
+  force = false,
+  fromDate,
+  toDate,
+}) {
+  const startedAt = new Date().toISOString();
+  const startedMs = Date.now();
   const countryList = normalizeCountries(countries);
-  if (!countryList.length) {
-    throw new Error('APIFY_MACRO_COUNTRIES is empty');
-  }
-
-  if (!force && isRefreshedToday()) {
-    return {
-      skipped: true,
-      countries: countryList,
-      high_count: 0,
-      total: 0,
-      saved: 0,
-      summary: ['Skipped: already refreshed today'],
-    };
-  }
-
-  const days = Math.max(1, Number(daysAhead || config.apifyDaysAhead || 3));
-  const from = toIsoDate(new Date());
-  const to = toIsoDate(Date.now() + days * 86400000);
-  const result = await runMacroDiscovery({ countries: countryList, fromDate: from, toDate: to });
-
-  void syncAllFromDb(db).catch((err) => {
-    console.error('[sheet-sync]', err.message);
-  });
-
-  return {
+  const baseResult = {
+    ok: false,
+    caller,
+    started_at: startedAt,
+    duration_ms: 0,
+    countries: countryList,
+    fromDate,
+    toDate,
     skipped: false,
-    ...result,
+    high_count: 0,
+    total: 0,
+    saved: 0,
+    rejected: 0,
+    summary: [],
+    error: '',
   };
+
+  console.log('[apify-run:start]', buildRunSummary(baseResult));
+
+  try {
+    if (!config.apifyToken) {
+      const response = {
+        ...baseResult,
+        ok: true,
+        skipped: true,
+        finished_at: new Date().toISOString(),
+        duration_ms: Date.now() - startedMs,
+        summary: ['Skipped: APIFY_TOKEN disabled'],
+        error: '',
+      };
+
+      persistRunState(response);
+      logRun(response);
+      return response;
+    }
+    if (!countryList.length) {
+      throw new ApifyPipelineError('APIFY_MACRO_COUNTRIES is empty', 'APIFY_COUNTRIES_EMPTY');
+    }
+
+    let result;
+    if (!force && !fromDate && !toDate && isRefreshedToday()) {
+      result = {
+        skipped: true,
+        countries: countryList,
+        high_count: 0,
+        total: 0,
+        saved: 0,
+        rejected: 0,
+        summary: ['Skipped: already refreshed today'],
+      };
+    } else if (fromDate && toDate) {
+      result = await runMacroDiscovery({ countries: countryList, fromDate, toDate });
+    } else {
+      const days = Math.max(1, Number(daysAhead || config.apifyDaysAhead || 3));
+      const discoveredFrom = toIsoDate(new Date());
+      const discoveredTo = toIsoDate(Date.now() + days * 86400000);
+      result = await runMacroDiscovery({
+        countries: countryList,
+        fromDate: discoveredFrom,
+        toDate: discoveredTo,
+      });
+      fromDate = discoveredFrom;
+      toDate = discoveredTo;
+    }
+
+    void syncAllFromDb(db).catch((err) => {
+      console.error('[sheet-sync]', err.message);
+    });
+
+    const finishedAt = new Date().toISOString();
+    const response = {
+      ok: true,
+      caller,
+      started_at: startedAt,
+      finished_at: finishedAt,
+      duration_ms: Date.now() - startedMs,
+      countries: result.countries || countryList,
+      fromDate,
+      toDate,
+      ...result,
+      error: '',
+    };
+
+    persistRunState(response);
+    logRun(response);
+    return response;
+  } catch (err) {
+    const finishedAt = new Date().toISOString();
+    const response = {
+      ...baseResult,
+      ok: false,
+      finished_at: finishedAt,
+      duration_ms: Date.now() - startedMs,
+      error: compactErrorMessage(err),
+    };
+
+    persistRunState(response);
+    logRun(response);
+    await maybeNotifyAdminOfFailure(response);
+    return response;
+  }
 }
 
-export async function refreshRecentActuals({ countries = config.apifyCountries } = {}) {
-  if (!config.apifyToken) {
+export async function discoverMacro({
+  daysAhead = config.apifyDaysAhead,
+  countries = config.apifyCountries,
+  force = false,
+  caller = 'cron-discover',
+} = {}) {
+  return executeDiscovery({
+    caller,
+    daysAhead,
+    countries,
+    force,
+  });
+}
+
+export async function refreshRecentActuals({ countries = config.apifyCountries, caller = 'manual-refresh' } = {}) {
+  const countryList = normalizeCountries(countries);
+  const fromDate = toIsoDate(Date.now() - 86400000);
+  const toDate = toIsoDate(Date.now() + 86400000);
+  return executeDiscovery({
+    caller,
+    countries: countryList,
+    fromDate,
+    toDate,
+    force: true,
+  });
+}
+
+export async function processDueApifyActualFetches({
+  caller = 'cron-actual-fetch',
+  windowMs = APIFY_ACTUAL_RELEASE_WINDOW_MS,
+} = {}) {
+  // This is the only on-event Apify path: it targets one country/day window
+  // for high-impact events that have reached release time but still lack an actual.
+  const rows = getDueActualApifyEvents({ windowMs });
+  if (!rows.length) {
     return {
+      ok: true,
       skipped: true,
-      countries: normalizeCountries(countries),
-      high_count: 0,
-      total: 0,
-      saved: 0,
-      summary: ['Skipped: APIFY_TOKEN missing'],
+      caller,
+      groups: 0,
+      events: 0,
+      summary: ['Skipped: no due high-impact events with missing actuals'],
     };
   }
 
-  const countryList = normalizeCountries(countries);
-  const from = toIsoDate(Date.now() - 86400000);
-  const to = toIsoDate(Date.now() + 86400000);
-  const result = await runMacroDiscovery({ countries: countryList, fromDate: from, toDate: to });
+  if (!config.apifyToken) {
+    return {
+      ok: true,
+      skipped: true,
+      caller,
+      groups: 0,
+      events: rows.length,
+      summary: ['Skipped: APIFY_TOKEN disabled'],
+    };
+  }
 
-  void syncAllFromDb(db).catch((err) => {
-    console.error('[sheet-sync]', err.message);
-  });
+  const groups = groupDueActualApifyEvents(rows);
+  const startedAt = new Date().toISOString();
+  const startedMs = Date.now();
+  const summary = [];
+  let requestedEvents = 0;
+  let fetchedEvents = 0;
+  let fetchedGroups = 0;
+  let hadFailure = false;
+
+  for (const group of groups) {
+    const requestedAt = new Date().toISOString();
+    const scope = `${group.country_code} ${group.event_date}`;
+    requestedEvents += group.rows.length;
+    for (const row of group.rows) {
+      markActualApifyRequest(row.event_key, scope, requestedAt);
+    }
+
+    console.log(`[apify-actual-fetch:start] caller=${caller} country=${group.country_code} date=${group.event_date} events=${group.rows.length}`);
+
+    const result = await discoverMacro({
+      caller: `${caller}:${scope}`,
+      countries: [group.country_name],
+      fromDate: group.event_date,
+      toDate: group.event_date,
+      force: true,
+    });
+
+    if (result.ok) {
+      const fetchedAt = new Date().toISOString();
+      for (const row of group.rows) {
+        markActualApifyFetched(row.event_key, fetchedAt);
+      }
+      fetchedGroups++;
+      fetchedEvents += group.rows.length;
+      summary.push(`Targeted ${scope}: ${result.summary?.join(' | ') || 'ok'}`);
+      continue;
+    }
+
+    hadFailure = true;
+    summary.push(`Targeted ${scope}: ${result.error || 'failed'}`);
+  }
 
   return {
-    ...result,
+    ok: !hadFailure,
+    caller,
+    started_at: startedAt,
+    finished_at: new Date().toISOString(),
+    duration_ms: Date.now() - startedMs,
     skipped: false,
+    groups: groups.length,
+    fetched_groups: fetchedGroups,
+    events: fetchedEvents,
+    requested_events: requestedEvents,
+    summary,
+    error: hadFailure ? 'One or more targeted actual fetches failed' : '',
   };
 }
 
 export function formatDiscoverSummary(result) {
   const parts = [
-    `🗓 Macro discover ${result.skipped ? 'skipped' : 'done'}`,
+    `🗓 Macro discover ${result.ok === false ? 'failed' : (result.skipped ? 'skipped' : 'done')}`,
     `Countries: ${result.countries.map((c) => String(c).toUpperCase()).join(', ')}`,
-    `High: ${result.high_count} · Total: ${result.total} · Saved: ${result.saved}`,
+    `High: ${result.high_count} · Total: ${result.total} · Saved: ${result.saved} · Rejected: ${result.rejected || 0}`,
   ];
+  if (result.error) {
+    parts.push(`Error: ${result.error}`);
+  }
+  if (Array.isArray(result.summary) && result.summary.length) {
+    parts.push('', ...result.summary);
+  }
+  return parts.join('\n');
+}
+
+export function formatActualFetchSummary(result) {
+  const parts = [
+    `🎯 Targeted actual fetch ${result.ok === false ? 'failed' : (result.skipped ? 'skipped' : 'done')}`,
+    `Groups: ${result.groups || 0} · Fetched: ${result.fetched_groups || 0} · Events: ${result.events || 0} · Requested: ${result.requested_events || 0}`,
+  ];
+  if (result.error) {
+    parts.push(`Error: ${result.error}`);
+  }
   if (Array.isArray(result.summary) && result.summary.length) {
     parts.push('', ...result.summary);
   }
@@ -352,7 +796,22 @@ export function getT30Events(preAlertMinutes = 30) {
     SELECT event_key, title, currency, country_code, event_time_utc, importance, forecast, previous, actual
     FROM events
     WHERE importance = 'high'
+      AND LENGTH(TRIM(COALESCE(title, ''))) > 0
+      AND LOWER(TRIM(COALESCE(title, ''))) NOT IN ('event', 'n/a', 'na', 'unknown', 'null', 'undefined')
       AND COALESCE(actual, '') = ''
+      AND (
+        COALESCE(NULLIF(TRIM(forecast), ''), '') <> ''
+        OR COALESCE(NULLIF(TRIM(previous), ''), '') <> ''
+        OR COALESCE(NULLIF(TRIM(actual), ''), '') <> ''
+        OR (
+          LENGTH(TRIM(COALESCE(title, ''))) >= 4
+          AND COALESCE(NULLIF(TRIM(currency), ''), '') <> ''
+        )
+      )
+      AND (
+        LENGTH(TRIM(COALESCE(title, ''))) >= 4
+        OR COALESCE(NULLIF(TRIM(currency), ''), '') <> ''
+      )
       AND event_time_utc >= ?
       AND event_time_utc <= ?
     ORDER BY event_time_utc ASC
@@ -368,7 +827,22 @@ export function getT0Events() {
     SELECT event_key, title, currency, country_code, event_time_utc, importance, forecast, previous, actual
     FROM events
     WHERE importance = 'high'
+      AND LENGTH(TRIM(COALESCE(title, ''))) > 0
+      AND LOWER(TRIM(COALESCE(title, ''))) NOT IN ('event', 'n/a', 'na', 'unknown', 'null', 'undefined')
       AND COALESCE(actual, '') = ''
+      AND (
+        COALESCE(NULLIF(TRIM(forecast), ''), '') <> ''
+        OR COALESCE(NULLIF(TRIM(previous), ''), '') <> ''
+        OR COALESCE(NULLIF(TRIM(actual), ''), '') <> ''
+        OR (
+          LENGTH(TRIM(COALESCE(title, ''))) >= 4
+          AND COALESCE(NULLIF(TRIM(currency), ''), '') <> ''
+        )
+      )
+      AND (
+        LENGTH(TRIM(COALESCE(title, ''))) >= 4
+        OR COALESCE(NULLIF(TRIM(currency), ''), '') <> ''
+      )
       AND event_time_utc >= ?
       AND event_time_utc <= ?
     ORDER BY event_time_utc ASC
@@ -387,8 +861,23 @@ export function getRecentActualEvents({ lookbackMinutes = config.actualLookbackM
     FROM events e
     LEFT JOIN event_alert_state s ON s.event_key = e.event_key
     WHERE e.importance = 'high'
+      AND LENGTH(TRIM(COALESCE(e.title, ''))) > 0
+      AND LOWER(TRIM(COALESCE(e.title, ''))) NOT IN ('event', 'n/a', 'na', 'unknown', 'null', 'undefined')
       AND COALESCE(e.actual, '') <> ''
       AND COALESCE(s.actual_posted_at, '') = ''
+      AND (
+        COALESCE(NULLIF(TRIM(e.forecast), ''), '') <> ''
+        OR COALESCE(NULLIF(TRIM(e.previous), ''), '') <> ''
+        OR COALESCE(NULLIF(TRIM(e.actual), ''), '') <> ''
+        OR (
+          LENGTH(TRIM(COALESCE(e.title, ''))) >= 4
+          AND COALESCE(NULLIF(TRIM(e.currency), ''), '') <> ''
+        )
+      )
+      AND (
+        LENGTH(TRIM(COALESCE(e.title, ''))) >= 4
+        OR COALESCE(NULLIF(TRIM(e.currency), ''), '') <> ''
+      )
       AND (
         (e.event_time_utc >= ? AND e.event_time_utc <= ?)
         OR COALESCE(s.actual_first_seen_at, '') >= ?
@@ -407,6 +896,8 @@ export function processT0ReleaseAlerts({ adminChatId = config.adminChatId } = {}
   let drafted = 0;
 
   for (const row of rows) {
+    if (drafted >= MAX_DRAFTS_PER_TICK) break;
+    if (!isUsableEventRow(row)) continue;
     const postId = `t0-${row.event_key}`;
     const callbackData = `t0:${row.event_key}`;
 
@@ -485,6 +976,8 @@ export function processActualAlerts({ adminChatId = config.adminChatId, lookback
   let drafted = 0;
 
   for (const row of rows) {
+    if (drafted >= MAX_DRAFTS_PER_TICK) break;
+    if (!isUsableEventRow(row)) continue;
     const postId = `actual-${row.event_key}`;
     const callbackData = `actual:${row.event_key}`;
 
@@ -562,6 +1055,8 @@ export function processT30PreAlerts({ preAlertMinutes = config.preAlertMinutes, 
   let drafted = 0;
 
   for (const row of rows) {
+    if (drafted >= MAX_DRAFTS_PER_TICK) break;
+    if (!isUsableEventRow(row)) continue;
     const postId = `t30-${row.event_key}`;
     const callbackData = `t30:${row.event_key}`;
 

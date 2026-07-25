@@ -13,8 +13,9 @@ import {
   processT30PreAlerts,
   processT0ReleaseAlerts,
   processActualAlerts,
-  refreshRecentActuals,
+  processDueApifyActualFetches,
   formatDiscoverSummary,
+  formatActualFetchSummary,
 } from './apify.js';
 import { syncAllFromDb } from './sheets.js';
 import { sendMorningBrief } from './morning.js';
@@ -93,7 +94,6 @@ async function pollLoop() {
 
 // ─── Crons ───
 let macroAlertTickRunning = false;
-let lastActualRefreshAt = 0;
 
 cron.schedule('30 7 * * *', async () => {
   console.log('[cron] daily quote');
@@ -104,11 +104,18 @@ cron.schedule('30 7 * * *', async () => {
 cron.schedule('0 7 * * *', async () => {
   console.log('[cron] macro discover');
   try {
-    const result = await discoverMacro({ daysAhead: config.apifyDaysAhead, countries: config.apifyCountries });
+    const result = await discoverMacro({
+      daysAhead: config.apifyDaysAhead,
+      countries: config.apifyCountries,
+      caller: 'cron-discover',
+    });
     const summary = formatDiscoverSummary(result);
     console.log(summary.replace(/\n/g, ' | '));
-    if (config.adminChatId) {
+    if (config.adminChatId && result.ok) {
       await sendMessage(config.adminChatId, summary).catch((err) => console.error('[discover-msg]', err.message));
+    }
+    if (!result.ok) {
+      console.error('[discover]', result.error || 'unknown error');
     }
   } catch (err) {
     console.error('[discover]', err.message);
@@ -133,21 +140,8 @@ cron.schedule('* * * * *', async () => {
   if (macroAlertTickRunning) return;
   macroAlertTickRunning = true;
   try {
-    const refreshInterval = Math.max(1, Number(config.actualRefreshMinutes) || 5);
-    const shouldRefreshActuals = Boolean(config.apifyToken)
-      && (new Date().getUTCMinutes() % refreshInterval === 0)
-      && Date.now() - lastActualRefreshAt >= (refreshInterval - 1) * 60_000;
-
-    if (shouldRefreshActuals) {
-      try {
-        const refreshResult = await refreshRecentActuals({ countries: config.apifyCountries });
-        lastActualRefreshAt = Date.now();
-        console.log(`[cron] actual refresh saved=${refreshResult.saved || 0}`);
-      } catch (err) {
-        console.error('[actual-refresh]', err.message);
-      }
-    }
-
+    // Minute cron stays on local state for alerts; Apify is only invoked here
+    // for high-impact events that are currently at/near release and still missing actuals.
     const result = processT30PreAlerts({
       preAlertMinutes: config.preAlertMinutes,
       adminChatId: config.adminChatId,
@@ -160,6 +154,16 @@ cron.schedule('* * * * *', async () => {
     });
     if (t0Result.drafted) {
       console.log(`[cron] t0 drafts=${t0Result.drafted}`);
+    }
+
+    const apifyActualResult = await processDueApifyActualFetches({
+      caller: 'cron-actual-fetch',
+      windowMs: 3 * 60 * 1000,
+    });
+    if (apifyActualResult.skipped) {
+      console.log(`[cron] actual apify ${apifyActualResult.summary?.[0] || 'skipped'}`);
+    } else {
+      console.log(formatActualFetchSummary(apifyActualResult).replace(/\n/g, ' | '));
     }
 
     const actualResult = processActualAlerts({
@@ -182,21 +186,6 @@ app.listen(PORT, '0.0.0.0', () => {
   console.log(`[forex-bot-v2] listening on :${PORT} | env=${config.environment}`);
   console.log(`[forex-bot-v2] auto-publish=${config.autoApprove && config.autoPublish ? `ON (${config.autoApproveGraceSeconds}s)` : 'OFF'}`);
   console.log(`[forex-bot-v2] polling=${usePolling} webhook=${!usePolling}`);
-  void (async () => {
-    const total = db.prepare(`SELECT COUNT(*) as c FROM events`).get();
-    if (Number(total?.c || 0) !== 0) return;
-    console.log('[startup] events table empty, refreshing macro calendar');
-    try {
-      const result = await discoverMacro({
-        daysAhead: config.apifyDaysAhead,
-        countries: config.apifyCountries,
-        force: true,
-      });
-      console.log(`[startup] ${formatDiscoverSummary(result).replace(/\n/g, ' | ')}`);
-    } catch (err) {
-      console.error('[startup-discover]', err.message);
-    }
-  })();
 });
 
 // Start loops

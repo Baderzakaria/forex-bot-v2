@@ -337,6 +337,7 @@ export async function syncAllFromDb(database = db, { days = 31 } = {}) {
     SELECT event_key, title, currency, country_code, event_time_utc, importance, forecast, previous, actual
     FROM events
     WHERE event_time_utc >= ? AND event_time_utc < ?
+      AND COALESCE(NULLIF(TRIM(title), ''), '') <> 'Event'
     ORDER BY event_time_utc ASC
   `).all(lower, upper);
 

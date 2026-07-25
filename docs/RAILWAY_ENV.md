@@ -11,7 +11,8 @@ Copy these into Railway → Variables.
 | `TELEGRAM_ADMIN_CHAT_ID` | Admin group/channel id (negative for groups) |
 | `TELEGRAM_PUBLIC_CHAT_ID` | Public publish destination |
 | `TELEGRAM_ALLOWED_USER_IDS` | Comma-separated numeric user ids |
-| `APIFY_TOKEN` | Apify API token |
+| `APIFY_TOKEN` | Apify API token for the 07:00 UTC morning discover and targeted release-time actual fetches |
+| `APIFY_TOKEN_DISABLED` | Leave set/blank to keep Apify disabled and avoid any Apify spend |
 | `DB_PATH` | `/data/forex-bot.db` |
 | `USE_POLLING` | `true` |
 | `NODE_ENV` | `production` |
@@ -39,7 +40,6 @@ Attach a **volume** mounted at `/data`.
 | `RELEASE_ALERT_ENABLED` | `true` (T+0) |
 | `ACTUAL_ALERT_ENABLED` | `true` |
 | `ACTUAL_LOOKBACK_MINUTES` | `120` |
-| `ACTUAL_REFRESH_MINUTES` | `5` |
 | `APIFY_ACTOR_ID` | `pintostudio/economic-calendar-data-investing-com` |
 | `APIFY_MACRO_COUNTRIES` | e.g. `united states, united kingdom, germany, canada, australia, japan, new zealand` |
 | `APIFY_MACRO_DAYS_AHEAD` | `7` |

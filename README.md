@@ -23,6 +23,22 @@ Macro event alerts cover three stages in Telegram:
 - T+0 release-time drafts
 - after-actual follow-ups once data lands
 
+Apify is called from two places:
+
+- `cron-discover` at 07:00 UTC for the daily macro refresh
+- `cron-actual-fetch` on the minute cron for due high-impact events with missing actuals
+- `telegram-command` for `/calendar` and `/discover_calendar`
+
+The minute cron stays SQLite-only for T-30 and T+0. It only calls Apify for targeted, one-shot actual fetches when a release-time event is due and still missing its actual.
+
+Apify token handling:
+
+- Leave `APIFY_TOKEN` blank, or set `APIFY_TOKEN_DISABLED` if you want to keep Apify off without re-enabling spend
+- Morning full discovery remains the only daily scheduled macro refresh
+- Actual fetches are targeted to due high-impact events only, never blanket refreshes
+
+The Apify pipeline now rejects placeholder titles, missing event times, smoke/self-test rows, and other junk rows before anything is upserted or drafted.
+
 ## Quick Start
 
 1. Copy `.env.example` to `.env` and fill in secrets.
