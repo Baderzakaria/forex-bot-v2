@@ -85,7 +85,7 @@ export function SocialChannels({
   const currentEnabled = settings[socialKey.enabled as keyof SocialSettings];
 
   async function saveSocial(next: Partial<SocialSettings>) {
-    const merged = { ...settings, ...next };
+    const merged = { ...settings, ...next } as SocialSettings;
     setSettings(merged);
     setStatus("Saving...");
     try {
