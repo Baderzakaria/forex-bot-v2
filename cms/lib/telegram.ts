@@ -225,7 +225,7 @@ export async function validateTelegramChat(chatId: string): Promise<{
     description?: string;
   }>(token, "getChat", { chat_id: normalizedChatId });
 
-  if (!data.ok || !data.result) {
+  if (!data.ok || !data.result || data.result.id === undefined || data.result.id === null) {
     return {
       ok: false,
       error: data.description || "Telegram getChat failed",
@@ -234,6 +234,6 @@ export async function validateTelegramChat(chatId: string): Promise<{
 
   return {
     ok: true,
-    chat: normalizeChat(data.result),
+    chat: normalizeChat({ ...data.result, id: data.result.id }),
   };
 }
