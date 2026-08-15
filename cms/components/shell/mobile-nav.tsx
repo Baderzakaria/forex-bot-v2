@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import {
   Brain,
   CalendarRange,
+  CreditCard,
   GalleryVerticalEnd,
   LayoutDashboard,
   Settings2,
@@ -23,6 +24,7 @@ const items = [
   { href: "/social", label: "Social", icon: Waypoints },
   { href: "/ai", label: "AI Desk", icon: Brain },
   { href: "/members", label: "Members", icon: Users },
+  { href: "/payments", label: "Payments", icon: CreditCard },
   { href: "/settings", label: "Settings", icon: Settings2 },
 ];
 

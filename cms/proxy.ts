@@ -27,7 +27,7 @@ function unauthenticatedApiResponse(request: NextRequest) {
 export async function proxy(request: NextRequest) {
   const { pathname, search } = request.nextUrl;
 
-  if (pathname === "/api/health" || (pathname === "/api/members" && request.method === "POST")) {
+  if (pathname === "/api/health" || ((pathname === "/api/members" || pathname === "/api/payments") && request.method === "POST")) {
     return noStore(NextResponse.next());
   }
 
