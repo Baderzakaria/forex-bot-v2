@@ -9,6 +9,7 @@ import {
   LayoutDashboard,
   Settings2,
   ShieldCheck,
+  Users,
   Waypoints,
 } from "lucide-react";
 
@@ -22,6 +23,7 @@ const navItems = [
   { href: "/content", label: "Content", icon: GalleryVerticalEnd },
   { href: "/social", label: "Social", icon: Waypoints },
   { href: "/ai", label: "AI Desk", icon: Brain },
+  { href: "/members", label: "Members", icon: Users },
   { href: "/settings", label: "Settings", icon: Settings2 },
 ];
 
@@ -79,15 +81,15 @@ export function Sidebar() {
       <div className="border-t border-[color:rgba(255,255,255,0.08)] p-4">
         <div className="rounded-[22px] border border-white/10 bg-white/[0.06] px-4 py-4 text-xs text-white/72 shadow-[0_14px_28px_rgba(0,0,0,0.12)]">
           <div className="flex items-center justify-between gap-3">
-            <div className="uppercase tracking-[0.18em] text-white/45">Bottom utility</div>
+            <div className="uppercase tracking-[0.18em] text-white/45">Ops status</div>
             <div className="flex gap-2">
-              <Badge className="border-white/10 bg-white/10 text-white">Local</Badge>
+              <Badge className="border-white/10 bg-white/10 text-white">Live</Badge>
               <Badge className="border-white/10 bg-[var(--fx-sage)] text-[var(--fx-ops-ink)]">Safe send</Badge>
             </div>
           </div>
-          <div className="mt-3 text-sm font-medium text-white">bot:8788 inside Docker</div>
+          <div className="mt-3 text-sm font-medium text-white">Railway · bot + CMS</div>
           <div className="mt-1 text-white/58">
-            Keep test-send and publication controls visible while the queue is under review.
+            Test-send and publish stay available while the queue is under review.
           </div>
         </div>
       </div>

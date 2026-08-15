@@ -9,6 +9,7 @@ import {
   LayoutDashboard,
   Settings2,
   ShieldCheck,
+  Users,
   Waypoints,
 } from "lucide-react";
 
@@ -21,6 +22,7 @@ const items = [
   { href: "/content", label: "Content", icon: GalleryVerticalEnd },
   { href: "/social", label: "Social", icon: Waypoints },
   { href: "/ai", label: "AI Desk", icon: Brain },
+  { href: "/members", label: "Members", icon: Users },
   { href: "/settings", label: "Settings", icon: Settings2 },
 ];
 

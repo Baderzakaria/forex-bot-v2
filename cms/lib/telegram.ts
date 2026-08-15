@@ -107,23 +107,24 @@ export async function getTelegramStatus(): Promise<TelegramStatus> {
     description?: string;
   }>(token, "getMe");
 
-  if (!data.ok || !data.result) {
+  const chat = data.result;
+  if (!data.ok || !chat || chat.id === undefined) {
     return {
       ok: false,
       botUsername: "",
       botId: "",
       maskedToken: maskToken(token),
-      adminChatId: settings.telegramAdminChatId,
-      publicChatId: settings.telegramPublicChatId,
-      writingChatId: settings.telegramWritingChatId,
+      adminChatId: effectiveChatId(settings.telegramAdminChatId, "TELEGRAM_ADMIN_CHAT_ID"),
+      publicChatId: effectiveChatId(settings.telegramPublicChatId, "TELEGRAM_PUBLIC_CHAT_ID"),
+      writingChatId: effectiveChatId(settings.telegramWritingChatId, "TELEGRAM_WRITING_CHAT_ID"),
       error: data.description || "Telegram getMe failed",
     };
   }
 
   return {
     ok: true,
-    botUsername: data.result.username || "",
-    botId: String(data.result.id ?? ""),
+    botUsername: chat.username || "",
+    botId: String(chat.id),
     maskedToken: maskToken(token),
     adminChatId: effectiveChatId(settings.telegramAdminChatId, "TELEGRAM_ADMIN_CHAT_ID"),
     publicChatId: effectiveChatId(settings.telegramPublicChatId, "TELEGRAM_PUBLIC_CHAT_ID"),
@@ -225,7 +226,8 @@ export async function validateTelegramChat(chatId: string): Promise<{
     description?: string;
   }>(token, "getChat", { chat_id: normalizedChatId });
 
-  if (!data.ok || !data.result || data.result.id === undefined || data.result.id === null) {
+  const chat = data.result;
+  if (!data.ok || !chat || chat.id === undefined || chat.id === null) {
     return {
       ok: false,
       error: data.description || "Telegram getChat failed",
@@ -234,6 +236,6 @@ export async function validateTelegramChat(chatId: string): Promise<{
 
   return {
     ok: true,
-    chat: normalizeChat({ ...data.result, id: data.result.id }),
+    chat: normalizeChat({ ...chat, id: chat.id }),
   };
 }

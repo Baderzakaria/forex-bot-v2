@@ -1,8 +1,10 @@
 import { NextResponse } from "next/server";
+import { cookies } from "next/headers";
 
+import { CMS_SESSION_COOKIE, getAuthenticatedSession } from "@/lib/auth";
 import { timingSafeStringEqual } from "@/lib/auth-session";
 import { getEnv } from "@/lib/env";
-import { MemberIdentityConflictError, type MemberStatus, upsertMember } from "@/lib/members";
+import { listMembers, MemberIdentityConflictError, type MemberStatus, upsertMember } from "@/lib/members";
 
 export const runtime = "nodejs";
 
@@ -62,6 +64,28 @@ function validateBody(body: MembersWebhookBody) {
     plan: readOptionalString(body.plan, "plan"),
     status: status as MemberStatus | undefined,
   };
+}
+
+export async function GET() {
+  const cookieStore = await cookies();
+  const session = getAuthenticatedSession(cookieStore.get(CMS_SESSION_COOKIE)?.value);
+
+  if (!session) {
+    return NextResponse.json({ ok: false, error: "Unauthorized" }, { status: 401 });
+  }
+
+  const members = listMembers().map((member) => ({
+    id: member.id,
+    email: member.email,
+    telegram_username: member.telegram_username,
+    website_customer_code: member.website_customer_code,
+    plan: member.plan,
+    status: member.status,
+    created_at: member.created_at,
+    updated_at: member.updated_at,
+  }));
+
+  return NextResponse.json({ ok: true, members });
 }
 
 export async function POST(request: Request) {

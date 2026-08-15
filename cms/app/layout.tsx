@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { Source_Serif_4, Urbanist } from "next/font/google";
 import "./globals.css";
-import { Sidebar } from "@/components/shell/sidebar";
-import { MobileNav } from "@/components/shell/mobile-nav";
+import { AppFrame } from "@/components/shell/app-frame";
 
 const urbanist = Urbanist({
   variable: "--font-sans",
@@ -30,15 +29,7 @@ export default function RootLayout({
       className={`${urbanist.variable} ${sourceSerif.variable} h-full antialiased`}
     >
       <body className="min-h-full bg-[var(--fx-canvas)] font-sans text-[var(--fx-text-strong)]">
-        <div className="grid min-h-screen lg:grid-cols-[280px_1fr]">
-          <div className="hidden lg:block">
-            <Sidebar />
-          </div>
-          <main className="min-h-screen">
-            <MobileNav />
-            {children}
-          </main>
-        </div>
+        <AppFrame>{children}</AppFrame>
       </body>
     </html>
   );

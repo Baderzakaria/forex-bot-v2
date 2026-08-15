@@ -12,7 +12,7 @@ export type MemberInput = {
   status?: MemberStatus;
 };
 
-type MemberRow = {
+export type MemberRow = {
   id: number;
   email: string | null;
   telegram_username: string;
@@ -47,6 +47,12 @@ function getMembersDb() {
     CREATE INDEX IF NOT EXISTS idx_members_website_customer_code ON members(website_customer_code);
   `);
   return db;
+}
+
+export function listMembers() {
+  return getMembersDb()
+    .prepare("SELECT * FROM members ORDER BY datetime(created_at) DESC, id DESC")
+    .all() as MemberRow[];
 }
 
 function findMatchingMembers(input: MemberInput) {
