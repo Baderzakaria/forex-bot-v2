@@ -113,11 +113,24 @@ db.exec(`
     update_id INTEGER PRIMARY KEY
   );
 
+  CREATE TABLE IF NOT EXISTS members (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    email TEXT UNIQUE,
+    telegram_username TEXT NOT NULL DEFAULT '',
+    website_customer_code TEXT UNIQUE,
+    plan TEXT NOT NULL DEFAULT '',
+    status TEXT NOT NULL DEFAULT 'pending' CHECK (status IN ('pending', 'active')),
+    created_at TEXT NOT NULL DEFAULT (datetime('now')),
+    updated_at TEXT NOT NULL DEFAULT (datetime('now'))
+  );
+
   CREATE INDEX IF NOT EXISTS idx_outbox_status ON outbox(status);
   CREATE INDEX IF NOT EXISTS idx_posts_status ON posts(status);
   CREATE INDEX IF NOT EXISTS idx_events_time ON events(event_time_utc);
   CREATE INDEX IF NOT EXISTS idx_tokens_token ON approval_tokens(token);
   CREATE INDEX IF NOT EXISTS idx_event_alert_state_refresh ON event_alert_state(refreshed_at);
+  CREATE INDEX IF NOT EXISTS idx_members_email ON members(email);
+  CREATE INDEX IF NOT EXISTS idx_members_website_customer_code ON members(website_customer_code);
 `);
 
 for (const sql of [
