@@ -28,6 +28,17 @@ function readOptionalString(value: unknown, field: string) {
   return normalized;
 }
 
+/** Telegram is optional on website checkout; accept null/empty as omitted. */
+function readOptionalTelegramUsername(value: unknown) {
+  if (value === undefined || value === null) return undefined;
+  if (typeof value !== "string") throw new Error("telegram_username must be a string.");
+
+  const normalized = value.trim().replace(/^@/, "");
+  if (!normalized) return undefined;
+  if (normalized.length > 500) throw new Error("telegram_username is too long.");
+  return normalized;
+}
+
 function validateBody(body: MembersWebhookBody) {
   const email = readOptionalString(body.email, "email")?.toLowerCase();
   if (email && (!email.includes("@") || email.length > 320)) {
@@ -46,7 +57,7 @@ function validateBody(body: MembersWebhookBody) {
 
   return {
     email,
-    telegramUsername: readOptionalString(body.telegram_username, "telegram_username"),
+    telegramUsername: readOptionalTelegramUsername(body.telegram_username),
     websiteCustomerCode,
     plan: readOptionalString(body.plan, "plan"),
     status: status as MemberStatus | undefined,
