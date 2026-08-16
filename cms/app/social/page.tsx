@@ -3,24 +3,35 @@ import { SocialChannels } from "@/components/workspaces/social-channels";
 import { getSettingsView, listOutbox } from "@/lib/bot-data";
 import { getEnv } from "@/lib/env";
 
+function maskToken(token: string) {
+  if (!token) return "";
+  return token.length <= 4 ? "••••" : `••••${token.slice(-4)}`;
+}
+
 export default function SocialPage() {
   const settings = getSettingsView();
   const outbox = listOutbox(5);
+  const telegramCredentials = {
+    adminChatId: settings.telegramAdminChatId || getEnv("TELEGRAM_ADMIN_CHAT_ID"),
+    publicChatId: settings.telegramPublicChatId || getEnv("TELEGRAM_PUBLIC_CHAT_ID"),
+    writingChatId: settings.telegramWritingChatId || getEnv("TELEGRAM_WRITING_CHAT_ID"),
+    maskedBotToken: maskToken(getEnv("TELEGRAM_BOT_TOKEN")),
+  };
   const telegramDestinations = [
     {
+      key: "admin" as const,
       label: "Admin preview",
       status: "Preview",
-      value: settings.telegramAdminChatId || getEnv("TELEGRAM_ADMIN_CHAT_ID", "unset"),
     },
     {
+      key: "public" as const,
       label: "Public channel",
       status: "Public",
-      value: settings.telegramPublicChatId || getEnv("TELEGRAM_PUBLIC_CHAT_ID", "unset"),
     },
     {
+      key: "writing" as const,
       label: "Writing group",
       status: "Writing",
-      value: settings.telegramWritingChatId || getEnv("TELEGRAM_WRITING_CHAT_ID", "unset"),
     },
   ];
 
@@ -32,6 +43,7 @@ export default function SocialPage() {
       >
         <SocialChannels
           telegramDestinations={telegramDestinations}
+          initialTelegramCredentials={telegramCredentials}
           outbox={outbox}
           initialSettings={settings}
         />
