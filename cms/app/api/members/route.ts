@@ -14,6 +14,7 @@ type MembersWebhookBody = {
   website_customer_code?: unknown;
   plan?: unknown;
   status?: unknown;
+  comments?: unknown;
 };
 
 function getWebhookSecret() {
@@ -41,6 +42,16 @@ function readOptionalTelegramUsername(value: unknown) {
   return normalized;
 }
 
+function readOptionalComments(value: unknown) {
+  if (value === undefined || value === null) return undefined;
+  if (typeof value !== "string") throw new Error("comments must be a string.");
+
+  const normalized = value.trim();
+  if (!normalized) return undefined;
+  if (normalized.length > 10_000) throw new Error("comments is too long.");
+  return normalized;
+}
+
 function validateBody(body: MembersWebhookBody) {
   const email = readOptionalString(body.email, "email")?.toLowerCase();
   if (email && (!email.includes("@") || email.length > 320)) {
@@ -63,10 +74,17 @@ function validateBody(body: MembersWebhookBody) {
     websiteCustomerCode,
     plan: readOptionalString(body.plan, "plan"),
     status: status as MemberStatus | undefined,
+    comments: readOptionalComments(body.comments),
   };
 }
 
-export async function GET() {
+function positiveInteger(value: string | null, fallback: number, maximum: number) {
+  const parsed = Number.parseInt(value || "", 10);
+  if (!Number.isSafeInteger(parsed) || parsed < 1) return fallback;
+  return Math.min(parsed, maximum);
+}
+
+export async function GET(request: Request) {
   const cookieStore = await cookies();
   const session = getAuthenticatedSession(cookieStore.get(CMS_SESSION_COOKIE)?.value);
 
@@ -74,18 +92,25 @@ export async function GET() {
     return NextResponse.json({ ok: false, error: "Unauthorized" }, { status: 401 });
   }
 
-  const members = listMembers().map((member) => ({
+  const url = new URL(request.url);
+  const result = listMembers({
+    page: positiveInteger(url.searchParams.get("page"), 1, 1_000_000),
+    limit: positiveInteger(url.searchParams.get("limit"), 20, 100),
+  });
+  const members = result.members.map((member) => ({
     id: member.id,
     email: member.email,
     telegram_username: member.telegram_username,
     website_customer_code: member.website_customer_code,
     plan: member.plan,
     status: member.status,
+    comments: member.comments,
+    source: member.source,
     created_at: member.created_at,
     updated_at: member.updated_at,
   }));
 
-  return NextResponse.json({ ok: true, members });
+  return NextResponse.json({ ok: true, members, total: result.total, page: result.page, limit: result.limit });
 }
 
 export async function POST(request: Request) {
@@ -121,7 +146,7 @@ export async function POST(request: Request) {
   }
 
   try {
-    const result = upsertMember(input);
+    const result = upsertMember({ ...input, source: isWebhookRequest ? "webhook" : "manual" });
     return NextResponse.json(
       {
         ok: true,

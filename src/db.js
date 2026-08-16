@@ -120,6 +120,8 @@ db.exec(`
     website_customer_code TEXT UNIQUE,
     plan TEXT NOT NULL DEFAULT '',
     status TEXT NOT NULL DEFAULT 'pending' CHECK (status IN ('pending', 'active')),
+    comments TEXT,
+    source TEXT,
     created_at TEXT NOT NULL DEFAULT (datetime('now')),
     updated_at TEXT NOT NULL DEFAULT (datetime('now'))
   );
@@ -137,6 +139,8 @@ for (const sql of [
   `ALTER TABLE event_alert_state ADD COLUMN actual_apify_requested_at TEXT`,
   `ALTER TABLE event_alert_state ADD COLUMN actual_apify_fetched_at TEXT`,
   `ALTER TABLE event_alert_state ADD COLUMN actual_apify_request_scope TEXT`,
+  `ALTER TABLE members ADD COLUMN comments TEXT`,
+  `ALTER TABLE members ADD COLUMN source TEXT`,
 ]) {
   try {
     db.exec(sql);
