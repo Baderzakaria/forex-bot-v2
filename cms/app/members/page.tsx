@@ -2,6 +2,7 @@ import { connection } from "next/server";
 
 import { PageShell } from "@/components/shell/page-shell";
 import { Badge } from "@/components/ui/badge";
+import { MemberCreateForm } from "@/components/workspaces/member-create-form";
 import { formatDateTimeUtc } from "@/lib/format";
 import { listMembers } from "@/lib/members";
 
@@ -12,7 +13,8 @@ export default async function MembersPage() {
 
   return (
     <div className="px-4 py-4 lg:px-8 lg:py-6">
-      <PageShell title="Members" subtitle="Website checkout signups synced to the CMS.">
+      <PageShell title="Members" subtitle="Website checkout signups synced to the CMS. You can also add members here manually.">
+        <MemberCreateForm />
         <div className="overflow-hidden rounded-[22px] border border-[var(--fx-border-soft)] bg-[rgba(255,255,255,0.78)]">
           {members.length ? (
             <div className="overflow-x-auto">
@@ -47,7 +49,7 @@ export default async function MembersPage() {
             </div>
           ) : (
             <div className="px-5 py-10 text-center text-sm text-[var(--fx-text-soft)]">
-              No website checkout signups have been synced yet.
+              No members yet. Add one above or wait for a website checkout signup to sync.
             </div>
           )}
         </div>

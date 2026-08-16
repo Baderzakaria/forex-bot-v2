@@ -1,5 +1,7 @@
 import "server-only";
 
+import { randomBytes } from "node:crypto";
+
 import { getBotDb } from "@/lib/bot-db";
 
 export type MemberStatus = "pending" | "active";
@@ -73,6 +75,21 @@ function findMatchingMembers(input: MemberInput) {
     .all(...values) as MemberRow[];
 }
 
+function generateWebsiteCustomerCode() {
+  return `FXIS-${randomBytes(5).toString("hex").toUpperCase()}`;
+}
+
+function generateAvailableWebsiteCustomerCode(db: ReturnType<typeof getMembersDb>) {
+  const findByCode = db.prepare("SELECT 1 FROM members WHERE website_customer_code = ?");
+
+  for (let attempt = 0; attempt < 10; attempt += 1) {
+    const code = generateWebsiteCustomerCode();
+    if (!findByCode.get(code)) return code;
+  }
+
+  throw new Error("Unable to generate a unique website customer code.");
+}
+
 export function upsertMember(input: MemberInput) {
   const matches = findMatchingMembers(input);
   if (matches.length > 1) throw new MemberIdentityConflictError();
@@ -81,6 +98,7 @@ export function upsertMember(input: MemberInput) {
   const existing = matches[0];
 
   if (!existing) {
+    const websiteCustomerCode = input.websiteCustomerCode ?? generateAvailableWebsiteCustomerCode(db);
     const info = db
       .prepare(
         `
@@ -91,7 +109,7 @@ export function upsertMember(input: MemberInput) {
       .run(
         input.email ?? null,
         input.telegramUsername ?? "",
-        input.websiteCustomerCode ?? null,
+        websiteCustomerCode,
         input.plan ?? "",
         input.status ?? "pending"
       );

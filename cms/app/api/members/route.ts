@@ -91,7 +91,11 @@ export async function GET() {
 export async function POST(request: Request) {
   const configuredSecret = getWebhookSecret();
   const requestSecret = request.headers.get("X-Forexis-Webhook-Secret") || "";
-  if (!configuredSecret || !timingSafeStringEqual(requestSecret, configuredSecret)) {
+  const isWebhookRequest = Boolean(configuredSecret) && timingSafeStringEqual(requestSecret, configuredSecret);
+  const cookieStore = await cookies();
+  const session = getAuthenticatedSession(cookieStore.get(CMS_SESSION_COOKIE)?.value);
+
+  if (!isWebhookRequest && !session) {
     return NextResponse.json({ ok: false, error: "Unauthorized" }, { status: 401 });
   }
 
