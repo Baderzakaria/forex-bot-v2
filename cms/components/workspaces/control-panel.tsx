@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -19,6 +19,18 @@ type Settings = {
   dailyHadithMode: string;
 };
 
+type MacroRefreshStatus = {
+  running: boolean;
+  startedAt: string | null;
+  finishedAt: string | null;
+  result: {
+    ok?: boolean;
+    saved?: number;
+    countries?: string[];
+    error?: string;
+  } | null;
+};
+
 export function ControlPanel({
   initialSettings,
   health,
@@ -35,6 +47,44 @@ export function ControlPanel({
   const [settings, setSettings] = useState(initialSettings);
   const [saving, setSaving] = useState(false);
   const [status, setStatus] = useState("");
+  const [macroRefresh, setMacroRefresh] = useState<MacroRefreshStatus | null>(null);
+  const [refreshError, setRefreshError] = useState("");
+
+  async function loadMacroRefresh() {
+    const response = await fetch("/api/macro/refresh", { cache: "no-store" });
+    const data = (await response.json()) as MacroRefreshStatus & { error?: string };
+    if (!response.ok) throw new Error(data.error || "Unable to read macro refresh status");
+    setMacroRefresh(data);
+  }
+
+  useEffect(() => {
+    const timer = window.setTimeout(() => {
+      void loadMacroRefresh().catch((error) => setRefreshError((error as Error).message));
+    }, 0);
+    return () => window.clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
+    if (!macroRefresh?.running) return;
+    const timer = window.setInterval(() => {
+      void loadMacroRefresh().catch((error) => setRefreshError((error as Error).message));
+    }, 3000);
+    return () => window.clearInterval(timer);
+  }, [macroRefresh?.running]);
+
+  async function refreshMacroCalendar() {
+    setRefreshError("");
+    try {
+      const response = await fetch("/api/macro/refresh", { method: "POST" });
+      const data = (await response.json()) as MacroRefreshStatus & { error?: string };
+      if (!response.ok && response.status !== 409) {
+        throw new Error(data.error || "Unable to start macro refresh");
+      }
+      setMacroRefresh(data);
+    } catch (error) {
+      setRefreshError((error as Error).message);
+    }
+  }
 
   async function save(next: Partial<Settings>) {
     const merged = { ...settings, ...next };
@@ -131,6 +181,29 @@ export function ControlPanel({
           </div>
 
           <Separator />
+
+          <div className="rounded-3xl border border-zinc-200 px-4 py-4">
+            <div className="flex flex-wrap items-start justify-between gap-3">
+              <div>
+                <div className="font-medium text-zinc-950">Macro calendar</div>
+                <p className="mt-1 text-sm text-zinc-500">
+                  Force a high-impact refresh across every supported country.
+                </p>
+              </div>
+              <Button onClick={refreshMacroCalendar} disabled={macroRefresh?.running}>
+                {macroRefresh?.running ? "Refreshing macro calendar..." : "Refresh macro calendar (all countries)"}
+              </Button>
+            </div>
+            <div className="mt-3 text-sm text-zinc-500">
+              {macroRefresh?.running
+                ? `Started ${macroRefresh.startedAt ? new Date(macroRefresh.startedAt).toLocaleString() : "just now"}.`
+                : macroRefresh?.result
+                  ? macroRefresh.result.ok
+                    ? `Last run: ${macroRefresh.result.saved ?? 0} events upserted across ${macroRefresh.result.countries?.length ?? 0} countries.`
+                    : `Last run failed: ${macroRefresh.result.error || "Unknown error"}`
+                  : refreshError || "No CMS-initiated refresh has run since the bot started."}
+            </div>
+          </div>
 
           <div className="space-y-4">
             <div>

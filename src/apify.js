@@ -12,6 +12,7 @@ import {
   parseEventTimeUtc,
 } from './signals.js';
 import { syncAllFromDb } from './sheets.js';
+import { APIFY_MACRO_COUNTRIES, parseApifyMacroCountries } from './macro-countries.js';
 
 const APIFY_API_BASE = 'https://api.apify.com/v2';
 const POLL_INTERVAL_MS = 10_000;
@@ -29,7 +30,6 @@ const COUNTRY_NAME_BY_CODE = {
   CA: 'canada',
   AU: 'australia',
   NZ: 'new zealand',
-  EU: 'euro zone',
 };
 
 class ApifyPipelineError extends Error {
@@ -119,6 +119,17 @@ function persistRunState(result) {
   setSetting('apify_last_run_caller', result.caller || '');
   setSetting('apify_last_run_ok', result.ok ? 'true' : 'false');
   setSetting('apify_last_run_summary', truncateText(buildRunSummary(result), 240));
+  setSetting('apify_last_run_result', JSON.stringify(result));
+}
+
+export function getLastDiscoveryRun() {
+  const row = db.prepare(`SELECT value FROM settings WHERE key = 'apify_last_run_result'`).get();
+  if (!row?.value) return null;
+  try {
+    return JSON.parse(row.value);
+  } catch {
+    return null;
+  }
 }
 
 function logRun(result) {
@@ -161,6 +172,13 @@ function normalizeCountries(countries) {
       .map((s) => s.trim())
       .filter(Boolean);
   return [...new Set(list)];
+}
+
+function resolveDiscoveryCountries(countries) {
+  const requested = normalizeCountries(countries);
+  return parseApifyMacroCountries(
+    requested.length ? requested : (config.apifyCountries.length ? config.apifyCountries : APIFY_MACRO_COUNTRIES),
+  );
 }
 
 function toIsoDate(value) {
@@ -468,12 +486,11 @@ function isRefreshedToday() {
 }
 
 async function runMacroDiscovery({
-  countries = [],
+  countries,
   fromDate,
   toDate,
 }) {
-  const countryList = normalizeCountries(countries);
-  const isAllCountries = countryList.length === 0;
+  const countryList = resolveDiscoveryCountries(countries);
 
   const actorId = normalizeActorId(config.apifyActorId);
   let total = 0;
@@ -482,24 +499,21 @@ async function runMacroDiscovery({
   let rejected = 0;
   const summary = [];
 
-  for (const country of (isAllCountries ? [null] : countryList)) {
-    // The actor input schema makes `country` optional. Omitting it fetches all
-    // supported countries in one run; high importance and the date window stay
-    // mandatory here to keep returned rows and cost bounded.
+  for (const country of countryList) {
     const input = {
       timeZone: 'GMT +1:00',
       timeFilter: 'time_only',
+      country,
       importances: 'high',
       fromDate,
       toDate,
     };
-    if (country) input.country = country;
 
     const run = await startActorRun({ actorId, token: config.apifyToken, input });
     const finishedRun = await waitForRun({ runId: run.id || run.runId, token: config.apifyToken });
     const datasetId = finishedRun.defaultDatasetId || run.defaultDatasetId;
     if (!datasetId) {
-      throw new ApifyParseError(`Apify run for ${country || 'all countries'} did not return a dataset id`, { country });
+      throw new ApifyParseError(`Apify run for ${country} did not return a dataset id`, { country });
     }
 
     const items = await fetchDatasetItems({ datasetId, token: config.apifyToken });
@@ -517,12 +531,12 @@ async function runMacroDiscovery({
       saved++;
     }
 
-    summary.push(`${country ? String(country).toUpperCase() : 'ALL COUNTRIES'}: saved ${highItems.length}/${items.length} (rejected ${rejectedItems})`);
+    summary.push(`${String(country).toUpperCase()}: saved ${highItems.length}/${items.length} (rejected ${rejectedItems})`);
   }
 
   return {
     skipped: false,
-    countries: isAllCountries ? ['all'] : countryList,
+    countries: countryList,
     high_count: highCount,
     total,
     saved,
@@ -541,8 +555,33 @@ async function executeDiscovery({
 }) {
   const startedAt = new Date().toISOString();
   const startedMs = Date.now();
-  const countryList = normalizeCountries(countries);
-  const requestedCountries = countryList.length ? countryList : ['all'];
+  let countryList;
+  try {
+    countryList = resolveDiscoveryCountries(countries);
+  } catch (err) {
+    const finishedAt = new Date().toISOString();
+    const response = {
+      ok: false,
+      caller,
+      started_at: startedAt,
+      finished_at: finishedAt,
+      duration_ms: Date.now() - startedMs,
+      countries: normalizeCountries(countries),
+      fromDate,
+      toDate,
+      skipped: false,
+      high_count: 0,
+      total: 0,
+      saved: 0,
+      rejected: 0,
+      summary: [],
+      error: compactErrorMessage(err),
+    };
+    persistRunState(response);
+    logRun(response);
+    return response;
+  }
+  const requestedCountries = countryList;
   const baseResult = {
     ok: false,
     caller,
@@ -644,7 +683,7 @@ async function executeDiscovery({
 
 export async function discoverMacro({
   daysAhead = config.apifyDaysAhead,
-  countries = [],
+  countries,
   force = false,
   caller = 'cron-discover',
 } = {}) {
@@ -657,7 +696,7 @@ export async function discoverMacro({
 }
 
 export async function refreshRecentActuals({ countries = [], caller = 'manual-refresh' } = {}) {
-  const countryList = normalizeCountries(countries);
+  const countryList = resolveDiscoveryCountries(countries);
   const fromDate = toIsoDate(Date.now() - 86400000);
   const toDate = toIsoDate(Date.now() + 86400000);
   return executeDiscovery({

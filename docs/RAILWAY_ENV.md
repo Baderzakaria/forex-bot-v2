@@ -41,7 +41,9 @@ Attach a **volume** mounted at `/data`.
 | `ACTUAL_ALERT_ENABLED` | `true` |
 | `ACTUAL_LOOKBACK_MINUTES` | `120` |
 | `APIFY_ACTOR_ID` | `pintostudio/economic-calendar-data-investing-com` |
-| `APIFY_MACRO_DAYS_AHEAD` | `3`; scheduled macro discovery is all countries, high-impact only |
+| `APIFY_MACRO_COUNTRIES` | Optional comma-separated actor enums. Defaults to all 46 valid countries; do not include `euro zone`. |
+| `APIFY_MACRO_DAYS_AHEAD` | `3`; scheduled macro discovery loops every configured country, high-impact only |
+| `BOT_API_SHARED_SECRET` | Optional secret shared by CMS and bot for the private `/api/discover` endpoint. Without it, the endpoint accepts loopback requests only. |
 | `ZAI_API_KEY` | Optional LLM |
 | `ZAI_BASE_URL` | `https://api.z.ai/api/paas/v4` |
 | `LLM_MODEL` | `glm-4.5-flash` |

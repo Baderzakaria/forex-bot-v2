@@ -5,6 +5,11 @@ const env = (k, d = '') => {
 
 const boolEnv = (k, d = 'false') => env(k, d) === 'true';
 
+const commaSeparatedEnv = (k) => env(k)
+  .split(',')
+  .map((value) => value.trim())
+  .filter(Boolean);
+
 export default {
   port: Number(env('PORT', '8788')),
   botToken: env('TELEGRAM_BOT_TOKEN'),
@@ -25,7 +30,9 @@ export default {
   llmModel: env('LLM_MODEL', 'glm-4.5-flash'),
   apifyToken: env('APIFY_TOKEN_DISABLED') ? '' : env('APIFY_TOKEN'),
   apifyActorId: env('APIFY_ACTOR_ID', 'pintostudio/economic-calendar-data-investing-com'),
+  apifyCountries: commaSeparatedEnv('APIFY_MACRO_COUNTRIES'),
   apifyDaysAhead: Number(env('APIFY_MACRO_DAYS_AHEAD', '3')),
+  botApiSharedSecret: env('BOT_API_SHARED_SECRET'),
   googleSheetId: env('GOOGLE_SHEET_ID'),
   googleSheetUrl: env('GOOGLE_SHEET_URL'),
   googleOAuthTokenPath: env('GOOGLE_OAUTH_TOKEN_PATH'),

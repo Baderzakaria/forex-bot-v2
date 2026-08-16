@@ -16,6 +16,7 @@ import {
   processDueApifyActualFetches,
   formatDiscoverSummary,
   formatActualFetchSummary,
+  getLastDiscoveryRun,
 } from './apify.js';
 import { syncAllFromDb } from './sheets.js';
 import { sendMorningBrief } from './morning.js';
@@ -23,8 +24,90 @@ import { sendMorningBrief } from './morning.js';
 const app = express();
 app.use(express.json({ limit: '1mb' }));
 
+let macroDiscoveryJob = {
+  running: false,
+  startedAt: null,
+  finishedAt: null,
+  result: null,
+};
+
+function isLoopbackRequest(req) {
+  const address = String(req.ip || req.socket?.remoteAddress || '');
+  return address === '127.0.0.1' || address === '::1' || address === '::ffff:127.0.0.1';
+}
+
+function isDiscoverRequestAuthorized(req) {
+  if (config.botApiSharedSecret) {
+    return req.get('x-bot-api-secret') === config.botApiSharedSecret;
+  }
+  return isLoopbackRequest(req);
+}
+
+function getMacroDiscoveryJobStatus() {
+  return {
+    running: macroDiscoveryJob.running,
+    startedAt: macroDiscoveryJob.startedAt,
+    finishedAt: macroDiscoveryJob.finishedAt,
+    result: macroDiscoveryJob.result || getLastDiscoveryRun(),
+  };
+}
+
+function startMacroDiscoveryJob() {
+  if (macroDiscoveryJob.running) return false;
+
+  macroDiscoveryJob = {
+    ...macroDiscoveryJob,
+    running: true,
+    startedAt: new Date().toISOString(),
+    finishedAt: null,
+  };
+
+  void discoverMacro({
+    daysAhead: config.apifyDaysAhead,
+    force: true,
+    caller: 'cms-refresh',
+  }).then((result) => {
+    macroDiscoveryJob = {
+      ...macroDiscoveryJob,
+      running: false,
+      finishedAt: new Date().toISOString(),
+      result,
+    };
+  }).catch((err) => {
+    macroDiscoveryJob = {
+      ...macroDiscoveryJob,
+      running: false,
+      finishedAt: new Date().toISOString(),
+      result: { ok: false, error: err.message || 'Macro discovery failed' },
+    };
+  });
+
+  return true;
+}
+
 // ─── Health ───
 app.get('/health', (_req, res) => res.json({ ok: true, service: 'forex-bot-v2', env: config.environment }));
+
+// ─── CMS macro refresh (private loopback / optional shared secret) ───
+app.get('/api/discover', (req, res) => {
+  if (!isDiscoverRequestAuthorized(req)) return res.status(401).json({ ok: false, error: 'unauthorized' });
+  return res.json({ ok: true, ...getMacroDiscoveryJobStatus() });
+});
+
+app.post('/api/discover', (req, res) => {
+  if (!isDiscoverRequestAuthorized(req)) return res.status(401).json({ ok: false, error: 'unauthorized' });
+
+  if (req.body?.force !== true) {
+    return res.status(400).json({ ok: false, error: 'force=true is required' });
+  }
+
+  const started = startMacroDiscoveryJob();
+  return res.status(started ? 202 : 409).json({
+    ok: true,
+    started,
+    ...getMacroDiscoveryJobStatus(),
+  });
+});
 
 // ─── Telegram webhook ───
 app.post(`/telegram/webhook`, async (req, res) => {

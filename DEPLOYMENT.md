@@ -61,7 +61,7 @@ docker compose up -d
 - The CMS is the editorial surface.
 - Google Sheets is legacy optional only.
 - Telegram alerting now includes T-30, T+0, and after-actual drafts. The writing destination is optional and can be disabled by leaving `TELEGRAM_WRITING_CHAT_ID` blank.
-- Macro discovery intentionally omits the optional Apify country filter and fetches all actor-supported countries. The `importances: 'high'` filter and the narrow `APIFY_MACRO_DAYS_AHEAD` window remain the cost controls.
+- Macro discovery loops the actor's explicit valid country enums (all 46 by default, or `APIFY_MACRO_COUNTRIES`). It excludes invalid `euro zone`; the `importances: 'high'` filter and the narrow `APIFY_MACRO_DAYS_AHEAD` window remain the cost controls.
 - If you change the database location, update `DB_PATH` for both services.
 
 
