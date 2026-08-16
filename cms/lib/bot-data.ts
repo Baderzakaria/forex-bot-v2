@@ -102,7 +102,6 @@ export function getSettingsView() {
 
   return {
     sheetUrl: settings.google_sheet_url || settings.google_sheet_id || "",
-    countries: settings.apify_macro_countries || "",
     daysAhead: settings.apify_macro_days_ahead || "",
     botApiUrl: settings.bot_api_url || "",
     cron: settings.cron_schedule || "",

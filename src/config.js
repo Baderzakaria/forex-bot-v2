@@ -25,7 +25,6 @@ export default {
   llmModel: env('LLM_MODEL', 'glm-4.5-flash'),
   apifyToken: env('APIFY_TOKEN_DISABLED') ? '' : env('APIFY_TOKEN'),
   apifyActorId: env('APIFY_ACTOR_ID', 'pintostudio/economic-calendar-data-investing-com'),
-  apifyCountries: env('APIFY_MACRO_COUNTRIES', env('APIFY_MACRO_COUNTRY', 'united states')),
   apifyDaysAhead: Number(env('APIFY_MACRO_DAYS_AHEAD', '3')),
   googleSheetId: env('GOOGLE_SHEET_ID'),
   googleSheetUrl: env('GOOGLE_SHEET_URL'),

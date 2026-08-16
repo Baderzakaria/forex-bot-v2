@@ -36,6 +36,7 @@ Apify token handling:
 - Leave `APIFY_TOKEN` blank, or set `APIFY_TOKEN_DISABLED` if you want to keep Apify off without re-enabling spend
 - Morning full discovery remains the only daily scheduled macro refresh
 - Actual fetches are targeted to due high-impact events only, never blanket refreshes
+- Macro discovery omits the actor's optional country filter, so it covers all actor-supported countries. It remains high-impact only; keep `APIFY_MACRO_DAYS_AHEAD` narrow to control cost.
 
 The Apify pipeline now rejects placeholder titles, missing event times, smoke/self-test rows, and other junk rows before anything is upserted or drafted.
 

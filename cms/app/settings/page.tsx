@@ -23,7 +23,6 @@ export default function SettingsPage() {
           <SettingsForm
             initial={{
               sheetUrl: settings.sheetUrl,
-              countries: settings.countries,
               daysAhead: settings.daysAhead,
             }}
           />

@@ -80,7 +80,8 @@ function compactErrorMessage(error) {
 }
 
 function summariseCountries(countries) {
-  return normalizeCountries(countries).map((country) => String(country).toUpperCase()).join(', ');
+  const values = normalizeCountries(countries);
+  return values.length ? values.map((country) => String(country).toUpperCase()).join(', ') : 'ALL';
 }
 
 function countryNameFromCode(countryCode) {
@@ -467,14 +468,12 @@ function isRefreshedToday() {
 }
 
 async function runMacroDiscovery({
-  countries = config.apifyCountries,
+  countries = [],
   fromDate,
   toDate,
 }) {
   const countryList = normalizeCountries(countries);
-  if (!countryList.length) {
-    throw new ApifyPipelineError('APIFY_MACRO_COUNTRIES is empty', 'APIFY_COUNTRIES_EMPTY');
-  }
+  const isAllCountries = countryList.length === 0;
 
   const actorId = normalizeActorId(config.apifyActorId);
   let total = 0;
@@ -483,22 +482,24 @@ async function runMacroDiscovery({
   let rejected = 0;
   const summary = [];
 
-  for (const country of countryList) {
-    // Match v1 Apify actor input (pintostudio economic calendar)
+  for (const country of (isAllCountries ? [null] : countryList)) {
+    // The actor input schema makes `country` optional. Omitting it fetches all
+    // supported countries in one run; high importance and the date window stay
+    // mandatory here to keep returned rows and cost bounded.
     const input = {
       timeZone: 'GMT +1:00',
       timeFilter: 'time_only',
-      country,
       importances: 'high',
       fromDate,
       toDate,
     };
+    if (country) input.country = country;
 
     const run = await startActorRun({ actorId, token: config.apifyToken, input });
     const finishedRun = await waitForRun({ runId: run.id || run.runId, token: config.apifyToken });
     const datasetId = finishedRun.defaultDatasetId || run.defaultDatasetId;
     if (!datasetId) {
-      throw new ApifyParseError(`Apify run for ${country} did not return a dataset id`, { country });
+      throw new ApifyParseError(`Apify run for ${country || 'all countries'} did not return a dataset id`, { country });
     }
 
     const items = await fetchDatasetItems({ datasetId, token: config.apifyToken });
@@ -516,12 +517,12 @@ async function runMacroDiscovery({
       saved++;
     }
 
-    summary.push(`${String(country).toUpperCase()}: saved ${highItems.length}/${items.length} (rejected ${rejectedItems})`);
+    summary.push(`${country ? String(country).toUpperCase() : 'ALL COUNTRIES'}: saved ${highItems.length}/${items.length} (rejected ${rejectedItems})`);
   }
 
   return {
     skipped: false,
-    countries: countryList,
+    countries: isAllCountries ? ['all'] : countryList,
     high_count: highCount,
     total,
     saved,
@@ -541,12 +542,13 @@ async function executeDiscovery({
   const startedAt = new Date().toISOString();
   const startedMs = Date.now();
   const countryList = normalizeCountries(countries);
+  const requestedCountries = countryList.length ? countryList : ['all'];
   const baseResult = {
     ok: false,
     caller,
     started_at: startedAt,
     duration_ms: 0,
-    countries: countryList,
+    countries: requestedCountries,
     fromDate,
     toDate,
     skipped: false,
@@ -576,15 +578,11 @@ async function executeDiscovery({
       logRun(response);
       return response;
     }
-    if (!countryList.length) {
-      throw new ApifyPipelineError('APIFY_MACRO_COUNTRIES is empty', 'APIFY_COUNTRIES_EMPTY');
-    }
-
     let result;
     if (!force && !fromDate && !toDate && isRefreshedToday()) {
       result = {
         skipped: true,
-        countries: countryList,
+        countries: requestedCountries,
         high_count: 0,
         total: 0,
         saved: 0,
@@ -617,7 +615,7 @@ async function executeDiscovery({
       started_at: startedAt,
       finished_at: finishedAt,
       duration_ms: Date.now() - startedMs,
-      countries: result.countries || countryList,
+      countries: result.countries || requestedCountries,
       fromDate,
       toDate,
       ...result,
@@ -646,7 +644,7 @@ async function executeDiscovery({
 
 export async function discoverMacro({
   daysAhead = config.apifyDaysAhead,
-  countries = config.apifyCountries,
+  countries = [],
   force = false,
   caller = 'cron-discover',
 } = {}) {
@@ -658,7 +656,7 @@ export async function discoverMacro({
   });
 }
 
-export async function refreshRecentActuals({ countries = config.apifyCountries, caller = 'manual-refresh' } = {}) {
+export async function refreshRecentActuals({ countries = [], caller = 'manual-refresh' } = {}) {
   const countryList = normalizeCountries(countries);
   const fromDate = toIsoDate(Date.now() - 86400000);
   const toDate = toIsoDate(Date.now() + 86400000);

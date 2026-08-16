@@ -41,8 +41,7 @@ Attach a **volume** mounted at `/data`.
 | `ACTUAL_ALERT_ENABLED` | `true` |
 | `ACTUAL_LOOKBACK_MINUTES` | `120` |
 | `APIFY_ACTOR_ID` | `pintostudio/economic-calendar-data-investing-com` |
-| `APIFY_MACRO_COUNTRIES` | e.g. `united states, united kingdom, germany, canada, australia, japan, new zealand` |
-| `APIFY_MACRO_DAYS_AHEAD` | `7` |
+| `APIFY_MACRO_DAYS_AHEAD` | `3`; scheduled macro discovery is all countries, high-impact only |
 | `ZAI_API_KEY` | Optional LLM |
 | `ZAI_BASE_URL` | `https://api.z.ai/api/paas/v4` |
 | `LLM_MODEL` | `glm-4.5-flash` |

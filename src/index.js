@@ -106,7 +106,6 @@ cron.schedule('0 7 * * *', async () => {
   try {
     const result = await discoverMacro({
       daysAhead: config.apifyDaysAhead,
-      countries: config.apifyCountries,
       caller: 'cron-discover',
     });
     const summary = formatDiscoverSummary(result);

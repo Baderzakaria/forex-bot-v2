@@ -309,7 +309,6 @@ async function handleCalendarCommand(chatId, month) {
   try {
     const result = await discoverMacro({
       daysAhead: month ? 31 : config.apifyDaysAhead,
-      countries: config.apifyCountries,
       force: true,
       caller: 'telegram-command',
     });
@@ -357,7 +356,6 @@ async function handleDiscoverCalendar(argsText) {
   const month = parts.includes('month');
   const result = await discoverMacro({
     daysAhead: month ? 31 : config.apifyDaysAhead,
-    countries: config.apifyCountries,
     force,
     caller: 'telegram-command',
   });
