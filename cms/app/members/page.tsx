@@ -46,37 +46,39 @@ export default async function MembersPage({
         <div className="overflow-hidden rounded-[22px] border border-[var(--fx-border-soft)] bg-[rgba(255,255,255,0.78)]">
           <MemberCreateForm total={result.total} />
           {result.members.length ? (
-            <div className="overflow-x-auto">
-              <table className="min-w-full text-left text-sm">
+            <div className="w-full max-w-full overflow-x-auto">
+              <table className="w-full min-w-[920px] table-fixed text-left text-sm">
                 <thead className="border-b border-[var(--fx-border-soft)] bg-[rgba(247,245,240,0.72)] text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fx-text-muted)]">
                   <tr>
-                    <th className="px-4 py-3">Email</th>
-                    <th className="px-4 py-3">Telegram</th>
-                    <th className="px-4 py-3">FXIS</th>
-                    <th className="px-4 py-3">Plan</th>
-                    <th className="px-4 py-3">Status</th>
-                    <th className="min-w-48 px-4 py-3">Notes</th>
-                    <th className="px-4 py-3">Source</th>
-                    <th className="px-4 py-3">Created</th>
-                    <th className="px-4 py-3">Updated</th>
-                    <th className="px-4 py-3"><span className="sr-only">Actions</span></th>
+                    <th className="w-52 px-3 py-2.5">Email</th>
+                    <th className="w-32 px-3 py-2.5">Telegram</th>
+                    <th className="w-24 px-3 py-2.5">FXIS</th>
+                    <th className="w-24 px-3 py-2.5">Plan</th>
+                    <th className="w-24 px-3 py-2.5">Status</th>
+                    <th className="w-44 px-3 py-2.5">Notes</th>
+                    <th className="w-24 px-3 py-2.5">Source</th>
+                    <th className="w-36 px-3 py-2.5">Created</th>
+                    <th className="w-36 px-3 py-2.5">Updated</th>
+                    <th className="w-20 px-3 py-2.5"><span className="sr-only">Actions</span></th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-[var(--fx-border-soft)] text-[var(--fx-text-soft)]">
                   {result.members.map((member) => (
                     <tr key={member.id}>
-                      <td className="px-4 py-3 font-medium text-[var(--fx-text-strong)]">{member.email || "—"}</td>
-                      <td className="px-4 py-3">{member.telegram_username ? `@${member.telegram_username}` : "—"}</td>
-                      <td className="px-4 py-3">{member.website_customer_code || "—"}</td>
-                      <td className="px-4 py-3">{member.plan || "—"}</td>
-                      <td className="px-4 py-3">
+                      <td className="px-3 py-2.5 font-medium text-[var(--fx-text-strong)]">
+                        <div className="truncate" title={member.email || undefined}>{member.email || "—"}</div>
+                      </td>
+                      <td className="px-3 py-2.5"><div className="truncate">{member.telegram_username ? `@${member.telegram_username}` : "—"}</div></td>
+                      <td className="px-3 py-2.5"><div className="truncate">{member.website_customer_code || "—"}</div></td>
+                      <td className="px-3 py-2.5"><div className="truncate">{member.plan || "—"}</div></td>
+                      <td className="px-3 py-2.5">
                         <Badge tone={member.status === "active" ? "success" : "muted"}>{member.status}</Badge>
                       </td>
-                      <td className="max-w-64 px-4 py-3" title={member.comments || undefined}>{commentsPreview(member.comments)}</td>
-                      <td className="px-4 py-3">{member.source || "—"}</td>
-                      <td className="whitespace-nowrap px-4 py-3">{formatDateTimeUtc(member.created_at)}</td>
-                      <td className="whitespace-nowrap px-4 py-3">{formatDateTimeUtc(member.updated_at)}</td>
-                      <td className="px-4 py-3"><MemberEditForm member={member} /></td>
+                      <td className="px-3 py-2.5" title={member.comments || undefined}><div className="truncate">{commentsPreview(member.comments)}</div></td>
+                      <td className="px-3 py-2.5"><div className="truncate">{member.source || "—"}</div></td>
+                      <td className="whitespace-nowrap px-3 py-2.5">{formatDateTimeUtc(member.created_at)}</td>
+                      <td className="whitespace-nowrap px-3 py-2.5">{formatDateTimeUtc(member.updated_at)}</td>
+                      <td className="px-3 py-2.5"><MemberEditForm member={member} /></td>
                     </tr>
                   ))}
                 </tbody>
@@ -87,21 +89,23 @@ export default async function MembersPage({
               No members yet. Add one with the button above or wait for a website checkout signup to sync.
             </div>
           )}
-          <div className="flex flex-wrap items-center justify-between gap-3 border-t border-[var(--fx-border-soft)] px-4 py-3 sm:px-5">
-            <p className="text-sm text-[var(--fx-text-soft)]">Page {result.page} of {totalPages}</p>
-            <div className="flex items-center gap-2">
-              {previousHref ? (
-                <Link className="inline-flex h-8 items-center rounded-[14px] border border-[var(--fx-border-soft)] bg-[var(--fx-white)] px-2.5 text-sm font-medium text-[var(--fx-text-strong)] transition hover:border-[var(--fx-border-strong)] hover:bg-[var(--fx-sage)]" href={previousHref}>Previous</Link>
-              ) : (
-                <span className="inline-flex h-8 items-center rounded-[14px] border border-[var(--fx-border-soft)] px-2.5 text-sm font-medium text-[var(--fx-text-muted)] opacity-60">Previous</span>
-              )}
-              {nextHref ? (
-                <Link className="inline-flex h-8 items-center rounded-[14px] border border-[var(--fx-border-soft)] bg-[var(--fx-white)] px-2.5 text-sm font-medium text-[var(--fx-text-strong)] transition hover:border-[var(--fx-border-strong)] hover:bg-[var(--fx-sage)]" href={nextHref}>Next</Link>
-              ) : (
-                <span className="inline-flex h-8 items-center rounded-[14px] border border-[var(--fx-border-soft)] px-2.5 text-sm font-medium text-[var(--fx-text-muted)] opacity-60">Next</span>
-              )}
+          {totalPages > 1 ? (
+            <div className="flex flex-wrap items-center justify-between gap-3 border-t border-[var(--fx-border-soft)] px-4 py-3 sm:px-5">
+              <p className="text-sm text-[var(--fx-text-soft)]">Page {result.page} of {totalPages}</p>
+              <div className="flex items-center gap-2">
+                {previousHref ? (
+                  <Link className="inline-flex h-8 items-center rounded-[14px] border border-[var(--fx-border-soft)] bg-[var(--fx-white)] px-2.5 text-sm font-medium text-[var(--fx-text-strong)] transition hover:border-[var(--fx-border-strong)] hover:bg-[var(--fx-sage)]" href={previousHref}>Previous</Link>
+                ) : (
+                  <span className="inline-flex h-8 items-center rounded-[14px] border border-[var(--fx-border-soft)] px-2.5 text-sm font-medium text-[var(--fx-text-muted)] opacity-60">Previous</span>
+                )}
+                {nextHref ? (
+                  <Link className="inline-flex h-8 items-center rounded-[14px] border border-[var(--fx-border-soft)] bg-[var(--fx-white)] px-2.5 text-sm font-medium text-[var(--fx-text-strong)] transition hover:border-[var(--fx-border-strong)] hover:bg-[var(--fx-sage)]" href={nextHref}>Next</Link>
+                ) : (
+                  <span className="inline-flex h-8 items-center rounded-[14px] border border-[var(--fx-border-soft)] px-2.5 text-sm font-medium text-[var(--fx-text-muted)] opacity-60">Next</span>
+                )}
+              </div>
             </div>
-          </div>
+          ) : null}
         </div>
       </PageShell>
     </div>
