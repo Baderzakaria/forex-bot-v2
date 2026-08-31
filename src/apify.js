@@ -13,6 +13,7 @@ import {
 } from './signals.js';
 import { syncAllFromDb } from './sheets.js';
 import { APIFY_MACRO_COUNTRIES, parseApifyMacroCountries } from './macro-countries.js';
+import { appendOpsLog } from './ops-log.js';
 
 const APIFY_API_BASE = 'https://api.apify.com/v2';
 const POLL_INTERVAL_MS = 10_000;
@@ -25,10 +26,48 @@ const COUNTRY_NAME_BY_CODE = {
   US: 'united states',
   GB: 'united kingdom',
   DE: 'germany',
-  JP: 'japan',
+  FR: 'france',
+  IT: 'italy',
+  ES: 'spain',
+  NL: 'netherlands',
+  BE: 'belgium',
+  PT: 'portugal',
+  AT: 'austria',
   CH: 'switzerland',
-  CA: 'canada',
+  NO: 'norway',
+  SE: 'sweden',
+  DK: 'denmark',
+  FI: 'finland',
+  PL: 'poland',
+  CZ: 'czech republic',
+  HU: 'hungary',
+  GR: 'greece',
+  TR: 'turkey',
+  RU: 'russia',
+  CN: 'china',
+  JP: 'japan',
+  KR: 'south korea',
+  IN: 'india',
   AU: 'australia',
+  CA: 'canada',
+  BR: 'brazil',
+  MX: 'mexico',
+  AR: 'argentina',
+  CL: 'chile',
+  CO: 'colombia',
+  PE: 'peru',
+  ZA: 'south africa',
+  IL: 'israel',
+  SA: 'saudi arabia',
+  AE: 'united arab emirates',
+  MY: 'malaysia',
+  SG: 'singapore',
+  TH: 'thailand',
+  ID: 'indonesia',
+  PH: 'philippines',
+  VN: 'vietnam',
+  TW: 'taiwan',
+  HK: 'hong kong',
   NZ: 'new zealand',
 };
 
@@ -134,6 +173,22 @@ export function getLastDiscoveryRun() {
 
 function logRun(result) {
   console.log('[apify-run]', buildRunSummary(result));
+}
+
+function finalizeDiscoveryRun(result) {
+  persistRunState(result);
+  logRun(result);
+  appendOpsLog('discover_summary', {
+    caller: result.caller,
+    saved: result.saved,
+    rejected: result.rejected,
+    high: result.high_count,
+    total: result.total,
+    duration_ms: result.duration_ms,
+    ok: result.ok,
+    skipped: result.skipped,
+    ...(result.error ? { error: result.error } : {}),
+  });
 }
 
 async function maybeNotifyAdminOfFailure(result) {
@@ -268,7 +323,7 @@ function markAlertState(eventKey, patch = {}) {
   `).run(...values);
 }
 
-function normalizeEventItem(raw, fallbackCountry) {
+function normalizeEventItemResult(raw, fallbackCountry) {
   const title = asText(raw.title || raw.event || raw.name);
   const forecast = asText(raw.forecast || raw.forecastValue || raw.consensus);
   const previous = asText(raw.previous || raw.previousValue || raw.prior);
@@ -276,32 +331,35 @@ function normalizeEventItem(raw, fallbackCountry) {
   const currency = asText(raw.currency || raw.ccy || raw.symbol);
 
   if (isPlaceholderTitle(title)) {
-    return null;
+    return { row: null, reason: 'placeholder_title' };
   }
 
   const event_time_utc = parseEventTimeUtc(raw);
   if (!event_time_utc) {
-    return null;
+    return { row: null, reason: 'no_event_time' };
   }
 
   if (!forecast && !previous && !actual && !currency) {
-    return null;
+    return { row: null, reason: 'no_useful_fields' };
   }
 
   if (!forecast && !previous && !actual && !(hasStrongEventTitle(title) && currency)) {
-    return null;
+    return { row: null, reason: 'weak_title' };
   }
 
   return {
-    id: raw.id || raw.eventId || raw.event_id || raw.apify_id || null,
-    title,
-    currency: currency || '',
-    country_code: countryCodeFromZone(raw.zone || raw.country || raw.country_code || raw.countryCode || fallbackCountry),
-    event_time_utc,
-    importance: String(raw.importance || raw.impact || '').trim().toLowerCase() || 'high',
-    forecast,
-    previous,
-    actual,
+    row: {
+      id: raw.id || raw.eventId || raw.event_id || raw.apify_id || null,
+      title,
+      currency: currency || '',
+      country_code: countryCodeFromZone(raw.zone || raw.country || raw.country_code || raw.countryCode || fallbackCountry),
+      event_time_utc,
+      importance: String(raw.importance || raw.impact || '').trim().toLowerCase() || 'high',
+      forecast,
+      previous,
+      actual,
+    },
+    reason: null,
   };
 }
 
@@ -517,10 +575,30 @@ async function runMacroDiscovery({
     }
 
     const items = await fetchDatasetItems({ datasetId, token: config.apifyToken });
-    const normalizedItems = items.map((item) => normalizeEventItem(item, country));
-    const usableItems = normalizedItems.filter(Boolean);
-    const highItems = usableItems.filter((item) => String(item.importance).toLowerCase() === 'high');
-    const rejectedItems = items.length - usableItems.length;
+    const normalizedItems = items.map((item) => normalizeEventItemResult(item, country));
+    const highItems = [];
+    let rejectedItems = 0;
+    let rejectDetails = 0;
+
+    for (let index = 0; index < normalizedItems.length; index++) {
+      const { row, reason } = normalizedItems[index];
+      const raw = items[index];
+      const rejectedReason = reason || (String(row.importance).toLowerCase() !== 'high' ? 'not_high' : null);
+      if (!rejectedReason) {
+        highItems.push(row);
+        continue;
+      }
+
+      rejectedItems++;
+      if (rejectDetails < 3) {
+        appendOpsLog('discover_reject', {
+          country,
+          title: truncateText(raw.title || raw.event || raw.name, 60),
+          reason: rejectedReason,
+        });
+        rejectDetails++;
+      }
+    }
 
     total += items.length;
     highCount += highItems.length;
@@ -577,8 +655,7 @@ async function executeDiscovery({
       summary: [],
       error: compactErrorMessage(err),
     };
-    persistRunState(response);
-    logRun(response);
+    finalizeDiscoveryRun(response);
     return response;
   }
   const requestedCountries = countryList;
@@ -613,8 +690,7 @@ async function executeDiscovery({
         error: '',
       };
 
-      persistRunState(response);
-      logRun(response);
+      finalizeDiscoveryRun(response);
       return response;
     }
     let result;
@@ -661,8 +737,7 @@ async function executeDiscovery({
       error: '',
     };
 
-    persistRunState(response);
-    logRun(response);
+    finalizeDiscoveryRun(response);
     return response;
   } catch (err) {
     const finishedAt = new Date().toISOString();
@@ -674,8 +749,7 @@ async function executeDiscovery({
       error: compactErrorMessage(err),
     };
 
-    persistRunState(response);
-    logRun(response);
+    finalizeDiscoveryRun(response);
     await maybeNotifyAdminOfFailure(response);
     return response;
   }
@@ -755,6 +829,12 @@ export async function processDueApifyActualFetches({
     }
 
     console.log(`[apify-actual-fetch:start] caller=${caller} country=${group.country_code} date=${group.event_date} events=${group.rows.length}`);
+    appendOpsLog('actual_fetch_start', {
+      caller,
+      country: group.country_code,
+      date: group.event_date,
+      events: group.rows.length,
+    });
 
     const result = await discoverMacro({
       caller: `${caller}:${scope}`,
@@ -772,11 +852,24 @@ export async function processDueApifyActualFetches({
       fetchedGroups++;
       fetchedEvents += group.rows.length;
       summary.push(`Targeted ${scope}: ${result.summary?.join(' | ') || 'ok'}`);
+      appendOpsLog('actual_fetch_ok', {
+        caller,
+        country: group.country_code,
+        date: group.event_date,
+        ok: true,
+      });
       continue;
     }
 
     hadFailure = true;
     summary.push(`Targeted ${scope}: ${result.error || 'failed'}`);
+    appendOpsLog('actual_fetch_fail', {
+      caller,
+      country: group.country_code,
+      date: group.event_date,
+      ok: false,
+      error: compactErrorMessage(result.error || 'failed'),
+    });
   }
 
   return {
