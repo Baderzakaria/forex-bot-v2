@@ -6,15 +6,9 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
-
 type Settings = {
   sheetUrl: string;
-  countries: string;
   daysAhead: string;
-  telegramAdminChatId: string;
-  telegramPublicChatId: string;
-  telegramWritingChatId: string;
 };
 
 export function SettingsForm({ initial }: { initial: Settings }) {
@@ -29,11 +23,7 @@ export function SettingsForm({ initial }: { initial: Settings }) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           google_sheet_url: settings.sheetUrl,
-          apify_macro_countries: settings.countries,
           apify_macro_days_ahead: settings.daysAhead,
-          telegram_admin_chat_id: settings.telegramAdminChatId,
-          telegram_public_chat_id: settings.telegramPublicChatId,
-          telegram_writing_chat_id: settings.telegramWritingChatId,
         }),
       });
       if (!response.ok) throw new Error("Unable to save settings");
@@ -61,52 +51,14 @@ export function SettingsForm({ initial }: { initial: Settings }) {
             placeholder="Optional legacy sheet URL"
           />
         </div>
-        <div className="space-y-2 md:col-span-2">
-          <Label htmlFor="countries">Countries</Label>
-          <Textarea
-            id="countries"
-            value={settings.countries}
-            onChange={(event) => setSettings({ ...settings, countries: event.target.value })}
-            placeholder="united states, united kingdom, germany"
-          />
-        </div>
         <div className="space-y-2">
           <Label htmlFor="daysAhead">Days ahead</Label>
+          <p className="text-sm text-zinc-500">Apify fetches all supported countries, high-impact events only.</p>
           <Input
             id="daysAhead"
             value={settings.daysAhead}
             onChange={(event) => setSettings({ ...settings, daysAhead: event.target.value })}
             placeholder="7"
-          />
-        </div>
-        <div className="space-y-2">
-          <Label htmlFor="telegramAdminChatId">Admin chat ID</Label>
-          <Input
-            id="telegramAdminChatId"
-            value={settings.telegramAdminChatId}
-            onChange={(event) =>
-              setSettings({ ...settings, telegramAdminChatId: event.target.value })
-            }
-          />
-        </div>
-        <div className="space-y-2">
-          <Label htmlFor="telegramPublicChatId">Public chat ID</Label>
-          <Input
-            id="telegramPublicChatId"
-            value={settings.telegramPublicChatId}
-            onChange={(event) =>
-              setSettings({ ...settings, telegramPublicChatId: event.target.value })
-            }
-          />
-        </div>
-        <div className="space-y-2">
-          <Label htmlFor="telegramWritingChatId">Writing chat ID</Label>
-          <Input
-            id="telegramWritingChatId"
-            value={settings.telegramWritingChatId}
-            onChange={(event) =>
-              setSettings({ ...settings, telegramWritingChatId: event.target.value })
-            }
           />
         </div>
         <div className="md:col-span-2 flex items-center justify-between gap-3">

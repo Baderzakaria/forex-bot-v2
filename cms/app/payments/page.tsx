@@ -1,0 +1,72 @@
+import { connection } from "next/server";
+import { PageShell } from "@/components/shell/page-shell";
+import { Badge } from "@/components/ui/badge";
+import { PaymentMethodCell } from "@/components/payment-method-icon";
+import { formatDateTimeUtc } from "@/lib/format";
+import { listPayments } from "@/lib/payments";
+
+const statusTone = { paid: "success", pending: "muted", failed: "warning", refunded: "warning" } as const;
+
+export default async function PaymentsPage() {
+  await connection();
+  const payments = listPayments();
+
+  return (
+    <div className="px-4 py-4 lg:px-8 lg:py-6">
+      <PageShell title="Payments" subtitle="Recent website and manually recorded payments synced to the CMS.">
+        <div className="overflow-hidden rounded-[22px] border border-[var(--fx-border-soft)] bg-[rgba(255,255,255,0.78)]">
+          {payments.length ? (
+            <div className="overflow-x-auto">
+              <table className="min-w-full text-left text-sm">
+                <thead className="border-b border-[var(--fx-border-soft)] bg-[rgba(247,245,240,0.72)] text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fx-text-muted)]">
+                  <tr>
+                    <th className="px-4 py-3">Payment</th>
+                    <th className="px-4 py-3">Member</th>
+                    <th className="px-4 py-3">Amount</th>
+                    <th className="px-4 py-3">Plan</th>
+                    <th className="px-4 py-3">Method</th>
+                    <th className="px-4 py-3">Status</th>
+                    <th className="px-4 py-3">Created</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-[var(--fx-border-soft)] text-[var(--fx-text-soft)]">
+                  {payments.map((payment) => (
+                    <tr key={payment.id}>
+                      <td className="px-4 py-3 font-medium text-[var(--fx-text-strong)]">
+                        {payment.website_payment_id}
+                        {payment.paypal_order_id ? (
+                          <div className="mt-1 text-xs font-normal text-[var(--fx-text-muted)]">
+                            PayPal: {payment.paypal_order_id}
+                          </div>
+                        ) : null}
+                      </td>
+                      <td className="px-4 py-3">
+                        <div>{payment.member_email || "—"}</div>
+                        {payment.website_customer_code ? (
+                          <div className="mt-1 text-xs text-[var(--fx-text-muted)]">{payment.website_customer_code}</div>
+                        ) : null}
+                      </td>
+                      <td className="whitespace-nowrap px-4 py-3">
+                        {payment.amount} {payment.currency}
+                      </td>
+                      <td className="px-4 py-3">{payment.plan || "—"}</td>
+                      <td className="px-4 py-3">
+                        <PaymentMethodCell method={payment.method} />
+                      </td>
+                      <td className="px-4 py-3">
+                        <Badge tone={statusTone[payment.status]}>{payment.status}</Badge>
+                      </td>
+                      <td className="whitespace-nowrap px-4 py-3">{formatDateTimeUtc(payment.created_at)}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          ) : (
+            <div className="px-5 py-10 text-center text-sm text-[var(--fx-text-soft)]">No payments have been synced yet.</div>
+          )}
+        </div>
+      </PageShell>
+    </div>
+  );
+}

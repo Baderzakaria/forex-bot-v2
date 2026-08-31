@@ -7,6 +7,7 @@ Telegram bot plus CMS for forex publishing and macro-event operations.
 - Bot: long-running Node process with cron, polling, Telegram integration, and SQLite.
 - CMS: Next.js admin surface for editing, monitoring, and ops.
 - Storage: shared SQLite database under `./data` when running on a VPS or in Docker.
+- Railway deploys both services in one container using `Dockerfile.railway`; keep OpenClaw outside that image.
 
 This is not a Vercel deployment. The app needs an always-on Docker host because it relies on:
 
@@ -15,6 +16,29 @@ This is not a Vercel deployment. The app needs an always-on Docker host because 
 - long-lived Telegram polling and background loops
 
 CMS is the primary editorial surface. Google Sheets is optional legacy support only.
+
+Macro event alerts cover three stages in Telegram:
+
+- T-30 pre-alert drafts
+- T+0 release-time drafts
+- after-actual follow-ups once data lands
+
+Apify is called from two places:
+
+- `cron-discover` at 07:00 UTC for the daily macro refresh
+- `cron-actual-fetch` on the minute cron for due high-impact events with missing actuals
+- `telegram-command` for `/calendar` and `/discover_calendar`
+
+The minute cron stays SQLite-only for T-30 and T+0. It only calls Apify for targeted, one-shot actual fetches when a release-time event is due and still missing its actual.
+
+Apify token handling:
+
+- Leave `APIFY_TOKEN` blank, or set `APIFY_TOKEN_DISABLED` if you want to keep Apify off without re-enabling spend
+- Morning full discovery remains the only daily scheduled macro refresh
+- Actual fetches are targeted to due high-impact events only, never blanket refreshes
+- Macro discovery loops all 46 valid actor country enums by default (or `APIFY_MACRO_COUNTRIES`), high-impact only. Keep `APIFY_MACRO_DAYS_AHEAD` narrow to control cost.
+
+The Apify pipeline now rejects placeholder titles, missing event times, smoke/self-test rows, and other junk rows before anything is upserted or drafted.
 
 ## Quick Start
 
@@ -36,6 +60,8 @@ docker compose up -d
 
 - Bot health: `http://localhost:8788/health`
 - CMS: `http://localhost:3000`
+
+For Railway, use the single-image path in `Dockerfile.railway` and mount a persistent volume at `/data`.
 
 ## Ports
 
@@ -66,6 +92,8 @@ If you inspect the CMS from a browser outside Docker networking, use the host-ac
 
 Legacy Sheets variables are optional and only needed if you keep the old workflow enabled.
 
+Telegram writing chat is optional. Leave `TELEGRAM_WRITING_CHAT_ID` blank if you do not want the bot to publish to a writing group.
+
 ## Build Commands
 
 - `docker compose config`
@@ -73,4 +101,3 @@ Legacy Sheets variables are optional and only needed if you keep the old workflo
 - `docker compose up -d`
 - `docker compose logs -f bot`
 - `docker compose logs -f cms`
-

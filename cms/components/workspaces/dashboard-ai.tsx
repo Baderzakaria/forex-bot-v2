@@ -1,7 +1,7 @@
 "use client";
 
 import { AiChat } from "@/components/workspaces/ai-chat";
-import { formatDateTime } from "@/lib/format";
+import { formatDateTimeUtc } from "@/lib/format";
 
 type UpcomingEvent = {
   event_key: string;
@@ -24,7 +24,7 @@ export function DashboardAi({
       title: event.title,
       currency: event.currency,
       country_code: event.country_code,
-      time: formatDateTime(event.event_time_utc),
+      time: formatDateTimeUtc(event.event_time_utc),
       importance: event.importance,
     })),
   };

@@ -50,38 +50,62 @@
 }
 
 :root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
-  --radius: 0.625rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  --fx-ops-ink: #163144;
+  --fx-ops-slate: #1b405b;
+  --fx-sage: #dff3eb;
+  --fx-white: #ffffff;
+  --fx-canvas: #f7f5f0;
+  --fx-canvas-soft: #eef2ee;
+  --fx-border-soft: rgba(22, 49, 68, 0.1);
+  --fx-border-strong: rgba(22, 49, 68, 0.18);
+  --fx-shadow-soft: 0 18px 50px rgba(22, 49, 68, 0.08);
+  --fx-shadow-float: 0 24px 80px rgba(22, 49, 68, 0.12);
+  --fx-surface-frost: rgba(255, 255, 255, 0.72);
+  --fx-surface-frost-strong: rgba(255, 255, 255, 0.88);
+  --fx-surface-dark: #163144;
+  --fx-surface-dark-2: #1b405b;
+  --fx-success: #9fca5a;
+  --fx-warning: #d9a441;
+  --fx-danger: #b54b4b;
+  --fx-text-strong: #163144;
+  --fx-text-soft: rgba(22, 49, 68, 0.72);
+  --fx-text-muted: rgba(22, 49, 68, 0.52);
+  --fx-chart-ink: #163144;
+  --fx-chart-muted: rgba(22, 49, 68, 0.28);
+  --fx-chart-grid: rgba(22, 49, 68, 0.08);
+
+  --background: var(--fx-canvas);
+  --foreground: var(--fx-text-strong);
+  --card: var(--fx-white);
+  --card-foreground: var(--fx-text-strong);
+  --popover: var(--fx-white);
+  --popover-foreground: var(--fx-text-strong);
+  --primary: var(--fx-ops-ink);
+  --primary-foreground: var(--fx-white);
+  --secondary: var(--fx-sage);
+  --secondary-foreground: var(--fx-ops-ink);
+  --muted: var(--fx-canvas-soft);
+  --muted-foreground: var(--fx-text-soft);
+  --accent: var(--fx-sage);
+  --accent-foreground: var(--fx-ops-ink);
+  --destructive: var(--fx-danger);
+  --border: var(--fx-border-soft);
+  --input: var(--fx-border-soft);
+  --ring: var(--fx-ops-ink);
+  --chart-1: var(--fx-ops-ink);
+  --chart-2: var(--fx-ops-slate);
+  --chart-3: var(--fx-success);
+  --chart-4: var(--fx-warning);
+  --chart-5: var(--fx-danger);
+  --radius: 0.875rem;
+  --sidebar: var(--fx-ops-ink);
+  --sidebar-foreground: var(--fx-white);
+  --sidebar-primary: var(--fx-sage);
+  --sidebar-primary-foreground: var(--fx-ops-ink);
+  --sidebar-accent: rgba(255, 255, 255, 0.08);
+  --sidebar-accent-foreground: var(--fx-white);
+  --sidebar-border: rgba(255, 255, 255, 0.08);
+  --sidebar-ring: rgba(255, 255, 255, 0.24);
 }
 
 .dark {
@@ -122,11 +146,16 @@
   * {
     @apply border-border outline-ring/50;
   }
-  body {
-    @apply bg-background text-foreground;
-  }
   html {
-    @apply font-sans;
+    @apply h-full font-sans;
+    color-scheme: light;
+    background:
+      radial-gradient(circle at top left, rgba(223, 243, 235, 0.72), transparent 38%),
+      radial-gradient(circle at top right, rgba(255, 255, 255, 0.86), transparent 28%),
+      var(--fx-canvas);
+  }
+  body {
+    @apply min-h-full bg-background text-foreground;
   }
 }
 

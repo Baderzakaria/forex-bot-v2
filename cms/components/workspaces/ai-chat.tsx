@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { ArrowDownToLine, Globe2, Newspaper, Send } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -41,6 +41,61 @@ export function AiChat({
   className?: string;
   defaultResearch?: boolean;
 }) {
+  const sessionKey = [
+    title,
+    description || "",
+    placeholder,
+    systemPrompt,
+    welcome,
+    contextLabel || "",
+    JSON.stringify(contextPayload || {}),
+    variant,
+    defaultResearch ? "1" : "0",
+  ].join("|");
+
+  return (
+    <AiChatSession
+      key={sessionKey}
+      title={title}
+      description={description}
+      placeholder={placeholder}
+      systemPrompt={systemPrompt}
+      welcome={welcome}
+      contextLabel={contextLabel}
+      contextPayload={contextPayload}
+      variant={variant}
+      onInsert={onInsert}
+      className={className}
+      defaultResearch={defaultResearch}
+    />
+  );
+}
+
+function AiChatSession({
+  title = "AI",
+  description,
+  placeholder = "Ask for a rewrite, angle, or shorter version…",
+  systemPrompt = "You are a CMS writing assistant.",
+  welcome = "Ask for a draft, summary, or operational note.",
+  contextLabel,
+  contextPayload,
+  variant = "panel",
+  onInsert,
+  className,
+  defaultResearch = false,
+}: {
+  title?: string;
+  description?: string;
+  placeholder?: string;
+  systemPrompt?: string;
+  welcome?: string;
+  contextLabel?: string;
+  contextPayload?: Record<string, unknown> | null;
+  variant?: "panel" | "desk";
+  onInsert?: (text: string) => void;
+  className?: string;
+  defaultResearch?: boolean;
+}) {
   const [messages, setMessages] = useState<Message[]>([
     { role: "assistant", content: welcome },
   ]);
@@ -49,13 +104,6 @@ export function AiChat({
   const [researchEnabled, setResearchEnabled] = useState(defaultResearch);
   const [hits, setHits] = useState<ResearchHit[]>([]);
   const [researchMeta, setResearchMeta] = useState("");
-
-  useEffect(() => {
-    setMessages([{ role: "assistant", content: welcome }]);
-    setPrompt("");
-    setHits([]);
-    setResearchMeta("");
-  }, [welcome, systemPrompt, contextLabel]);
 
   async function send(mode: "chat" | "report" = "chat") {
     const text =
@@ -85,10 +133,19 @@ export function AiChat({
           })),
         }),
       });
-      const payload = (await response.json()) as {
+      let payload: {
         reply?: string;
         research?: { ok?: boolean; provider?: string; query?: string; hits?: ResearchHit[] };
-      };
+        error?: string;
+      } = {};
+      try {
+        payload = await response.json();
+      } catch {
+        payload = {};
+      }
+      if (!response.ok) {
+        throw new Error(payload.error || `AI request failed (${response.status})`);
+      }
       if (payload.research?.hits?.length) {
         setHits(payload.research.hits);
         setResearchMeta(
@@ -99,6 +156,15 @@ export function AiChat({
         ...next,
         { role: "assistant", content: payload.reply || "No reply." },
       ]);
+    } catch (error) {
+      const message = error instanceof Error ? error.message : "AI request failed";
+      setMessages([
+        ...next,
+        {
+          role: "assistant",
+          content: `AI request failed: ${message}`,
+        },
+      ]);
     } finally {
       setBusy(false);
     }
@@ -107,23 +173,23 @@ export function AiChat({
   return (
     <div
       className={cn(
-        "flex h-full min-h-[520px] flex-col border-zinc-200 bg-white",
-        variant === "panel" ? "border-l" : "rounded-2xl border",
+        "flex h-full min-h-[520px] flex-col border-[var(--fx-border-soft)] bg-[rgba(255,255,255,0.78)]",
+        variant === "panel" ? "border-l" : "rounded-[28px] border",
         className
       )}
     >
-      <div className="border-b border-zinc-200 px-5 py-4">
+      <div className="border-b border-[var(--fx-border-soft)] px-5 py-4">
         <div className="flex flex-wrap items-start justify-between gap-3">
           <div>
-            <div className="text-[11px] font-medium uppercase tracking-[0.22em] text-zinc-400">
+            <div className="text-[11px] font-medium uppercase tracking-[0.22em] text-[var(--fx-text-muted)]">
               {title}
             </div>
             {contextLabel ? (
-              <div className="mt-2 inline-flex max-w-full items-center rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-xs font-medium text-emerald-800">
+              <div className="mt-2 inline-flex max-w-full items-center rounded-full border border-transparent bg-[var(--fx-sage)] px-3 py-1 text-xs font-medium text-[var(--fx-ops-ink)]">
                 <span className="truncate">AI for: {contextLabel}</span>
               </div>
             ) : null}
-            {description ? <p className="mt-2 text-sm text-zinc-500">{description}</p> : null}
+            {description ? <p className="mt-2 text-sm text-[var(--fx-text-soft)]">{description}</p> : null}
           </div>
           <button
             type="button"
@@ -131,8 +197,8 @@ export function AiChat({
             className={cn(
               "inline-flex items-center gap-2 rounded-full border px-3 py-1.5 text-xs font-medium transition",
               researchEnabled
-                ? "border-emerald-300 bg-emerald-50 text-emerald-800"
-                : "border-zinc-200 bg-zinc-50 text-zinc-600 hover:bg-white"
+                ? "border-transparent bg-[var(--fx-sage)] text-[var(--fx-ops-ink)]"
+                : "border-[var(--fx-border-soft)] bg-[rgba(255,255,255,0.72)] text-[var(--fx-text-soft)] hover:bg-white"
             )}
           >
             <Globe2 className="size-3.5" />
@@ -140,7 +206,7 @@ export function AiChat({
           </button>
         </div>
         {researchMeta ? (
-          <div className="mt-3 text-xs text-zinc-500">Last research: {researchMeta}</div>
+          <div className="mt-3 text-xs text-[var(--fx-text-soft)]">Last research: {researchMeta}</div>
         ) : null}
       </div>
 
@@ -149,10 +215,10 @@ export function AiChat({
           <div key={`${message.role}-${index}`} className="space-y-2">
             <div
               className={cn(
-                "max-w-[92%] rounded-2xl px-3.5 py-2.5 text-sm leading-6",
+                "max-w-[92%] rounded-[20px] px-3.5 py-2.5 text-sm leading-6 shadow-sm",
                 message.role === "user"
-                  ? "ml-auto bg-zinc-950 text-white"
-                  : "bg-zinc-50 text-zinc-700 ring-1 ring-zinc-200"
+                  ? "ml-auto bg-[var(--fx-ops-ink)] text-white"
+                  : "bg-[rgba(223,243,235,0.58)] text-[var(--fx-text-strong)] ring-1 ring-[var(--fx-border-soft)]"
               )}
             >
               <div className="whitespace-pre-wrap">{message.content}</div>
@@ -161,7 +227,7 @@ export function AiChat({
               <Button
                 variant="ghost"
                 size="sm"
-                className="h-7 px-2 text-xs text-zinc-500"
+                className="h-7 px-2 text-xs text-[var(--fx-text-soft)]"
                 onClick={() => onInsert(message.content)}
               >
                 <ArrowDownToLine className="mr-1 size-3.5" />
@@ -172,8 +238,8 @@ export function AiChat({
         ))}
 
         {hits.length > 0 ? (
-          <div className="rounded-2xl border border-zinc-200 bg-zinc-50 p-3">
-            <div className="mb-2 flex items-center gap-2 text-xs font-medium uppercase tracking-[0.18em] text-zinc-500">
+          <div className="rounded-[20px] border border-[var(--fx-border-soft)] bg-[rgba(255,255,255,0.72)] p-3">
+            <div className="mb-2 flex items-center gap-2 text-xs font-medium uppercase tracking-[0.18em] text-[var(--fx-text-soft)]">
               <Newspaper className="size-3.5" />
               Sources
             </div>
@@ -184,11 +250,11 @@ export function AiChat({
                   href={hit.url}
                   target="_blank"
                   rel="noreferrer"
-                  className="block rounded-xl border border-zinc-200 bg-white px-3 py-2 transition hover:border-emerald-200"
+                  className="block rounded-[16px] border border-[var(--fx-border-soft)] bg-[rgba(255,255,255,0.9)] px-3 py-2 transition hover:border-[var(--fx-border-strong)] hover:bg-[var(--fx-sage)]"
                 >
-                  <div className="text-sm font-medium text-zinc-900 line-clamp-2">{hit.title}</div>
-                  <div className="mt-1 text-xs text-zinc-500 line-clamp-2">{hit.snippet}</div>
-                  <div className="mt-1 text-[11px] text-emerald-700">
+                  <div className="line-clamp-2 text-sm font-medium tracking-[-0.01em] text-[var(--fx-text-strong)]">{hit.title}</div>
+                  <div className="mt-1 line-clamp-2 text-xs text-[var(--fx-text-soft)]">{hit.snippet}</div>
+                  <div className="mt-1 text-[11px] text-[var(--fx-ops-ink)]">
                     {hit.source}
                     {hit.publishedAt ? ` · ${hit.publishedAt}` : ""}
                   </div>
@@ -199,7 +265,7 @@ export function AiChat({
         ) : null}
       </div>
 
-      <div className="border-t border-zinc-200 px-5 py-4">
+      <div className="border-t border-[var(--fx-border-soft)] px-5 py-4">
         <Textarea
           value={prompt}
           onChange={(event) => setPrompt(event.target.value)}
@@ -208,7 +274,7 @@ export function AiChat({
               ? "Ask for related news, market reaction, or a short report…"
               : placeholder
           }
-          className="min-h-24 resize-none border-zinc-200 bg-zinc-50"
+          className="min-h-24 resize-none bg-[rgba(255,255,255,0.78)]"
           onKeyDown={(event) => {
             if (event.key === "Enter" && (event.metaKey || event.ctrlKey)) {
               event.preventDefault();
@@ -217,7 +283,7 @@ export function AiChat({
           }}
         />
         <div className="mt-3 flex flex-wrap items-center justify-between gap-3">
-          <div className="text-xs text-zinc-400">⌘/Ctrl + Enter</div>
+          <div className="text-xs text-[var(--fx-text-muted)]">⌘/Ctrl + Enter</div>
           <div className="flex flex-wrap gap-2">
             <Button
               variant="outline"

@@ -84,6 +84,18 @@ db.exec(`
     captured_at TEXT DEFAULT (datetime('now'))
   );
 
+  CREATE TABLE IF NOT EXISTS event_alert_state (
+    event_key TEXT PRIMARY KEY,
+    last_actual TEXT DEFAULT '',
+    actual_first_seen_at TEXT,
+    actual_posted_at TEXT,
+    actual_apify_requested_at TEXT,
+    actual_apify_fetched_at TEXT,
+    actual_apify_request_scope TEXT,
+    t0_posted_at TEXT,
+    refreshed_at TEXT DEFAULT (datetime('now'))
+  );
+
   CREATE TABLE IF NOT EXISTS admin_actions (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     post_id TEXT,
@@ -101,11 +113,43 @@ db.exec(`
     update_id INTEGER PRIMARY KEY
   );
 
+  CREATE TABLE IF NOT EXISTS members (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    email TEXT UNIQUE,
+    telegram_username TEXT NOT NULL DEFAULT '',
+    website_customer_code TEXT UNIQUE,
+    plan TEXT NOT NULL DEFAULT '',
+    status TEXT NOT NULL DEFAULT 'pending' CHECK (status IN ('pending', 'active')),
+    comments TEXT,
+    source TEXT,
+    created_at TEXT NOT NULL DEFAULT (datetime('now')),
+    updated_at TEXT NOT NULL DEFAULT (datetime('now'))
+  );
+
   CREATE INDEX IF NOT EXISTS idx_outbox_status ON outbox(status);
   CREATE INDEX IF NOT EXISTS idx_posts_status ON posts(status);
   CREATE INDEX IF NOT EXISTS idx_events_time ON events(event_time_utc);
   CREATE INDEX IF NOT EXISTS idx_tokens_token ON approval_tokens(token);
+  CREATE INDEX IF NOT EXISTS idx_event_alert_state_refresh ON event_alert_state(refreshed_at);
+  CREATE INDEX IF NOT EXISTS idx_members_email ON members(email);
+  CREATE INDEX IF NOT EXISTS idx_members_website_customer_code ON members(website_customer_code);
 `);
+
+for (const sql of [
+  `ALTER TABLE event_alert_state ADD COLUMN actual_apify_requested_at TEXT`,
+  `ALTER TABLE event_alert_state ADD COLUMN actual_apify_fetched_at TEXT`,
+  `ALTER TABLE event_alert_state ADD COLUMN actual_apify_request_scope TEXT`,
+  `ALTER TABLE members ADD COLUMN comments TEXT`,
+  `ALTER TABLE members ADD COLUMN source TEXT`,
+]) {
+  try {
+    db.exec(sql);
+  } catch (err) {
+    if (!String(err?.message || '').toLowerCase().includes('duplicate column name')) {
+      throw err;
+    }
+  }
+}
 
 // Seed default settings
 const seedSettings = db.prepare(`

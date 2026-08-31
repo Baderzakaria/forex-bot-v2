@@ -52,6 +52,16 @@ export function markFailed(id, err, delayMs = 5000) {
   `).run(String(err?.message || err), retryAt, id);
 }
 
+export function markDeadLetter(id, err) {
+  db.prepare(`
+    UPDATE outbox SET
+      status = 'dead_letter',
+      last_error = ?,
+      updated_at = datetime('now')
+    WHERE id = ?
+  `).run(String(err?.message || err), id);
+}
+
 export function isPaused() {
   const row = db.prepare(`SELECT value FROM settings WHERE key = 'publishing_paused'`).get();
   return row?.value === 'true' || row?.value === true;

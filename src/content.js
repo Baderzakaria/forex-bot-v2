@@ -20,6 +20,8 @@ const GURU_QUOTES = [
   { text: "Losers average losers.", author: "Paul Tudor Jones" },
 ];
 
+let zaiQuoteFallbackLogged = false;
+
 export async function getFxRates() {
   const res = await fetch('https://api.frankfurter.app/latest?from=USD&to=EUR,GBP,JPY,CHF,AUD', { signal: AbortSignal.timeout(15000) });
   return res.json();
@@ -44,15 +46,81 @@ export function formatQuotePost(quote, rates) {
   return lines.join('\n');
 }
 
+function extractZaiText(payload) {
+  return (
+    payload?.choices?.[0]?.message?.content
+    || payload?.choices?.[0]?.text
+    || payload?.output_text
+    || payload?.data?.[0]?.content
+    || ''
+  ).trim();
+}
+
+async function generateZaiQuoteDraft(quote, rates, quoteMode) {
+  if (!config.zaiApiKey || String(quoteMode || '').toLowerCase() !== 'ai') {
+    return null;
+  }
+
+  const prompt = [
+    'Write a concise Telegram market note for a trading audience.',
+    'Keep it to 2-4 short lines.',
+    'Use the quote verbatim and add one practical takeaway.',
+    'Do not invent facts or add hashtags.',
+    `Quote: "${quote.text}"`,
+    `Author: ${quote.author}`,
+  ];
+
+  if (rates?.rates) {
+    prompt.push(`FX rates (${rates.date || 'latest'}): ${Object.entries(rates.rates).map(([ccy, rate]) => `${ccy}=${rate}`).join(', ')}`);
+  }
+
+  try {
+    const res = await fetch(`${config.zaiBaseUrl.replace(/\/$/, '')}/chat/completions`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${config.zaiApiKey}`,
+      },
+      body: JSON.stringify({
+        model: config.llmModel,
+        temperature: 0.7,
+        messages: [
+          { role: 'system', content: 'You write short, factual Telegram drafts for a forex bot.' },
+          { role: 'user', content: prompt.join('\n') },
+        ],
+      }),
+      signal: AbortSignal.timeout(20000),
+    });
+
+    const payload = await res.json();
+    if (!res.ok) {
+      throw new Error(payload?.error?.message || payload?.message || `ZAI request failed (${res.status})`);
+    }
+
+    const text = extractZaiText(payload);
+    return text || null;
+  } catch (err) {
+    if (!zaiQuoteFallbackLogged) {
+      console.error('[zai] daily quote draft failed; falling back to template', err.message);
+      zaiQuoteFallbackLogged = true;
+    }
+    return null;
+  }
+}
+
 export async function generateDailyQuote() {
+  const settings = getDailySettings();
   const rates = await getFxRates().catch(() => null);
   const quote = pickQuote();
-  const draftText = formatQuotePost(quote, rates);
+  const draftText = await generateZaiQuoteDraft(quote, rates, settings.dailyQuoteMode) || formatQuotePost(quote, rates);
   const postId = `daily-quote-${Date.now()}`;
+  const llmModel = config.zaiApiKey && String(settings.dailyQuoteMode || '').toLowerCase() === 'ai'
+    ? config.llmModel
+    : 'guru-pool';
 
   db.prepare(`INSERT INTO posts (post_id, version, kind, status, requested_by, admin_chat_id, request_text, draft_text, llm_model, metadata)
-    VALUES (?, 1, 'daily', 'drafted', 'daily-cron', ?, 'daily content', ?, 'guru-pool', ?)`)
-    .run(postId, config.adminChatId, draftText, JSON.stringify({ daily: true }));
+    VALUES (?, 1, 'daily', 'drafted', 'daily-cron', ?, 'daily content', ?, ?, ?)`)
+    .run(postId, config.adminChatId, draftText, llmModel, JSON.stringify({ daily: true, draft_source: llmModel }));
 
   const tokens = createTokens(postId, 1);
   enqueue({

@@ -8,15 +8,106 @@ import { handleMessage, handleCallback } from './dispatcher.js';
 import { processSender } from './sender.js';
 import { processDueAutoApprovals } from './approval.js';
 import { generateDailyQuote } from './content.js';
-import { discoverMacro, processT30PreAlerts, formatDiscoverSummary } from './apify.js';
+import {
+  discoverMacro,
+  processT30PreAlerts,
+  processT0ReleaseAlerts,
+  processActualAlerts,
+  processDueApifyActualFetches,
+  formatDiscoverSummary,
+  formatActualFetchSummary,
+  getLastDiscoveryRun,
+} from './apify.js';
 import { syncAllFromDb } from './sheets.js';
 import { sendMorningBrief } from './morning.js';
 
 const app = express();
 app.use(express.json({ limit: '1mb' }));
 
+let macroDiscoveryJob = {
+  running: false,
+  startedAt: null,
+  finishedAt: null,
+  result: null,
+};
+
+function isLoopbackRequest(req) {
+  const address = String(req.ip || req.socket?.remoteAddress || '');
+  return address === '127.0.0.1' || address === '::1' || address === '::ffff:127.0.0.1';
+}
+
+function isDiscoverRequestAuthorized(req) {
+  if (config.botApiSharedSecret) {
+    return req.get('x-bot-api-secret') === config.botApiSharedSecret;
+  }
+  return isLoopbackRequest(req);
+}
+
+function getMacroDiscoveryJobStatus() {
+  return {
+    running: macroDiscoveryJob.running,
+    startedAt: macroDiscoveryJob.startedAt,
+    finishedAt: macroDiscoveryJob.finishedAt,
+    result: macroDiscoveryJob.result || getLastDiscoveryRun(),
+  };
+}
+
+function startMacroDiscoveryJob() {
+  if (macroDiscoveryJob.running) return false;
+
+  macroDiscoveryJob = {
+    ...macroDiscoveryJob,
+    running: true,
+    startedAt: new Date().toISOString(),
+    finishedAt: null,
+  };
+
+  void discoverMacro({
+    daysAhead: config.apifyDaysAhead,
+    force: true,
+    caller: 'cms-refresh',
+  }).then((result) => {
+    macroDiscoveryJob = {
+      ...macroDiscoveryJob,
+      running: false,
+      finishedAt: new Date().toISOString(),
+      result,
+    };
+  }).catch((err) => {
+    macroDiscoveryJob = {
+      ...macroDiscoveryJob,
+      running: false,
+      finishedAt: new Date().toISOString(),
+      result: { ok: false, error: err.message || 'Macro discovery failed' },
+    };
+  });
+
+  return true;
+}
+
 // ─── Health ───
 app.get('/health', (_req, res) => res.json({ ok: true, service: 'forex-bot-v2', env: config.environment }));
+
+// ─── CMS macro refresh (private loopback / optional shared secret) ───
+app.get('/api/discover', (req, res) => {
+  if (!isDiscoverRequestAuthorized(req)) return res.status(401).json({ ok: false, error: 'unauthorized' });
+  return res.json({ ok: true, ...getMacroDiscoveryJobStatus() });
+});
+
+app.post('/api/discover', (req, res) => {
+  if (!isDiscoverRequestAuthorized(req)) return res.status(401).json({ ok: false, error: 'unauthorized' });
+
+  if (req.body?.force !== true) {
+    return res.status(400).json({ ok: false, error: 'force=true is required' });
+  }
+
+  const started = startMacroDiscoveryJob();
+  return res.status(started ? 202 : 409).json({
+    ok: true,
+    started,
+    ...getMacroDiscoveryJobStatus(),
+  });
+});
 
 // ─── Telegram webhook ───
 app.post(`/telegram/webhook`, async (req, res) => {
@@ -85,6 +176,8 @@ async function pollLoop() {
 }
 
 // ─── Crons ───
+let macroAlertTickRunning = false;
+
 cron.schedule('30 7 * * *', async () => {
   console.log('[cron] daily quote');
   const s = db.prepare(`SELECT value FROM settings WHERE key = 'daily_quote_enabled'`).get();
@@ -94,11 +187,17 @@ cron.schedule('30 7 * * *', async () => {
 cron.schedule('0 7 * * *', async () => {
   console.log('[cron] macro discover');
   try {
-    const result = await discoverMacro({ daysAhead: config.apifyDaysAhead, countries: config.apifyCountries });
+    const result = await discoverMacro({
+      daysAhead: config.apifyDaysAhead,
+      caller: 'cron-discover',
+    });
     const summary = formatDiscoverSummary(result);
     console.log(summary.replace(/\n/g, ' | '));
-    if (config.adminChatId) {
+    if (config.adminChatId && result.ok) {
       await sendMessage(config.adminChatId, summary).catch((err) => console.error('[discover-msg]', err.message));
+    }
+    if (!result.ok) {
+      console.error('[discover]', result.error || 'unknown error');
     }
   } catch (err) {
     console.error('[discover]', err.message);
@@ -120,7 +219,11 @@ cron.schedule('15 7 * * *', async () => {
 }, { timezone: 'UTC' });
 
 cron.schedule('* * * * *', async () => {
+  if (macroAlertTickRunning) return;
+  macroAlertTickRunning = true;
   try {
+    // Minute cron stays on local state for alerts; Apify is only invoked here
+    // for high-impact events that are currently at/near release and still missing actuals.
     const result = processT30PreAlerts({
       preAlertMinutes: config.preAlertMinutes,
       adminChatId: config.adminChatId,
@@ -128,8 +231,34 @@ cron.schedule('* * * * *', async () => {
     if (result.drafted) {
       console.log(`[cron] t30 drafts=${result.drafted}`);
     }
+    const t0Result = processT0ReleaseAlerts({
+      adminChatId: config.adminChatId,
+    });
+    if (t0Result.drafted) {
+      console.log(`[cron] t0 drafts=${t0Result.drafted}`);
+    }
+
+    const apifyActualResult = await processDueApifyActualFetches({
+      caller: 'cron-actual-fetch',
+      windowMs: 3 * 60 * 1000,
+    });
+    if (apifyActualResult.skipped) {
+      console.log(`[cron] actual apify ${apifyActualResult.summary?.[0] || 'skipped'}`);
+    } else {
+      console.log(formatActualFetchSummary(apifyActualResult).replace(/\n/g, ' | '));
+    }
+
+    const actualResult = processActualAlerts({
+      adminChatId: config.adminChatId,
+      lookbackMinutes: config.actualLookbackMinutes,
+    });
+    if (actualResult.drafted) {
+      console.log(`[cron] actual drafts=${actualResult.drafted}`);
+    }
   } catch (err) {
-    console.error('[t30]', err.message);
+    console.error('[alerts]', err.message);
+  } finally {
+    macroAlertTickRunning = false;
   }
 }, { timezone: 'UTC' });
 
@@ -139,21 +268,6 @@ app.listen(PORT, '0.0.0.0', () => {
   console.log(`[forex-bot-v2] listening on :${PORT} | env=${config.environment}`);
   console.log(`[forex-bot-v2] auto-publish=${config.autoApprove && config.autoPublish ? `ON (${config.autoApproveGraceSeconds}s)` : 'OFF'}`);
   console.log(`[forex-bot-v2] polling=${usePolling} webhook=${!usePolling}`);
-  void (async () => {
-    const total = db.prepare(`SELECT COUNT(*) as c FROM events`).get();
-    if (Number(total?.c || 0) !== 0) return;
-    console.log('[startup] events table empty, refreshing macro calendar');
-    try {
-      const result = await discoverMacro({
-        daysAhead: config.apifyDaysAhead,
-        countries: config.apifyCountries,
-        force: true,
-      });
-      console.log(`[startup] ${formatDiscoverSummary(result).replace(/\n/g, ' | ')}`);
-    } catch (err) {
-      console.error('[startup-discover]', err.message);
-    }
-  })();
 });
 
 // Start loops

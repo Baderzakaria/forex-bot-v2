@@ -3,24 +3,36 @@ const env = (k, d = '') => {
   return v === undefined || v === '' ? d : v;
 };
 
+const boolEnv = (k, d = 'false') => env(k, d) === 'true';
+
+const commaSeparatedEnv = (k) => env(k)
+  .split(',')
+  .map((value) => value.trim())
+  .filter(Boolean);
+
 export default {
   port: Number(env('PORT', '8788')),
   botToken: env('TELEGRAM_BOT_TOKEN'),
   adminChatId: env('TELEGRAM_ADMIN_CHAT_ID'),
   publicChatId: env('TELEGRAM_PUBLIC_CHAT_ID', env('TELEGRAM_ADMIN_CHAT_ID')),
   writingChatId: env('TELEGRAM_WRITING_CHAT_ID'),
+  writingChatDisabled: boolEnv('TELEGRAM_WRITING_DISABLED', 'false'),
   allowedUserIds: (env('TELEGRAM_ALLOWED_USER_IDS', env('TELEGRAM_USER_ID'))).split(',').map(s => s.trim()).filter(Boolean),
-  autoApprove: env('AUTO_APPROVE', 'false') === 'true',
-  autoPublish: env('AUTO_PUBLISH_TELEGRAM', 'false') === 'true',
+  autoApprove: boolEnv('AUTO_APPROVE', 'false'),
+  autoPublish: boolEnv('AUTO_PUBLISH_TELEGRAM', 'false'),
   autoApproveGraceSeconds: Math.max(15, Number(env('AUTO_APPROVE_GRACE_SECONDS', '90'))),
   preAlertMinutes: Number(env('PRE_ALERT_MINUTES', '30')),
+  releaseAlertEnabled: boolEnv('RELEASE_ALERT_ENABLED', 'true'),
+  actualAlertEnabled: boolEnv('ACTUAL_ALERT_ENABLED', 'true'),
+  actualLookbackMinutes: Math.max(5, Number(env('ACTUAL_LOOKBACK_MINUTES', '120'))),
   zaiApiKey: env('ZAI_API_KEY'),
   zaiBaseUrl: env('ZAI_BASE_URL', 'https://api.z.ai/api/paas/v4'),
   llmModel: env('LLM_MODEL', 'glm-4.5-flash'),
-  apifyToken: env('APIFY_TOKEN'),
+  apifyToken: env('APIFY_TOKEN_DISABLED') ? '' : env('APIFY_TOKEN'),
   apifyActorId: env('APIFY_ACTOR_ID', 'pintostudio/economic-calendar-data-investing-com'),
-  apifyCountries: env('APIFY_MACRO_COUNTRIES', env('APIFY_MACRO_COUNTRY', 'united states')),
+  apifyCountries: commaSeparatedEnv('APIFY_MACRO_COUNTRIES'),
   apifyDaysAhead: Number(env('APIFY_MACRO_DAYS_AHEAD', '3')),
+  botApiSharedSecret: env('BOT_API_SHARED_SECRET'),
   googleSheetId: env('GOOGLE_SHEET_ID'),
   googleSheetUrl: env('GOOGLE_SHEET_URL'),
   googleOAuthTokenPath: env('GOOGLE_OAUTH_TOKEN_PATH'),

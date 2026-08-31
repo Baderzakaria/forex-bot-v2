@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
-import { Instrument_Sans, Source_Serif_4 } from "next/font/google";
+import { Source_Serif_4, Urbanist } from "next/font/google";
 import "./globals.css";
-import { Sidebar } from "@/components/shell/sidebar";
-import { MobileNav } from "@/components/shell/mobile-nav";
+import { AppFrame } from "@/components/shell/app-frame";
 
-const instrumentSans = Instrument_Sans({
+const urbanist = Urbanist({
   variable: "--font-sans",
   subsets: ["latin"],
 });
@@ -27,18 +26,10 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${instrumentSans.variable} ${sourceSerif.variable} h-full antialiased`}
+      className={`${urbanist.variable} ${sourceSerif.variable} h-full antialiased`}
     >
-      <body className="min-h-full bg-zinc-50 font-sans text-zinc-950">
-        <div className="grid min-h-screen lg:grid-cols-[280px_1fr]">
-          <div className="hidden lg:block">
-            <Sidebar />
-          </div>
-          <main className="min-h-screen">
-            <MobileNav />
-            {children}
-          </main>
-        </div>
+      <body className="min-h-full bg-[var(--fx-canvas)] font-sans text-[var(--fx-text-strong)]">
+        <AppFrame>{children}</AppFrame>
       </body>
     </html>
   );

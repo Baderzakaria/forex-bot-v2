@@ -56,6 +56,23 @@ function parseTimeParts(timeText) {
   return { hour: Number(m[1]), minute: Number(m[2]) };
 }
 
+function hasExplicitEventTime(event) {
+  return [
+    event.event_time_utc,
+    event.eventTimeUtc,
+    event.datetime,
+    event.dateTime,
+    event.utc_time,
+    event.utcTime,
+    event.date,
+    event.event_date,
+    event.day,
+    event.time,
+    event.event_time,
+    event.hour,
+  ].some((value) => String(value || '').trim() !== '');
+}
+
 export function parseEventTimeUtc(event, tzOffsetHours = 1) {
   const rawIso =
     event.event_time_utc ||
@@ -73,7 +90,7 @@ export function parseEventTimeUtc(event, tzOffsetHours = 1) {
   const dateText = event.date || event.event_date || event.day || '';
   const timeText = event.time || event.event_time || event.hour || '00:00';
   const parts = parseDateParts(dateText);
-  if (!parts) return new Date().toISOString();
+  if (!parts) return null;
 
   const { hour, minute } = parseTimeParts(timeText);
   const localMs = Date.UTC(parts.year, parts.month - 1, parts.day, hour, minute, 0);
@@ -96,7 +113,7 @@ export function buildEventKey(event, source = 'apify-calendar') {
     countryCodeFromZone(event.zone || event.country || event.country_code),
     String(event.currency || '').trim().toUpperCase(),
     normalizeTitle(event.event || event.title || event.name),
-    parseEventTimeUtc(event),
+    hasExplicitEventTime(event) ? parseEventTimeUtc(event) : '',
     String(event.importance || 'high').trim().toLowerCase(),
   ].join('|');
 
@@ -110,9 +127,10 @@ export function buildEventKey(event, source = 'apify-calendar') {
 export function formatHighImpactEvent(ev, { preAlertMinutes = 30 } = {}) {
   const country = String(ev.country_code || ev.country || 'US').trim().toUpperCase();
   const title = String(ev.title || ev.event || 'Event').trim();
+  const parsedTime = ev.event_time_utc ? new Date(ev.event_time_utc) : null;
   const timeUtc = ev.event_time_utc
-    ? new Date(ev.event_time_utc).toISOString().slice(0, 19)
-    : parseEventTimeUtc(ev).slice(0, 19);
+    ? (!Number.isNaN(parsedTime?.getTime()) ? parsedTime.toISOString().slice(0, 19) : (parseEventTimeUtc(ev) || 'TBD').slice(0, 19))
+    : (parseEventTimeUtc(ev) || 'TBD').slice(0, 19);
   const forecast = ev.forecast ? String(ev.forecast) : '—';
   const previous = ev.previous ? String(ev.previous) : '—';
   const actual = ev.actual ? String(ev.actual) : null;
@@ -136,4 +154,54 @@ export function formatHighImpactEvent(ev, { preAlertMinutes = 30 } = {}) {
 
   lines.push('', `📅 Scheduled to post ${preAlertMinutes} minutes before event`);
   return lines.join('\n');
+}
+
+function formatImpactValues(ev) {
+  const forecast = ev.forecast ? String(ev.forecast) : '—';
+  const previous = ev.previous ? String(ev.previous) : '—';
+  const actual = ev.actual ? String(ev.actual) : 'pending';
+  return `Actual: ${actual} · Forecast: ${forecast} · Previous: ${previous}`;
+}
+
+export function formatReleaseAlert(ev) {
+  const country = String(ev.country_code || ev.country || 'US').trim().toUpperCase();
+  const title = String(ev.title || ev.event || 'Event').trim();
+  const parsedTime = ev.event_time_utc ? new Date(ev.event_time_utc) : null;
+  const timeUtc = ev.event_time_utc
+    ? (!Number.isNaN(parsedTime?.getTime()) ? parsedTime.toISOString().slice(0, 19) : (parseEventTimeUtc(ev) || 'TBD').slice(0, 19))
+    : (parseEventTimeUtc(ev) || 'TBD').slice(0, 19);
+
+  return [
+    '🚨 RELEASE NOW',
+    '',
+    `📍 Country: ${country}`,
+    `📊 Event: ${title}`,
+    `⏰ Release Time (UTC): ${timeUtc}`,
+    '⚡ Release due now',
+    '',
+    `📈 ${formatImpactValues(ev)}`,
+    '',
+    '🕒 Actual is still pending. Watch the first tick after the release.',
+  ].join('\n');
+}
+
+export function formatActualAlert(ev) {
+  const country = String(ev.country_code || ev.country || 'US').trim().toUpperCase();
+  const title = String(ev.title || ev.event || 'Event').trim();
+  const parsedTime = ev.event_time_utc ? new Date(ev.event_time_utc) : null;
+  const timeUtc = ev.event_time_utc
+    ? (!Number.isNaN(parsedTime?.getTime()) ? parsedTime.toISOString().slice(0, 19) : (parseEventTimeUtc(ev) || 'TBD').slice(0, 19))
+    : (parseEventTimeUtc(ev) || 'TBD').slice(0, 19);
+
+  return [
+    '✅ ACTUAL JUST LANDED',
+    '',
+    `📍 Country: ${country}`,
+    `📊 Event: ${title}`,
+    `⏰ Release Time (UTC): ${timeUtc}`,
+    '',
+    `📈 ${formatImpactValues(ev)}`,
+    '',
+    '🧭 Market read: compare actual vs forecast first, then weigh the prior and the surprise size.',
+  ].join('\n');
 }

@@ -6,16 +6,16 @@ function Badge({
   ...props
 }: React.HTMLAttributes<HTMLSpanElement> & { tone?: "default" | "success" | "muted" | "warning" }) {
   const tones = {
-    default: "border-zinc-200 bg-zinc-50 text-zinc-700",
-    success: "border-emerald-200 bg-emerald-50 text-emerald-700",
-    muted: "border-zinc-200 bg-white text-zinc-600",
-    warning: "border-amber-200 bg-amber-50 text-amber-700",
+    default: "border-[color:var(--fx-border-soft)] bg-[var(--fx-sage)] text-[var(--fx-ops-ink)]",
+    success: "border-transparent bg-[rgba(159,202,90,0.16)] text-[#55712a]",
+    muted: "border-[color:var(--fx-border-soft)] bg-[rgba(22,49,68,0.04)] text-[var(--fx-text-soft)]",
+    warning: "border-transparent bg-[rgba(217,164,65,0.16)] text-[#8d6621]",
   } as const;
 
   return (
     <span
       className={cn(
-        "inline-flex items-center rounded-full border px-2 py-0.5 text-xs font-medium",
+        "inline-flex items-center rounded-full border px-2.5 py-0.5 text-[11px] font-medium tracking-[0.01em]",
         tones[tone],
         className
       )}
